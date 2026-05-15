@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Posts — Tony Wolf</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900&family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;1,400&display=swap');
+
+        :root {
+            --ink: #1a1a1a;
+            --deep-red: #8B0000;
+            --gold: #c9963a;
+            --light-bg: #f8f5f0;
+            --rule: #d0c8bc;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--light-bg);
+            font-family: 'Source Sans 3', sans-serif;
+            color: var(--ink);
+            padding: 40px 20px 80px;
+        }
+
+        .page-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--ink);
+            margin-bottom: 6px;
+        }
+        .page-subtitle {
+            font-size: 0.82rem;
+            color: #888;
+            letter-spacing: 0.08em;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+            gap: 28px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+            overflow: hidden;
+        }
+
+        .card-header {
+            padding: 16px 22px 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #f0ece6;
+        }
+        .platform-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 900;
+            color: white;
+            flex-shrink: 0;
+        }
+        .platform-icon.linkedin  { background: #0A66C2; font-family: serif; font-size: 0.9rem; }
+        .platform-icon.facebook  { background: #1877F2; }
+        .platform-icon.x         { background: #000; font-family: monospace; font-size: 1rem; }
+        .platform-icon.instagram { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        .platform-name {
+            font-size: 0.88rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: var(--ink);
+        }
+        .platform-handle {
+            font-size: 0.75rem;
+            color: #aaa;
+            margin-top: 1px;
+        }
+
+        .card-body {
+            padding: 22px 22px 18px;
+        }
+        .post-text {
+            font-family: 'Source Serif 4', serif;
+            font-size: 0.97rem;
+            line-height: 1.72;
+            color: #222;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+        .post-text .hashtag { color: #1877F2; }
+        .post-text .hashtag.x-tag { color: #666; }
+        .post-text .link { color: var(--deep-red); text-decoration: underline; }
+
+        .char-count {
+            font-size: 0.7rem;
+            color: #bbb;
+            margin-top: 12px;
+            text-align: right;
+            letter-spacing: 0.06em;
+        }
+        .char-count.over { color: #c0392b; font-weight: 700; }
+
+        .card-footer {
+            padding: 12px 22px 14px;
+            background: #faf8f5;
+            border-top: 1px solid #f0ece6;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .copy-btn {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            background: var(--ink);
+            color: white;
+            border: none;
+            padding: 7px 18px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .copy-btn:hover { background: var(--deep-red); }
+        .copy-btn.copied { background: #2ecc71; }
+
+        .tip {
+            font-size: 0.7rem;
+            color: #bbb;
+            font-style: italic;
+        }
+
+        /* Link preview mock */
+        .link-preview {
+            border: 1px solid #e8e0d8;
+            margin-top: 16px;
+            overflow: hidden;
+        }
+        .link-preview-bar {
+            background: var(--ink);
+            padding: 10px 14px 8px;
+            position: relative;
+        }
+        .link-preview-bar::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--deep-red);
+            opacity: 0.2;
+            position: absolute;
+            top: -8px;
+            right: 8px;
+            line-height: 1;
+        }
+        .link-preview-domain {
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 4px;
+        }
+        .link-preview-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: #f8f5f0;
+            line-height: 1.3;
+        }
+        .link-preview-desc {
+            font-size: 0.75rem;
+            color: #888;
+            padding: 8px 14px;
+            font-style: italic;
+            background: #faf8f5;
+        }
+
+        @media (max-width: 500px) {
+            .cards { grid-template-columns: 1fr; }
+        }
+    </style>
+
+</head>
+<body>
+
+<div style="max-width:1000px;margin:0 auto 32px;">
+    <div class="page-title">Social Media Posts</div>
+    <div class="page-subtitle">Tony Wolf &nbsp;·&nbsp; "Captive Markets" Article Launch &nbsp;·&nbsp; May 6, 2026</div>
+</div>
+
+<div class="cards">
+
+    <!-- LINKEDIN -->
+    <div class="card">
+        <div class="card-header">
+            <div class="platform-icon linkedin">in</div>
+            <div>
+                <div class="platform-name">LinkedIn</div>
+                <div class="platform-handle">@TonyWolf</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="post-text" id="linkedin-text">A new investigation just published at sites.super.myninja.ai.
+
+Private prisons have written contracts requiring states to keep their facilities 80 to 100 percent full at all times. When crime drops and prison populations fall, states are billed for the empty beds. One researcher called it a "low-crime tax."
+
+65% of private prison contracts reviewed contained these lockup quota provisions. Arizona signed contracts requiring 100% occupancy at three facilities. Colorado wasted $2 million filling private beds while its own public prisons sat empty. Arizona paid $3 million for empty beds at a facility whose negligence enabled an escape and a double murder.
+
+Meanwhile, the same companies spent $17.4 million lobbying for the mandatory minimum and three-strikes laws that keep those beds filled.
+
+CoreCivic posted $2 billion in revenue last year. Its CEO greeted the new administration's immigration crackdown by telling investors the landscape was "changing in ways that are likely to positively impact our business."
+
+This is the full story, sourced to government audits, SEC filings, and state records.
+
+Read it here: sites.super.myninja.ai</div>
+            <div class="char-count" id="linkedin-count"></div>
+            <div class="link-preview">
+                <div class="link-preview-bar">
+                    <div class="link-preview-domain">sites.super.myninja.ai</div>
+                    <div class="link-preview-title">Captive Markets: How America's Private Prison Industry Built a Business Model on Human Bondage</div>
+                </div>
+                <div class="link-preview-desc">A fully documented investigative report by Tony Wolf. May 6, 2026.</div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span class="tip">Best posted Tuesday–Thursday, 8–10am</span>
+            <button class="copy-btn" onclick="copyPost('linkedin-text', this)">Copy</button>
+        </div>
+    </div>
+
+    <!-- FACEBOOK -->
+    <div class="card">
+        <div class="card-header">
+            <div class="platform-icon facebook">f</div>
+            <div>
+                <div class="platform-name">Facebook</div>
+                <div class="platform-handle">Tony Wolf</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="post-text" id="facebook-text">Private prison companies wrote contracts requiring states to keep their facilities 80 to 100 percent full at all times.
+
+When crime falls and prison populations drop, states still get billed. Researchers called it a "low-crime tax."
+
+65% of contracts reviewed had these clauses. Arizona signed three contracts at 100% occupancy. Colorado paid $2 million for empty beds. Arizona paid $3 million for empty beds at a facility whose negligence caused a double murder.
+
+The same companies spent millions lobbying for the three-strikes and mandatory minimum laws that fill those beds.
+
+I dug into the government audits, SEC filings, lobbying records, and state documents to put the full picture together.
+
+Full article here: sites.super.myninja.ai</div>
+            <div class="char-count" id="facebook-count"></div>
+            <div class="link-preview">
+                <div class="link-preview-bar">
+                    <div class="link-preview-domain">sites.super.myninja.ai</div>
+                    <div class="link-preview-title">Captive Markets: How America's Private Prison Industry Built a Business Model on Human Bondage</div>
+                </div>
+                <div class="link-preview-desc">A fully documented investigative report by Tony Wolf. May 6, 2026.</div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <span class="tip">Best posted Wed–Fri, 1–4pm</span>
+            <button class="copy-btn" onclick="copyPost('facebook-text', this)">Copy</button>
+        </div>
+    </div>
+
+    <!-- X / TWITTER -->
+    <div class="card">
+        <div class="card-header">
+            <div class="platform-icon x">𝕏</div>
+            <div>
+                <div class="platform-name">X (Twitter)</div>
+                <div class="platform-handle">@TonyWolf</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="post-text" id="x-text">Private prisons wrote contracts requiring states to keep their facilities full.
+
+When crime drops, states get billed for empty beds. They call it a "low-crime tax."
+
+65% of contracts had these clauses. Arizona: 100% occupancy required. Colorado: paid $2M while public prisons sat empty.
+
+The same companies lobbied for the laws that fill those beds.
+
+Full investigation: sites.super.myninja.ai</div>
+            <div class="char-count" id="x-count"></div>
+        </div>
+        <div class="card-footer">
+            <span class="tip">Under 280 characters per post &nbsp;·&nbsp; Thread if needed</span>
+            <button class="copy-btn" onclick="copyPost('x-text', this)">Copy</button>
+        </div>
+    </div>
+
+    <!-- INSTAGRAM -->
+    <div class="card">
+        <div class="card-header">
+            <div class="platform-icon instagram">📷</div>
+            <div>
+                <div class="platform-name">Instagram</div>
+                <div class="platform-handle">@TonyWolf</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="post-text" id="instagram-text">Private prisons have been charging states millions of dollars when crime rates fall.
+
+It's called a "low-crime tax."
+
+They write contracts requiring states to keep their facilities 80 to 100 percent full. When prison populations drop because crime goes down, states still get billed for the empty beds.
+
+65% of contracts reviewed had these clauses. Arizona signed contracts requiring 100% occupancy. Colorado paid $2 million for private prison beds while its own public prisons sat empty.
+
+And the same companies spent millions lobbying for the mandatory minimum laws that fill those beds in the first place.
+
+I put together the full investigation using government audits, SEC filings, and state records.
+
+Link in bio to read the full article.
+
+sites.super.myninja.ai
+
+<span class="hashtag">#CriminalJustice #PrivatePrisons #Accountability #Journalism #TonyWolf #Investigation #MassIncarceration #CivilRights</span></div>
+            <div class="char-count" id="instagram-count"></div>
+        </div>
+        <div class="card-footer">
+            <span class="tip">Add article graphic as image &nbsp;·&nbsp; Link in bio</span>
+            <button class="copy-btn" onclick="copyPost('instagram-text', this)">Copy</button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function countChars(id, countId) {
+        const text = document.getElementById(id).innerText;
+        const count = text.length;
+        const el = document.getElementById(countId);
+        if (el) {
+            el.textContent = count + ' characters';
+            if (id === 'x-text' && count > 280) {
+                el.classList.add('over');
+                el.textContent = count + ' characters (over 280 — split into thread)';
+            }
+        }
+    }
+
+    function copyPost(id, btn) {
+        const text = document.getElementById(id).innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            btn.textContent = 'Copied!';
+            btn.classList.add('copied');
+            setTimeout(() => {
+                btn.textContent = 'Copy';
+                btn.classList.remove('copied');
+            }, 2000);
+        });
+    }
+
+    window.onload = () => {
+        countChars('linkedin-text', 'linkedin-count');
+        countChars('facebook-text', 'facebook-count');
+        countChars('x-text', 'x-count');
+        countChars('instagram-text', 'instagram-count');
+    };
+</script>
+
+
+<script>
+(function() {
+  function nukeNinja() {
+    // Remove badge and banner by exact IDs
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    // Remove by exact classes
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    // Reset body padding added by banner script
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  // Run immediately
+  nukeNinja();
+  // Run after delays to catch async-loaded elements
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) {
+    setTimeout(nukeNinja, ms);
+  });
+  // Keep watching for any new injections via MutationObserver
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The War America Forgot | Tony Wolf</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --deep-red: #8b0000;
+    --gold: #c9a84c;
+    --light-bg: #f5f0eb;
+    --rule: #d4c5b0;
+    --mid-gray: #555;
+    --dark-bg: #1c1c1c;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
+
+  /* NAV */
+  .nav { background: #fff; border-bottom: 1px solid #e0d8cf; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: var(--deep-red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--deep-red); }
+
+  /* CATEGORY BAR */
+  .cat-bar { background: var(--deep-red); padding: 10px 32px; display: flex; align-items: center; gap: 12px; }
+  .cat-bar .cat-pill { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 2px; }
+  .cat-bar .cat-sep { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+
+  /* HERO */
+  .hero { background: var(--dark-bg); padding: 72px 32px 80px; text-align: center; }
+  .hero-kicker { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.12; max-width: 900px; margin: 0 auto 24px; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); max-width: 680px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-meta { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .hero-meta .author { color: var(--gold); font-weight: 700; }
+
+  /* SHARE BAR */
+  .share-bar { background: var(--light-bg); border-bottom: 1px solid var(--rule); padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .share-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .share-btn { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-red); border: 1px solid var(--deep-red); padding: 6px 14px; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: all 0.2s; }
+  .share-btn:hover { background: var(--deep-red); color: #fff; }
+
+  /* ARTICLE BODY */
+  .article-wrap { max-width: 720px; margin: 0 auto; padding: 60px 24px 80px; }
+
+  .drop-cap::first-letter { font-family: 'Playfair Display', serif; font-size: 4.5rem; font-weight: 900; float: left; line-height: 0.78; margin-right: 8px; margin-top: 8px; color: var(--deep-red); }
+
+  .article-wrap p { font-size: 1.05rem; line-height: 1.85; color: #2a2a2a; margin-bottom: 1.6rem; font-weight: 300; }
+
+  .article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.65rem; font-weight: 700; color: var(--ink); margin: 3rem 0 1.2rem; padding-bottom: 0.6rem; border-bottom: 2px solid var(--deep-red); line-height: 1.3; }
+
+  .article-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--ink); margin: 2rem 0 0.8rem; }
+
+  .pull-quote { border-left: 4px solid var(--gold); padding: 20px 28px; margin: 2.5rem 0; background: var(--light-bg); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-style: italic; color: var(--ink); line-height: 1.55; margin-bottom: 0.5rem; font-weight: 400; }
+  .pull-quote cite { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); }
+
+  .stat-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin: 2.5rem 0; }
+  .stat { background: var(--dark-bg); padding: 20px 16px; text-align: center; }
+  .stat .num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 900; color: var(--gold); display: block; line-height: 1; margin-bottom: 8px; }
+  .stat .label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.65); }
+
+  .section-rule { border: none; border-top: 1px solid var(--rule); margin: 3rem 0; }
+
+  .sources { background: var(--light-bg); border-top: 3px solid var(--ink); padding: 36px 40px; margin-top: 60px; }
+  .sources h3 { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 20px; }
+  .sources ol { padding-left: 20px; }
+  .sources li { font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--mid-gray); margin-bottom: 10px; line-height: 1.5; }
+  .sources a { color: var(--deep-red); text-decoration: none; }
+  .sources a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  footer { background: var(--dark-bg); color: rgba(255,255,255,0.5); padding: 40px 32px; }
+  .footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; }
+  .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 900; color: #fff; }
+  .footer-logo span { color: var(--gold); }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.5); text-decoration: none; }
+  .footer-links a:hover { color: #fff; }
+  .footer-copy { font-family: 'Inter', sans-serif; font-size: 0.68rem; width: 100%; text-align: center; margin-top: 16px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.1); }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .hero { padding: 48px 20px 56px; }
+    .share-bar { flex-wrap: wrap; }
+    .article-wrap { padding: 40px 18px 60px; }
+  }
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
+</head>
+<body>
+
+    <!-- IMMEDIATE SUPER_NINJA REMOVAL - RUNS BEFORE ADS LOAD -->
+    <script>
+      (function() {
+        // Immediate removal - runs synchronously
+        function hideNinjaElements() {
+          var selectors = [
+            '.ninja-badge',
+            '.ninja-daytona-banner',
+            '.ninja-connection-status',
+            '.ninja-disconnect-overlay',
+            '[id*="ninja"]',
+            '[class*="ninja-banner"]',
+            '[class*="ninja-badge"]'
+          ];
+          selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.display = 'none';
+              elements[i].style.visibility = 'hidden';
+              elements[i].style.opacity = '0';
+              elements[i].remove();
+            }
+          });
+        }
+        
+        // Run immediately
+        hideNinjaElements();
+        
+        // Run on DOMContentLoaded as backup
+        if (document.readyState !== 'loading') {
+          hideNinjaElements();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideNinjaElements);
+        }
+        
+        // Run continuously to catch any dynamically added elements
+        setInterval(hideNinjaElements, 1000);
+      })();
+    </script>
+
+
+<nav class="nav">
+  <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/index.html" class="nav-logo">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="#">Investigations</a></li>
+    <li><a href="#">Politics</a></li>
+    <li><a href="#">Justice</a></li>
+    <li><a href="#">Economy</a></li>
+    <li><a href="#">About</a></li>
+  </ul>
+</nav>
+
+<div class="cat-bar">
+  <span class="cat-pill">Investigative Report</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">Global Affairs</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">Human Rights</span>
+</div>
+
+<section class="hero">
+  <div class="hero-kicker">Special Investigation &nbsp;·&nbsp; Tony Wolf</div>
+  <h1>The War America Forgot: Inside Sudan's <em>Genocide in Plain Sight</em></h1>
+  <p class="hero-sub">More people displaced than Ukraine and Gaza combined. A famine engineered as a weapon. A US ally arming the killers. And almost no American press coverage to speak of.</p>
+  <div class="hero-meta">
+    <span class="author">By Tony Wolf</span>
+    <span>April 15, 2024</span>
+    <span>16 Sources Cited</span>
+    <span>~5,500 words</span>
+  </div>
+</section>
+
+<div class="share-bar">
+  <span class="share-label">Share</span>
+  <a href="#" class="share-btn">Twitter / X</a>
+  <a href="#" class="share-btn">Facebook</a>
+  <a href="#" class="share-btn" onclick="navigator.clipboard.writeText(window.location.href);this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Link',2000);return false;">Copy Link</a>
+  <a href="#" class="share-btn" onclick="window.print();return false;">Print</a>
+</div>
+
+<article class="article-wrap">
+
+<p class="drop-cap">There is a war underway right now that, by every measurable standard of human catastrophe, dwarfs anything the American news cycle has managed to sustain attention on in recent memory. More people have been driven from their homes than in Ukraine and Gaza combined. A famine so severe that the United Nations classifies entire regions of it as Catastrophic, the highest level on the international hunger scale, has been deliberately engineered as a weapon of war. Mass rape has been documented as a systematic tactic. Children are dying of malnutrition at rates that UN officials describe as a collective failure of the international conscience. The death toll, already estimated at 150,000 and almost certainly undercounted by a wide margin, continues to climb by the day.</p>
+
+<p>The country is Sudan. The conflict began on April 15, 2023, when two generals who had run the country together fell out catastrophically and decided to settle the dispute with artillery fire through civilian neighborhoods. Three years and one month later, as of this writing, the war has not ended. It has deepened. And the United States, which once provided the largest share of humanitarian aid to Sudan and stationed a 25-person special envoy office there, has not only withdrawn from that role. It has cut off the funding that was keeping the most vulnerable alive, continued selling weapons to an ally that investigators have documented is actively arming the side committing genocide, and banned Sudanese nationals from entering the country as refugees.</p>
+
+<p>The story of Sudan in 2026 is not simply a story about a distant war in a country most Americans struggle to locate on a map. It is a story about what happens when the world's most powerful nation decides that certain human lives do not warrant a news cycle, a diplomatic mission, or a bag of nutritional supplement paste for a dying child. It is a story about who decides whose suffering counts. And it is a story, documented in excruciating detail by the United Nations, Human Rights Watch, Amnesty International, the International Criminal Court, and journalists who have risked and in some cases lost their lives to tell it, that is not being told anywhere near the scale its gravity demands.</p>
+
+<div class="stat-box">
+  <div class="stat"><span class="num">14M</span><span class="label">People Displaced</span></div>
+  <div class="stat"><span class="num">25M</span><span class="label">Facing Acute Hunger</span></div>
+  <div class="stat"><span class="num">150K+</span><span class="label">Estimated Dead</span></div>
+  <div class="stat"><span class="num">8M</span><span class="label">Children Out of School</span></div>
+  <div class="stat"><span class="num">200+</span><span class="label">Attacks on Healthcare</span></div>
+  <div class="stat"><span class="num">16%</span><span class="label">UNICEF Funding Met</span></div>
+</div>
+
+<h2>The Scale of What Is Happening</h2>
+
+<p>To understand Sudan's crisis requires first confronting its raw dimensions, because the numbers alone constitute a form of indictment against the silence surrounding them. As of April 2026, the United Nations reports that 14 million Sudanese, roughly one in four people in the entire country, have been forced to flee their homes. Of those, 9 million remain internally displaced within Sudan's borders, while 4.4 million have crossed into neighboring countries, primarily Chad, South Sudan, and Egypt. These are places that are themselves poor, arid, and ill-equipped to absorb a refugee population of this magnitude.</p>
+
+<p>The hunger crisis is inseparable from the displacement crisis, because they were created by the same forces and are being sustained by the same deliberate obstruction. The Food and Agriculture Organization of the United Nations reports that 21 million Sudanese now face acute food insecurity. Of those, 6.3 million are in a state of food emergency, the threshold just below famine. Famine itself, the IPC Phase 5 designation that represents the catastrophic endpoint of hunger, has been confirmed in multiple regions of Darfur, where aid access has been blocked by both warring parties and where the population depends on humanitarian convoys that are routinely attacked, looted, or denied passage.</p>
+
+<p>UNICEF reported in April 2026 that child casualties jumped 50 percent in the first quarter of the year compared to the same period in 2025, with at least 245 children killed or wounded between January and March alone. Drone strikes accounted for nearly eight in ten of those casualties. An estimated 4.2 million children are expected to suffer from acute malnutrition in 2026, and more than 825,000 of those cases are classified as severe enough to be fatal without immediate therapeutic feeding intervention. UNICEF has received just 16 percent of the $963 million it requires to deliver lifesaving assistance this year.</p>
+
+<p>The health infrastructure of a country of 48 million people has been, in the word chosen by the World Health Organization's representative, shattered. The WHO has verified more than 200 attacks on healthcare facilities since the war began, attacks that have resulted in 2,052 deaths. Hospitals in active conflict zones have been bombed, looted, and repurposed as military positions. Health workers have been killed, detained, and tortured. Cholera outbreaks are spreading in camps where clean water access has been destroyed. Malaria is endemic. Maternity hospitals are operating with a fraction of their necessary supplies, and doctors are watching women die of preventable complications in delivery rooms they cannot adequately staff or equip.</p>
+
+<div class="pull-quote">
+  <p>"I don't think I've ever seen as big of a disconnect between the scale of a crisis and the scale of media coverage in my life. The scale of the suffering in Sudan is so high, and the coverage is abominably low."</p>
+  <cite>Tom Perriello, former U.S. Special Envoy to Sudan</cite>
+</div>
+
+<p>Thirty-four million people, nearly two in every three Sudanese, now require some form of humanitarian support. That figure comes from Tom Fletcher, the UN's relief chief, who called the third anniversary of the conflict a "grim and chastening" milestone marking "another year when the world has failed to meet the test of Sudan." It is worth pausing on that number. Two in three. In a country of 48 million people. Two in every three people requiring external assistance simply to survive the next season.</p>
+
+<h2>Two Generals, One Country, No Way Out</h2>
+
+<p>The conflict's origins lie in a falling out between two men who had, until the morning of April 15, 2023, been partners in one of the most consequential military coups in recent African history. General Abdel Fattah al-Burhan leads the Sudanese Armed Forces, known as the SAF, the institution that has dominated Sudanese politics through decades of military dictatorship. Lieutenant General Mohamed Hamdan Dagalo, universally known as Hemedti, commands the Rapid Support Forces, the RSF, a paramilitary organization whose origins lie in the Janjaweed militias that carried out the first Darfur genocide in the early 2000s, the one that drew George Clooney to Khartoum and "Save Darfur" signs to American front lawns.</p>
+
+<p>The two men had cooperated to overthrow Sudan's civilian transitional government in October 2021, a coup that crushed what had been a genuinely promising democratic opening following the removal of longtime dictator Omar al-Bashir in 2019. After the coup, international negotiations led by the United States, the United Kingdom, the United Arab Emirates, Saudi Arabia, and the United Nations attempted to broker a new power-sharing arrangement that would return civilian rule. Those talks focused extensively on questions of governance and almost not at all on the question of what would happen to the RSF, which Hemedti had built into a parallel army of 100,000 fighters with its own supply chains, its own gold mining operations, and its own diplomatic relationships with foreign powers.</p>
+
+<p>When the integration of the RSF into the regular armed forces became the central sticking point, both sides began positioning for war. "No need to panic," one senior American official reportedly told colleagues in the final hours before the conflict erupted. The fighting began before dawn on April 15 with RSF attacks on the SAF headquarters, the presidential palace, and Khartoum's international airport, where a firefight broke out near planes evacuating foreign nationals. Within days, a city of seven million people had become a battlefield.</p>
+
+<p>The war that followed swiftly became something far more complex and far more brutal than a straightforward military confrontation between two rival generals. In Darfur, where the RSF drew on the ethnic networks and ideological inheritances of the Janjaweed, the conflict quickly took on the character of ethnic cleansing. Arabic-speaking RSF fighters and allied militias targeted the Masalit, the Zaghawa, and other non-Arab communities with a systematic violence that UN investigators have documented in grinding detail: mass killings, gang rape used as a deliberate tactic of displacement, the burning of villages, the looting and destruction of everything that could sustain life. When El Fasher, the capital of North Darfur and the last major city in the region not under RSF control, fell on October 26, 2025, after an 18-month siege, eyewitness accounts and satellite imagery documented massacres of thousands of civilians in the streets, in displacement camps, and at checkpoints where people were attempting to flee.</p>
+
+<h2>The Genocide Determination Nobody Talked About</h2>
+
+<p>On January 7, 2025, the United States State Department formally determined that the Rapid Support Forces and allied militias had committed genocide in Sudan, specifically in Darfur. This was not a casual accusation. A genocide determination by the US government is a legally significant, diplomatically consequential finding that triggers specific obligations under American law and international convention. The last time the United States made such a determination was regarding the Uyghurs in China, and it provoked weeks of international headlines and sustained diplomatic fallout.</p>
+
+<p>The Sudan genocide determination received, by comparison, almost no sustained coverage in American mainstream media. It was noted in wire dispatches and quickly submerged beneath the daily flood of domestic political news. There was no primetime special. There were no celebrity advocates flying to Port Sudan. There were no congressional hearings convened in its immediate aftermath to examine what the designation obligated the United States to do. The determination was made in the final days of the Biden administration, handed off to an incoming administration that had made clear its disinterest in African affairs, and largely forgotten.</p>
+
+<p>The UN's own Fact-Finding Mission on Sudan went further still. In February 2026, the mission determined that the RSF's attacks in El Fasher bore what it called "the hallmarks of genocide." The International Criminal Court's prosecutor, in a report to the UN Security Council in January 2026, assessed that crimes against humanity and war crimes had been committed in El Fasher. A conviction in the Darfur investigation was secured in October 2025, when ICC judges convicted former Janjaweed militia leader Ali Muhammad Ali Abd-Al-Rahman of war crimes and crimes against humanity for atrocities in 2003 and 2004. But the ICC's mandate is limited to Darfur, leaving no international judicial mechanism covering the full scope of ongoing atrocities across the country.</p>
+
+<div class="pull-quote">
+  <p>"Without UAE assistance, the siege, takeover, and resulting atrocities would likely not have occurred."</p>
+  <cite>Conflict Insights Group, April 2026, on the fall of El Fasher</cite>
+</div>
+
+<h2>The UAE, the Mercenaries, and the Weapons</h2>
+
+<p>The most explosive and consistently underreported dimension of the Sudan story is the documented role of the United Arab Emirates in sustaining, arming, and enabling the RSF's campaign of atrocity. This is not speculation. It is not the claim of an advocacy organization with a known political agenda. It is a finding documented by the United States Congress, the United Nations Security Council, Refugees International, the Conflict Insights Group, Le Monde, the New York Times, and multiple independent investigations whose findings have accumulated over more than two years into an overwhelming body of evidence.</p>
+
+<p>The UAE has supplied the RSF with weapons, ammunition, and drones through a complex logistics network that routes materiel through Libya, Chad, Uganda, and Ethiopia to avoid direct detection. RSF leader Hemedti's commercial empire is headquartered in Dubai, and gold from RSF-controlled mines in Sudan, extracted in territories where the RSF uses starvation as a military tool against the civilian population, is traded freely in UAE markets. Colombian mercenaries, documented by investigators on the ground in Darfur, were in and around El Fasher when the city fell in October 2025. Evidence collected by the Conflict Insights Group and published in April 2026 places UAE-supported mercenaries in the city and documents that UAE-supplied enhanced drone capabilities enabled the deadly attacks on civilians that accompanied the siege's culmination. The CIG's conclusion was unambiguous: without UAE assistance, the siege and the resulting atrocities would likely not have occurred.</p>
+
+<p>US Representatives Sara Jacobs and Senator Chris Van Hollen confirmed in congressional statements that the UAE has provided weapons to the RSF in direct contradiction to assurances given to the US government. The UN Security Council arms embargo on Darfur, in place since 2004 and renewed as recently as September 2025, explicitly prohibits the supply of arms to non-state actors in the region. Colombian mercenaries documented in Darfur as recently as January 20, 2026, make the UAE's ongoing violation of that embargo a continuing and active reality.</p>
+
+<p>In February 2026, the UAE pledged $500 million in humanitarian aid for Sudan. Refugees International, which has been documenting UAE complicity in RSF atrocities for years, noted the bitter arithmetic of that announcement: the UAE was pledging aid to address a famine that exists largely because of the displacement and starvation its weapons have enabled. The organization called this "aid-washing" and demanded that the international community condition any diplomatic engagement with Abu Dhabi on a verifiable halt to weapons transfers.</p>
+
+<p>What has the United States done in response? It has continued selling weapons to the UAE. In May 2025, the State Department authorized $1.4 billion in new weapons sales to Abu Dhabi. The United States simultaneously committed to a $1.4 trillion economic relationship with the UAE covering aerospace, health, and artificial intelligence sectors. The Trump administration has not appointed a senior envoy to Sudan. It has not expanded sanctions on the UAE. It has not used its considerable leverage in the Gulf to demand that weapons transfers to an organization its own predecessor government designated as genocidal be halted. It has, instead, banned Sudanese nationals from entering the United States and ended Temporary Protected Status for South Sudanese immigrants who had been legally resident in the country for years.</p>
+
+<h2>The Aid Cutoff and Its Body Count</h2>
+
+<p>Until the beginning of 2025, the United States was the largest single donor to humanitarian operations in Sudan. This was not charity in the abstract. It was the logistical backbone of an entire ecosystem of aid delivery: the contracts with trucking companies that moved food convoys through conflict zones; the institutions that monitored famine indicators and projected where intervention was most urgently needed; the support structures that enabled UN agencies, international NGOs, and Sudanese grassroots organizations to function. When Elon Musk's Department of Government Efficiency began dismantling USAID in the opening weeks of the Trump administration, the impact in Sudan was not gradual. It was immediate and catastrophic.</p>
+
+<p>More than 1,700 communal kitchens, run by Sudanese volunteers and funded in whole or in part by American aid, closed in the spring of 2025, affecting nearly 3 million people who depended on them for their primary daily meal. The closure was not the result of a policy review or a deliberate decision to redirect funding. It was the downstream consequence of mass layoffs at USAID, the cancellation of contracts with logistics and security firms, and the sudden inability of aid coordinators to process payments or communicate with partners in the field. UNICEF has received just 16 percent of its required Sudan funding for 2026. The UN Population Fund, which was supporting 93 health facilities including maternal care centers where women were dying in childbirth, was forced to withdraw from more than half of them after US funding cuts eliminated the financial basis for their operations.</p>
+
+<p>Anne Applebaum, reporting for The Atlantic from inside Sudan earlier in 2025, spoke with a USAID official who had been directly responsible for humanitarian aid to Sudanese refugees. The official described being cut off from her email and the systems she needed to process payments, unable to communicate with partners on the ground, watching months of careful coordination dissolve overnight. "We do so much, and it's all being taken away, without a moment's notice," she said, before she began to cry. "There is no transition planning. There is no handover. The US has been the largest donor to Sudan since forever. And it's just a disaster."</p>
+
+<p>Tom Perriello, who served as the US Special Envoy to Sudan in the final year of the Biden administration, put the stakes bluntly: "The one thing that still remained of US soft power was USAID. I do think we were mitigating the worst famine on Earth." He described the scale of the aid withdrawal as having no strategic rationale, no diplomatic cover, and no successor plan. It was not a decision to redirect resources. It was a decision to walk away from the largest humanitarian crisis on the planet and let the consequences accumulate in silence.</p>
+
+<h2>The Press Failure</h2>
+
+<p>Sudan's invisibility in American media is not accidental. It is the product of decisions made by news organizations, shaped by market forces, reinforced by the audience metrics that determine what gets covered and what gets quietly dropped, and compounded by the extraordinary difficulty of reporting from inside a conflict where 90 percent of Sudanese media institutions have been damaged or destroyed, where 32 journalists have been killed since April 2023, and where foreign correspondents face visa denials, military escorts that control access, and the constant threat of the drone strikes that killed a team of Sudanese television journalists and a military media liaison in March 2025.</p>
+
+<p>The scale of the coverage gap is staggering. In October 2025, as the RSF was completing its siege of El Fasher and massacring thousands of civilians in the streets, the event received brief and largely procedural coverage in most American outlets before being eclipsed by the next news cycle. Nieman Reports, the Harvard journalism review, published a searing examination of the gap in February 2026, titled simply "Sudan's Journalists Risk Everything to Cover a War the World Ignores." The piece opened with a quote from Tom Perriello: "I don't think I've ever seen as big of a disconnect between the scale of a crisis and the scale of media coverage in my life."</p>
+
+<p>The analysis offered by Hussein AlAhmad, a media scholar at the Arab American University, cuts to the heart of the structural problem. Sudan, he observed, exists in what he called a "liminal space" in global media ecosystems. Unlike Ukraine, it does not involve a NATO-adjacent country whose fate directly implicates Western security alliances. Unlike Gaza, it does not involve a conflict that maps onto existing political fault lines in Western democracies. Sudan is a Black African Muslim country whose suffering does not activate the same levers of Western moral imagination and political mobilization that other crises have. That is a statement about the media's failures and about something deeper in the assumptions that determine whose deaths are treated as news.</p>
+
+<p>Al Jazeera's Arabic-language channel launched a daily program called "The Forgotten War" in November 2023. BBC News Arabic maintains dedicated shortwave radio coverage. Deutsche Welle Arabic runs a regular Sudan broadcast. The Guardian, The Atlantic, and Le Monde have published some of the most important investigative reporting on the conflict. Reuters and AP have maintained wire coverage. But in the American television landscape, in the primetime political programs that shape public understanding of the world, Sudan has been close to absent for most of the past three years.</p>
+
+<p>In April 2025, ten Sudanese journalists still reporting from inside the country published an open letter in the French newspaper Le Monde. They wrote: "We, Sudanese journalists, call for an international mobilization to support those who inform you from inside the country, at the risk of their lives, whether on the frontline or in forced exile." It was a plea not just for safety but for an audience. They were risking everything to document a catastrophe, and they needed someone to read it.</p>
+
+<h2>What Both Sides Are Doing to Civilians</h2>
+
+<p>It is important to be precise about the nature of the atrocities being committed in Sudan, because the conflict involves documented crimes on multiple sides, and because precision is what serious accountability journalism requires. The RSF and its allied militias have borne the heaviest weight of international condemnation, and for documented reasons: the mass killings of civilians, the systematic use of sexual violence, the ethnic targeting of Masalit, Zaghawa, and other non-Arab communities, the deliberate use of starvation as a weapon, and the mass graves discovered near RSF bases in Khartoum where detainees reported torture and bodies were recovered in the hundreds.</p>
+
+<p>But the Sudanese Armed Forces have also committed serious violations. SAF airstrikes in South Darfur, documented by Human Rights Watch in June 2025, killed scores of civilians in residential and commercial neighborhoods using unguided air-dropped bombs. The SAF bombed a mosque in West Kordofan in June 2025, killing 41 people. It has launched indiscriminate aerial bombardments of civilian areas across Khartoum and Omdurman, and has engaged in retaliatory attacks against civilians accused of collaborating with the RSF, often along ethnic lines. Both parties have wilfully obstructed humanitarian aid convoys in direct violation of international humanitarian law. The UN Fact-Finding Mission has documented that both sides used food as a weapon of war.</p>
+
+<p>Sudan-allied Sudan Shield Forces, led by Abu Aqla Keikel, who is under EU sanctions, attacked Tayba village in January 2025, killing at least 26 civilians, looting property, and burning homes. The RSF killed up to 1,500 people in large-scale attacks on the Zamzam displacement camp in April 2025. In October of that year, RSF fighters carried out mass killings as people fled El Fasher, with satellite imagery from Yale University's Humanitarian Research Lab showing the sites of massacres visible from space, bloodstains covering ground that the RSF subsequently attempted to clean by digging mass graves.</p>
+
+<p>Over 500 victims of sexual violence were identified by UN investigators in 2025 alone, a figure that experts acknowledge represents a small fraction of actual cases given the restrictions on monitoring access, the stigma that prevents survivors from coming forward, and the active suppression of reporting by both armed parties. A record 11,300 civilians were killed in 2025. In the first three months of 2026, nearly 700 civilians were reportedly killed in drone strikes alone.</p>
+
+<h2>The Silence of Washington</h2>
+
+<p>The current US administration's posture toward Sudan is not merely one of neglect. It is, taken as a whole, a posture that has functionally aided the continuation of the atrocities while dismantling the mechanisms that could have mitigated their consequences. The Trump administration has not appointed a special envoy to Sudan. It has not taken meaningful steps to sanction the UAE for its documented role in arming the RSF. It cut the USAID budget in ways that directly caused the closure of thousands of communal kitchens and the withdrawal of health services from hundreds of thousands of civilians. It has continued selling advanced weapons systems to Abu Dhabi. It banned Sudanese nationals from entering the United States, foreclosing asylum as a path for the people most at risk. It terminated Temporary Protected Status for South Sudanese immigrants, giving people who had legally built lives in America 60 days to leave.</p>
+
+<p>The contrast with previous administrations is not a matter of partisan framing. It is a matter of documented record. The George W. Bush administration, driven in part by evangelical Christian organizations with deep ties to Sudanese communities and by the moral weight of the Darfur genocide, invested real diplomatic capital and humanitarian resources in Sudan. The Obama administration expanded that commitment under the banner of the "responsibility to protect." Even the first Trump administration, whatever its indifference to African affairs, maintained the basic architecture of US aid and diplomatic engagement. The current administration has not merely reduced that engagement. It has systematically dismantled it.</p>
+
+<p>What has replaced American leadership in this vacuum? China, Russia, the UAE, Saudi Arabia, Qatar, Turkey, Egypt, Iran, and the Wagner Group's successor, Africa Corps, have all moved to fill it. Anne Applebaum, writing for The Atlantic after reporting from both sides of the front line, described Sudan as the place where the theoretical concept of the "end of the liberal world order" has already become concrete reality. Middle powers pursue their interests, gold, influence, proxy leverage, naval basing rights, without the moderating constraint of an international order enforced by a country willing to use its power in the service of norms. The result is not order. It is anarchy, and anarchy always costs the most to the people who have no militias, no gold mines, no foreign backers, and no one flying in to tell their story.</p>
+
+<h2>The People Trying to Hold Things Together</h2>
+
+<p>Against this landscape of institutional failure, geopolitical cynicism, and media indifference, Sudanese civil society has built something remarkable. The Emergency Response Rooms, known universally by their acronym ERR, are a volunteer mutual-aid network that grew out of the revolutionary movement that toppled Omar al-Bashir in 2019. When the war began and international organizations struggled to access conflict zones or were forced to suspend operations, ERR volunteers, drawing on the Sudanese traditions of nafeer (communal labor) and takiya (communal sharing of food), organized community kitchens, raised money through diaspora networks, coordinated medical supplies, and in some cases physically transported the wounded to hospitals.</p>
+
+<p>The ERR movement now operates on both sides of the front line. In Central Darfur alone, 45 Emergency Response Rooms staffed by more than 800 volunteers have been active since the war began, many of them led by people who lost their jobs when universities and hospitals were destroyed but chose to keep working anyway. Volunteer physician Momen wd Zaineb, who has spent much of the war in the courtyard of al-Nau Hospital in Omdurman, raises money on social media to pay for medications that the hospital pharmacy cannot supply, spending up to ten hours a day connecting patients with medicines their doctors have prescribed but cannot provide. He is not unusual. He is representative of a generation of Sudanese who, in the absence of the state and in the absence of the international community, have decided to build rather than destroy.</p>
+
+<p>These are the people the American press is not covering. These are the people USAID cuts have abandoned. These are the people whose work has kept millions alive through three years of a war that the world's most powerful media ecosystem has treated as a minor footnote in a busy news cycle.</p>
+
+<h2>What the International Press Is Saying</h2>
+
+<p>Outside the United States, Sudan has not been invisible in the same way. Al Jazeera Arabic has maintained some of the most sustained and detailed coverage of the conflict of any broadcaster, including the daily "Forgotten War" program that has drawn millions of Sudanese viewers. BBC News Arabic, Deutsche Welle Arabic, and France 24 have all maintained dedicated coverage. The Guardian has published multiple long-form investigative pieces documenting RSF atrocities, UAE arms transfers, and the collapse of humanitarian infrastructure. Le Monde's Africa desk has broken significant stories on the logistics of UAE weapons supply networks. Reuters and the Associated Press have provided consistent wire coverage that their US client newspapers have often buried or omitted.</p>
+
+<p>The picture that emerges from the international press is consistent, damning, and detailed. The RSF is committing genocide with weapons supplied by a US ally. The SAF is committing war crimes with weapons supplied by regional powers including Egypt and Saudi Arabia. Famine is being used deliberately by both sides to weaken civilian populations in enemy-controlled territory. The international community has failed to deploy a peacekeeping force, failed to meaningfully enforce existing arms embargoes, and failed to mobilize the diplomatic pressure necessary to force a ceasefire. The United States, which retains more leverage over the Gulf states arming both sides than any other external actor, has chosen not to use it.</p>
+
+<p>The Soufan Center's intelligence brief from April 2026 described Sudan as "a war overshadowed, a crisis unmanaged," and noted that the third anniversary of the conflict passed with no serious international diplomatic initiative underway and no credible peace process in sight. The Council on Foreign Relations' conflict tracker categorizes Sudan as an ongoing active conflict with no resolution timeline. The International Rescue Committee has named Sudan as one of the top humanitarian crises in the world for three consecutive years, a designation that carries specific recommendations for international response that have been largely ignored.</p>
+
+<h2>Why It Matters Here</h2>
+
+<p>There is a category of objection to this kind of coverage that goes, roughly: there is always suffering somewhere in the world, resources for engagement are finite, and American foreign policy cannot be everywhere at once. This objection, made in good faith by people trying to think seriously about the limits of power, deserves a serious answer.</p>
+
+<p>The first answer is that Sudan is not simply a case of distant suffering that has no connection to American policy choices. The US genocide determination itself, the documented weapons sales to the UAE that is arming the genocidal force, the USAID cuts that closed the communal kitchens, the visa ban on Sudanese refugees: these are not the neutral operation of a world that exists outside American influence. These are specific decisions, made in Washington, that have specific consequences measurable in human lives. The United States is not a bystander to this catastrophe. It is, in ways that are concrete and documented, a participant in its continuation.</p>
+
+<p>The second answer is that what happens in Sudan does not stay in Sudan. The famine is driving displacement into Chad, South Sudan, Egypt, and Libya, countries already under severe strain, creating the conditions for cascading regional instability. The collapse of state authority in Sudan is creating a vacuum that Russia's Africa Corps, Iran, and various jihadist networks are actively working to fill, on a continent that sits astride critical Red Sea shipping lanes and holds enormous reserves of the minerals that power the global economy. The idea that Sudan can descend into genocidal anarchy without consequences for American strategic interests is not a serious geopolitical analysis.</p>
+
+<p>The third answer is simpler. More than 34 million people, two in every three Sudanese, need help to survive. Thousands of children will die this year from a famine that is not the result of drought or natural disaster but of deliberate military strategy, documented, confirmed, and condemned by every serious international institution that has examined it. That is happening right now, as you read this, and it is happening in a silence that is not the silence of ignorance but the silence of choice.</p>
+
+<hr class="section-rule">
+
+<p>Tom Perriello, the former US envoy, told the journalist Isma'il Kushkush: "I don't think I've ever seen as big of a disconnect between the scale of a crisis and the scale of media coverage in my life." He said that in early 2026, three years into a war that has displaced more people than Ukraine and Gaza combined, killed a hundred and fifty thousand human beings, pushed two in three Sudanese to the edge of survival, and been responded to with a formal genocide determination that was then effectively ignored by every institution that made it.</p>
+
+<p>The question of why Sudan is not on American front pages every day is not a mystery requiring complicated media theory to explain. It requires only an honest answer to a simple question: whose suffering do we decide is worth the front page? For three years, Sudan has given its answer. The rest of the world has been watching. And almost no one in America has been reading.</p>
+
+<div class="sources">
+  <h3>Sources & Citations</h3>
+  <ol>
+    <li>UN News, "Sudan: 14 million displaced; hunger and attacks on health continue as war enters fourth year," April 10, 2026. <a href="https://news.un.org/en/story/2026/04/1167281" target="_blank">news.un.org</a></li>
+    <li>Human Rights Watch, "World Report 2026: Sudan," January 2026. <a href="https://www.hrw.org/world-report/2026/country-chapters/sudan" target="_blank">hrw.org</a></li>
+    <li>UNICEF, "50% surge in child casualties in Sudan in first quarter of 2026," via Anadolu Agency, April 15, 2026. <a href="https://aa.com.tr/en/world/unicef-reports-50-surge-in-child-casualties-in-sudan-in-first-quarter-of-2026/3905793" target="_blank">aa.com.tr</a></li>
+    <li>Refugees International, "New Evidence of United Arab Emirates Fueling Genocide in Sudan," April 22, 2026. <a href="https://www.refugeesinternational.org/statements-and-news/refugees-international-calls-for-action-new-evidence-of-united-arab-emirates-fueling-genocide-in-sudan/" target="_blank">refugeesinternational.org</a></li>
+    <li>Nieman Reports, "Sudan's Journalists Risk Everything to Cover a War the World Ignores," February 13, 2026. <a href="https://niemanreports.org/sudan-civil-war-journalists-underreported-press-freedom-ismail-kushkush/" target="_blank">niemanreports.org</a></li>
+    <li>Anne Applebaum, "The Most Nihilistic Conflict on Earth," The Atlantic, August 6, 2025. <a href="https://www.theatlantic.com/magazine/archive/2025/09/sudan-civil-war-humanitarian-crisis/683563/" target="_blank">theatlantic.com</a></li>
+    <li>Prism Reports, "Advocates Spotlight U.S. Complicity in Sudan Genocide," November 17, 2025. <a href="https://prismreports.org/2025/11/17/sudan-civil-war-genocide-us-complicity/" target="_blank">prismreports.org</a></li>
+    <li>Conflict Insights Group, "Blood Money" report on UAE support for RSF, April 2026. Referenced via Refugees International, April 2026.</li>
+    <li>US State Department, "Genocide Determination in Sudan and Imposing Accountability Measures," January 2025. <a href="https://2021-2025.state.gov/genocide-determination-in-sudan-and-imposing-accountability-measures/" target="_blank">state.gov</a></li>
+    <li>UN Human Rights Council, Fact-Finding Mission on Sudan, "Hallmarks of genocide" finding, February 2026. <a href="https://news.un.org/en/story/2026/02/1166997" target="_blank">news.un.org</a></li>
+    <li>WHO, "Sudan: 1000 days of war deepen the world's worst health and humanitarian crisis," January 9, 2026. <a href="https://www.who.int/news/item/09-01-2026-sudan-1000-days-of-war-deepen-the-world-s-worst-health-and-humanitarian-crisis" target="_blank">who.int</a></li>
+    <li>OHCHR, "Sudan: Third anniversary of conflict  --  UN and ACHPR-AU Fact-Finding Missions warn of escalating violence," April 2026. <a href="https://www.ohchr.org/en/press-releases/2026/04/sudan-third-anniversary-conflict-un-and-achpr-au-fact-finding-missions" target="_blank">ohchr.org</a></li>
+    <li>Amnesty International, "Sudan: Three years on, warring parties intensify brutal war on civilians," April 2026. <a href="https://www.amnesty.org/en/latest/news/2026/04/three-years-on-sudans-warring-parties-intensify-war-against-civilians/" target="_blank">amnesty.org</a></li>
+    <li>The Soufan Center, "Sudan at Three Years: A War Overshadowed, A Crisis Unmanaged," April 21, 2026. <a href="https://thesoufancenter.org/intelbrief-2026-april-21/" target="_blank">thesoufancenter.org</a></li>
+    <li>Sara Jacobs / Chris Van Hollen, Congressional confirmation of UAE weapons to RSF. <a href="https://sarajacobs.house.gov/news/press-releases/jacobs-van-hollen-confirm-uae-providing-weapons-to-rsf-in-sudan-in-contradiction-to-its-assurances-to-us" target="_blank">sarajacobs.house.gov</a></li>
+    <li>WFP, Sudan Emergency Page, 2026. <a href="https://www.wfp.org/emergencies/sudan" target="_blank">wfp.org</a></li>
+  </ol>
+</div>
+
+</article>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Tony<span>Wolf</span></div>
+    <nav class="footer-links">
+      <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/index.html">Home</a>
+      <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Articles</a>
+      <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Investigations</a>
+      <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">About</a>
+      <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Contact</a>
+    </nav>
+    <p class="footer-copy">&copy; 2026 Tony Wolf &nbsp;·&nbsp; sites.super.myninja.ai &nbsp;·&nbsp; Independent journalism. No paywall. No corporate filter.</p>
+  </div>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) {
+    setTimeout(nukeNinja, ms);
+  });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

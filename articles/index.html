@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Articles - Tony Wolf</title>
+    <meta name="description" content="Investigative reporting, commentary, and accountability journalism from Tony Wolf.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+        :root {
+            --ink: #1a1a1a;
+            --deep-red: #8B0000;
+            --muted-red: #b5282a;
+            --gold: #c9963a;
+            --light-bg: #f8f5f0;
+            --rule: #d0c8bc;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--light-bg);
+            color: var(--ink);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 300;
+        }
+
+        /* ── Masthead ── */
+        .masthead {
+            background: var(--white);
+            border-bottom: 3px solid var(--ink);
+            padding: 0 40px;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            min-height: 64px;
+        }
+        .masthead-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            margin-right: 60px;
+        }
+        .masthead-logo span { color: var(--deep-red); }
+        .masthead-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .masthead-nav a {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #666;
+            text-decoration: none;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .masthead-nav a:hover,
+        .masthead-nav a.active {
+            color: var(--deep-red);
+            border-bottom-color: var(--deep-red);
+        }
+
+        /* ── Sub-masthead bar ── */
+        .section-bar {
+            background: var(--ink);
+            padding: 10px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .section-tag {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            background: var(--deep-red);
+            color: #fff;
+            padding: 5px 14px;
+        }
+        .section-desc {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        /* ── Page hero ── */
+        .page-hero {
+            background: var(--ink);
+            padding: 56px 40px 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--deep-red), var(--gold), var(--deep-red));
+        }
+        .page-hero-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        .page-hero-label {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 14px;
+        }
+        .page-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #f8f5f0;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+        .page-hero p {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #a09890;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* ── Main layout ── */
+        .main-wrap {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 56px 40px 80px;
+        }
+
+        /* ── Section label ── */
+        .section-heading {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 32px;
+            padding-bottom: 14px;
+            border-bottom: 2px solid var(--ink);
+        }
+        .section-heading h2 {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+        .section-heading .count {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            color: #aaa;
+            letter-spacing: 0.1em;
+        }
+
+        /* ── Featured article (big card) ── */
+        .featured-card {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 0;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            margin-bottom: 48px;
+            text-decoration: none;
+            color: inherit;
+            transition: box-shadow 0.25s;
+        }
+        .featured-card:hover {
+            box-shadow: 0 6px 36px rgba(0,0,0,0.14);
+        }
+        .featured-card-body {
+            padding: 44px 44px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .featured-card-top {}
+        .card-category {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--deep-red);
+            margin-bottom: 14px;
+            display: block;
+        }
+        .featured-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.4rem, 2.5vw, 2rem);
+            font-weight: 900;
+            line-height: 1.15;
+            color: var(--ink);
+            margin-bottom: 16px;
+        }
+        .featured-card h3 em {
+            font-style: italic;
+            color: var(--deep-red);
+        }
+        .card-deck {
+            font-family: 'Source Serif 4', serif;
+            font-size: 1rem;
+            font-weight: 300;
+            font-style: italic;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+        .card-meta-item {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            color: #999;
+            letter-spacing: 0.06em;
+        }
+        .card-meta-dot { color: #ccc; }
+        .read-link {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--deep-red);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 24px;
+            padding-bottom: 2px;
+            border-bottom: 1px solid var(--deep-red);
+            align-self: flex-start;
+        }
+        .read-link:hover { opacity: 0.75; }
+        .featured-card-image {
+            background: var(--ink);
+            position: relative;
+            overflow: hidden;
+            min-height: 320px;
+        }
+        .featured-card-image-inner {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d1a1a 40%, #1a0a0a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 32px;
+            position: relative;
+        }
+        .featured-card-image-inner::before {
+            content: '"';
+            font-family: 'Playfair Display', serif;
+            font-size: 14rem;
+            color: var(--deep-red);
+            opacity: 0.15;
+            position: absolute;
+            top: -20px;
+            right: 10px;
+            line-height: 1;
+        }
+        .image-label {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 10px;
+        }
+        .image-tag {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: #ccc;
+            line-height: 1.4;
+        }
+
+        /* ── Article grid (smaller cards) ── */
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 48px;
+        }
+        .article-card {
+            background: var(--white);
+            padding: 28px 28px 24px;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.06);
+            border-top: 3px solid transparent;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .article-card:hover {
+            border-top-color: var(--deep-red);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+        }
+        .article-card .card-category { margin-bottom: 10px; }
+        .article-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.3;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+        .article-card .card-deck {
+            font-size: 0.88rem;
+            margin-bottom: 16px;
+            flex: 1;
+        }
+        .article-card .card-meta { margin-top: auto; }
+
+        /* ── Coming soon card ── */
+        .coming-soon-card {
+            background: #f0ece6;
+            border: 2px dashed var(--rule);
+            padding: 28px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        .coming-soon-label {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: #bbb;
+        }
+        .coming-soon-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            font-style: italic;
+            color: #bbb;
+        }
+
+        /* ── Categories sidebar strip ── */
+        .categories-bar {
+            background: var(--white);
+            border-top: 2px solid var(--rule);
+            padding: 28px 0 0;
+            margin-top: 16px;
+        }
+        .categories-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px 28px;
+        }
+        .categories-label {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 16px;
+        }
+        .categories-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .category-pill {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border: 1px solid var(--rule);
+            color: #666;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .category-pill:hover,
+        .category-pill.active {
+            background: var(--ink);
+            color: #f8f5f0;
+            border-color: var(--ink);
+        }
+        .category-pill.active { background: var(--deep-red); border-color: var(--deep-red); color: #fff; }
+
+        /* ── Footer ── */
+        footer {
+            background: var(--ink);
+            padding: 44px 40px;
+        }
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #333;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: #f8f5f0;
+            text-decoration: none;
+        }
+        .footer-logo span { color: var(--deep-red); }
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+            flex-wrap: wrap;
+        }
+        .footer-nav a {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #666;
+            text-decoration: none;
+        }
+        .footer-nav a:hover { color: #f8f5f0; }
+        .footer-copy {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            color: #444;
+            letter-spacing: 0.06em;
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 800px) {
+            .featured-card { grid-template-columns: 1fr; }
+            .featured-card-image { min-height: 200px; }
+            .masthead { padding: 0 20px; }
+            .main-wrap { padding: 36px 20px 60px; }
+            .page-hero { padding: 40px 20px 36px; }
+            .section-bar { padding: 10px 20px; }
+            .masthead-nav { gap: 18px; }
+        }
+        @media (max-width: 560px) {
+            .masthead-nav { display: none; }
+            .article-grid { grid-template-columns: 1fr; }
+        }
+
+        /* ─── Search Bar & Filter ─── */
+        .search-section {
+            margin-bottom: 32px;
+            background: #fff;
+            padding: 20px;
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+        }
+        .search-row {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+        .search-input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            background: var(--light-bg);
+            border: 1px solid var(--rule);
+            border-radius: 6px;
+            padding: 8px 14px;
+        }
+        .search-input-wrapper:focus-within {
+            border-color: var(--deep-red);
+            background: #fff;
+        }
+        .search-icon {
+            font-size: 1.1rem;
+            color: #999;
+            margin-right: 10px;
+        }
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 0.95rem;
+            color: var(--ink);
+        }
+        .search-input::placeholder {
+            color: #aaa;
+        }
+        .search-filters {
+            display: flex;
+            gap: 8px;
+        }
+        .filter-btn {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 8px 14px;
+            border: 1px solid var(--rule);
+            background: #fff;
+            color: #666;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            border-color: var(--deep-red);
+            color: var(--deep-red);
+        }
+        .filter-btn.active {
+            background: var(--deep-red);
+            border-color: var(--deep-red);
+            color: #fff;
+        }
+        @media (max-width: 600px) {
+            .search-row {
+                flex-direction: column;
+            }
+            .search-filters {
+                width: 100%;
+            }
+            .filter-btn {
+                flex: 1;
+            }
+        }
+    </style>
+
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
+</head>
+<body>
+
+    <!-- IMMEDIATE SUPER_NINJA REMOVAL - RUNS BEFORE ADS LOAD -->
+    <script>
+      (function() {
+        // Immediate removal - runs synchronously
+        function hideNinjaElements() {
+          var selectors = [
+            '.ninja-badge',
+            '.ninja-daytona-banner',
+            '.ninja-connection-status',
+            '.ninja-disconnect-overlay',
+            '[id*="ninja"]',
+            '[class*="ninja-banner"]',
+            '[class*="ninja-badge"]'
+          ];
+          selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.display = 'none';
+              elements[i].style.visibility = 'hidden';
+              elements[i].style.opacity = '0';
+              elements[i].remove();
+            }
+          });
+        }
+        
+        // Run immediately
+        hideNinjaElements();
+        
+        // Run on DOMContentLoaded as backup
+        if (document.readyState !== 'loading') {
+          hideNinjaElements();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideNinjaElements);
+        }
+        
+        // Run continuously to catch any dynamically added elements
+        setInterval(hideNinjaElements, 1000);
+      })();
+    </script>
+
+
+<!-- MASTHEAD -->
+<div class="masthead">
+    <a class="masthead-logo" href="https://tony-wolf.com">Tony <span>Wolf</span></a>
+    <nav class="masthead-nav">
+        <a href="https://tony-wolf.com">Home</a>
+        <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html" class="active">Articles</a>
+        <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/search.html">Search</a>
+        <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">About</a>
+        <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Contact</a>
+    </nav>
+</div>
+
+<!-- SECTION BAR -->
+<div class="section-bar">
+    <div class="section-tag">Articles</div>
+    <div class="section-desc">sites.super.myninja.ai</div>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+    <div class="page-hero-inner">
+        <div class="page-hero-label">Tony Wolf &nbsp;·&nbsp; Independent Journalism</div>
+        <h1>Articles</h1>
+        <p>Investigative reporting, commentary, and accountability journalism. No paywall. No corporate filter.</p>
+    </div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-wrap">
+
+    <!-- CATEGORIES -->
+    <div style="margin-bottom: 36px;">
+        <div class="categories-label">Browse by Topic</div>
+        <div class="categories-list">
+            <a href="#" class="category-pill active">All</a>
+            <a href="#" class="category-pill">Criminal Justice</a>
+            <a href="#" class="category-pill">Corporate Accountability</a>
+            <a href="#" class="category-pill">Foreign Policy</a>
+            <a href="#" class="category-pill">Humanitarian Crisis</a>
+            <a href="#" class="category-pill">Fact Check</a>
+            <a href="#" class="category-pill">Disinformation</a>
+            <a href="#" class="category-pill">Civil Rights</a>
+            <a href="#" class="category-pill">Politics</a>
+            <a href="#" class="category-pill">Economy</a>
+        </div>
+    </div>
+
+    <!-- SEARCH BAR & FILTER -->
+    <div class="search-section">
+        <div class="search-row">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search articles by keyword...">
+            </div>
+            <div class="search-filters">
+                <button class="filter-btn active" data-filter="newest">Newest</button>
+                <button class="filter-btn" data-filter="oldest">Oldest</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECTION HEADING -->
+    <div class="section-heading">
+        <h2>Featured</h2>
+        <span class="count">Latest Investigation</span>
+    </div>
+
+    <!-- FEATURED CARD - Disney Cruise Child Safety (newest) -->
+    <a class="featured-card" href="canvas-breach.html">
+        <div class="featured-card-body">
+            <div class="featured-card-top">
+                <span class="card-category">Cybersecurity &nbsp;&middot;&nbsp; Education Privacy &nbsp;&middot;&nbsp; Red Team Operations</span>
+                <h3>275 Million Records Exposed.<br><em>Then the Ransom Notes Appeared.</em></h3>
+                <p class="card-deck">ShinyHunters exploited Canvas's Free-For-Teacher account flaw to steal student data from 9,000 schools. Students saw ransom notices instead of course dashboards during finals week. Here is what happened, how it happened, and why every organization needs red teams.</p>
+                <div class="card-meta">
+                    <span class="card-meta-item">By Tony Wolf</span>
+                    <span class="card-meta-dot">&middot;</span>
+                    <span class="card-meta-item">May 15, 2026</span>
+                    <span class="card-meta-dot">&middot;</span>
+                    <span class="card-meta-item">4,500 words</span>
+                    <span class="card-meta-dot">&middot;</span>
+                    <span class="card-meta-item">10 sources cited</span>
+                </div>
+            </div>
+            <span class="read-link">Read Full Article &rarr;</span>
+        </div>
+        <div class="featured-card-image">
+            <div class="featured-card-image-inner">
+                <div class="image-label">Cybersecurity</div>
+                <div class="image-tag">"275 million students hit.<br>9,000 schools exposed.<br>Trust boundary collapse."</div>
+            </div>
+        </div>
+    </a>
+
+    <!-- MORE ARTICLES HEADING -->
+    <div class="section-heading">
+        <h2>More Articles</h2>
+        <span class="count">8 Investigations</span>
+    </div>
+
+    <!-- ARTICLE GRID -->
+    <div class="article-grid">
+
+        <!-- Lead Pipes article card -->
+        <a class="article-card" href="lead-pipes.html">
+            <span class="card-category">Public Health &nbsp;&middot;&nbsp; Environment &nbsp;&middot;&nbsp; Infrastructure</span>
+            <h3>The Lead Pipes Slowly Poisoning Millions of Americans</h3>
+            <p class="card-deck">Up to nine million homes still receive water through lead service lines while replacement funding and prevention programs face cuts.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">February 7, 2026</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">6,000 words</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">20 sources</span>
+            </div>
+        </a>
+
+        <!-- Sudan article card -->
+        <a class="article-card" href="sudan.html">
+            <span class="card-category">Foreign Policy &nbsp;·&nbsp; Humanitarian Crisis</span>
+            <h3>The War America Forgot: Inside Sudan's Genocide in Plain Sight</h3>
+            <p class="card-deck">150,000 dead, 14 million displaced, and the world's largest humanitarian crisis is barely covered by American media.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">April 15, 2024</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-item">5,500 words</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-item">16 sources</span>
+            </div>
+        </a>
+
+        <!-- Private Prisons article card -->
+        <a class="article-card" href="private-prisons.html">
+            <span class="card-category">Criminal Justice &nbsp;·&nbsp; Corporate Accountability</span>
+            <h3>Captive Markets: How America's Private Prison Industry Built a Business Model on Human Bondage</h3>
+            <p class="card-deck">From lockup quotas and "low-crime taxes" to lobbying for harsher sentencing laws.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">August 1, 2024</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-item">5,000 words</span>
+                <span class="card-meta-dot">·</span>
+                <span class="card-meta-item">15 sources</span>
+            </div>
+        </a>
+
+        <!-- Disney Cruise Child Safety article card -->
+        <a class="article-card" href="disney-cruise-child-safety.html">
+            <span class="card-category">Cruise Industry &nbsp;&middot;&nbsp; Child Safety</span>
+            <h3>Disney Cruise Workers Were Linked to a Child Sexual Abuse Material Investigation. Families Deserve Answers.</h3>
+            <p class="card-deck">Federal authorities say 27 cruise workers from multiple ships were implicated. Some worked for Disney Cruise Line. The known facts are serious enough without adding speculation.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">May 7, 2026</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">Child Safety Investigation</span>
+            </div>
+        </a>
+
+        <!-- Tax Hoax article card -->
+        <a class="article-card" href="tax-hoax.html">
+            <span class="card-category">Fact Check &nbsp;&middot;&nbsp; Disinformation</span>
+            <h3>The Supreme Court Did Not Abolish Income Tax. Here Is Every Lie in the Post.</h3>
+            <p class="card-deck">A viral claim about a sealed SCOTUS ruling, a nine-minute PACER leak, and suppressed cancer cures. Every element is fabricated.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">January 23, 2020</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">5,800 words</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">18 sources</span>
+            </div>
+        </a>
+
+        <!-- AI Regulation article card -->
+        <a class="article-card" href="ai-regulation-global-battle.html">
+            <span class="card-category">Technology Policy &nbsp;&middot;&nbsp; Geopolitics &nbsp;&middot;&nbsp; Human Rights</span>
+            <h3>The AI Regulation Battle: When Human Rights Collide with Global Dominance</h3>
+            <p class="card-deck">The EU imposes rights-based rules, the US bets on market innovation, China deploys state control, and the Global South gets excluded. This is how the world is regulating AI supremacy.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">January 15, 2025</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">4,500 words</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">10 sources</span>
+            </div>
+        </a>
+
+        <!-- Climate Finance article card -->
+        <a class="article-card" href="climate-finance-controversy.html">
+            <span class="card-category">Climate &nbsp;&middot;&nbsp; Economics &nbsp;&middot;&nbsp; Geopolitics</span>
+            <h3>Climate Finance Controversy</h3>
+            <p class="card-deck">The global fight over how developed nations should fund climate adaptation in developing countries, with accusations of broken promises, insufficient targets, and systemic inequities.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">January 26, 2025</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">4,000 words</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">4 sources</span>
+            </div>
+        </a>
+
+        <a class="article-card" href="tech-antitrust-battles.html">
+            <span class="card-category">Technology Policy &nbsp;&middot;&nbsp; Law &nbsp;&middot;&nbsp; Geopolitics</span>
+            <h3>Tech Industry Antitrust Battles</h3>
+            <p class="card-deck">Major regulators challenging tech giants across multiple continents, with different countries taking radically different approaches to reigning in digital monopolies.</p>
+            <div class="card-meta">
+                <span class="card-meta-item">February 10, 2025</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">5,500 words</span>
+                <span class="card-meta-dot">&middot;</span>
+                <span class="card-meta-item">10 sources</span>
+            </div>
+        </a>
+
+    </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-inner">
+        <div class="footer-top">
+            <a class="footer-logo" href="https://tony-wolf.com">Tony <span>Wolf</span></a>
+            <nav class="footer-nav">
+                <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/index.html">Home</a>
+                <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Articles</a>
+                <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Investigations</a>
+                <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">About</a>
+                <a href="https://sites.super.myninja.ai/eb5191f9-2f81-4f2a-9cc0-1fe44ddd7dd4/e343de6a/articles/index.html">Contact</a>
+            </nav>
+        </div>
+        <div class="footer-copy">&copy; 2026 Tony Wolf &nbsp;·&nbsp; sites.super.myninja.ai &nbsp;·&nbsp; Independent journalism. No paywall. No corporate filter.</div>
+    </div>
+</footer>
+
+
+<script>
+(function() {
+  function nukeNinja() {
+    // Remove badge and banner by exact IDs
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    // Remove by exact classes
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    // Reset body padding added by banner script
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  // Run immediately
+  nukeNinja();
+  // Run after delays to catch async-loaded elements
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) {
+    setTimeout(nukeNinja, ms);
+  });
+  // Keep watching for any new injections via MutationObserver
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) {
+    observer.observe(document.body, { childList: true, subtree: true });
+  } else {
+    document.addEventListener('DOMContentLoaded', function() {
+      observer.observe(document.body, { childList: true, subtree: true });
+    });
+  }
+})();
+
+// Article Search functionality
+(function() {
+    // Article data - centralized source of truth
+    const articles = [
+        {
+            url: 'ai-regulation-global-battle.html',
+            title: 'The AI Regulation Battle: When Human Rights Collide with Global Dominance',
+            excerpt: 'The EU imposes rights-based rules, the US bets on market innovation, China deploys state control, and the Global South gets excluded. This is how the world is regulating AI supremacy.',
+            category: 'Technology Policy · Geopolitics · Human Rights',
+            date: '2025-01-15',
+            displayDate: 'January 15, 2025'
+        },
+        {
+            url: 'canvas-breach.html',
+            title: '275 Million Records Exposed. Then the Ransom Notes Appeared.',
+            excerpt: 'ShinyHunters exploited Canvas\'s Free-For-Teacher account flaw to steal student data from 9,000 schools. Students saw ransom notices instead of course dashboards during finals week.',
+            category: 'Cybersecurity · Education Privacy · Red Team Operations',
+            date: '2026-05-15',
+            displayDate: 'May 15, 2026'
+        },
+        {
+            url: 'lead-pipes.html',
+            title: 'The Lead Pipes Slowly Poisoning Millions of Americans',
+            excerpt: 'Up to nine million homes still receive water through lead service lines while replacement funding and prevention programs face cuts.',
+            category: 'Public Health · Environment · Infrastructure',
+            date: '2026-02-07',
+            displayDate: 'February 7, 2026'
+        },
+        {
+            url: 'sudan.html',
+            title: 'The Forgotten War: Millions Displaced as World Watches the Middle East',
+            excerpt: 'While global attention focuses on Gaza, Sudan\'s civil war has displaced over 7 million people and created one of the world\'s worst humanitarian crises.',
+            category: 'Foreign Policy · Humanitarian Crisis',
+            date: '2025-11-20',
+            displayDate: 'November 20, 2025'
+        },
+        {
+            url: 'private-prisons.html',
+            title: 'Private Prisons: Profit Motives Over Rehabilitation',
+            excerpt: 'How privatization of correctional facilities creates perverse incentives that prioritize profits over public safety and inmate rehabilitation.',
+            category: 'Criminal Justice · Corporate Accountability',
+            date: '2025-09-10',
+            displayDate: 'September 10, 2025'
+        },
+        {
+            url: 'disney-cruise-child-safety.html',
+            title: 'Child Safety at Sea: Questions About Disney Cruise Line',
+            excerpt: 'Federal authorities say 27 cruise workers from multiple ships were implicated. Some worked for Disney Cruise Line. The known facts are serious enough without adding speculation.',
+            category: 'Maritime Safety · Child Protection',
+            date: '2026-05-07',
+            displayDate: 'May 7, 2026'
+        },
+        {
+            url: 'tax-hoax.html',
+            title: 'The Supreme Court Did Not Abolish Income Tax. Here Is Every Lie in the Post.',
+            excerpt: 'A viral claim about a sealed SCOTUS ruling, a nine-minute PACER leak, and suppressed cancer cures. Every element is fabricated.',
+            category: 'Fact Check · Disinformation',
+            date: '2020-01-23',
+            displayDate: 'January 23, 2020'
+        },
+        {
+            url: 'climate-denial.html',
+            title: 'The Climate Denial Industry: Decades of Deception',
+            excerpt: 'How fossil fuel companies funded a coordinated campaign to spread climate disinformation and delay action on the climate crisis.',
+            category: 'Climate · Corporate Accountability',
+            date: '2025-03-15',
+            displayDate: 'March 15, 2025'
+        },
+        {
+            url: 'climate-finance-controversy.html',
+            title: 'Climate Finance Controversy',
+            excerpt: 'The global fight over how developed nations should fund climate adaptation in developing countries, with accusations of broken promises, insufficient targets, and systemic inequities.',
+            category: 'Climate · Economics · Geopolitics',
+            date: '2025-01-26',
+            displayDate: 'January 26, 2025'
+        },
+        {
+            url: 'tech-antitrust-battles.html',
+            title: 'Tech Industry Antitrust Battles',
+            excerpt: 'Major regulators challenging tech giants across multiple continents, with different countries taking radically different approaches to reigning in digital monopolies.',
+            category: 'Technology Policy · Law · Geopolitics',
+            date: '2025-02-10',
+            displayDate: 'February 10, 2025'
+        }
+    ];
+
+    // State
+    let currentFilter = 'newest';
+    let searchQuery = '';
+
+    // Elements
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const featuredCard = document.querySelector('.featured-card');
+    const sectionHeading = document.querySelector('.section-heading');
+    const articleGrid = document.querySelector('.article-grid');
+
+    // Filter and sort articles
+    function filterArticles() {
+        let filtered = articles;
+
+        if (searchQuery.trim()) {
+            const query = searchQuery.toLowerCase();
+            filtered = filtered.filter(article =>
+                article.title.toLowerCase().includes(query) ||
+                article.excerpt.toLowerCase().includes(query) ||
+                article.category.toLowerCase().includes(query)
+            );
+        }
+
+        if (currentFilter === 'newest') {
+            filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+        } else {
+            filtered = [...filtered].sort((a, b) => new Date(a.date) - new Date(b.date));
+        }
+
+        return filtered;
+    }
+
+    // Update page with filtered articles
+    function updatePage(filteredArticles) {
+        if (!filteredArticles.length) {
+            // Show no results
+            articleGrid.innerHTML = '<div style="text-align: center; padding: 60px 20px; color: #666; grid-column: 1 / -1;"><h3 style="font-family: Playfair Display, serif; font-size: 1.5rem; margin-bottom: 10px;">No Results Found</h3><p>Try adjusting your search terms</p></div>';
+            if (featuredCard) featuredCard.style.display = 'none';
+            if (sectionHeading) sectionHeading.style.display = 'none';
+            return;
+        }
+
+        // Hide featured card and section heading when searching
+        if (searchQuery.trim()) {
+            if (featuredCard) featuredCard.style.display = 'none';
+            if (sectionHeading) sectionHeading.style.display = 'none';
+        } else {
+            if (featuredCard) featuredCard.style.display = 'flex';
+            if (sectionHeading) sectionHeading.style.display = 'flex';
+        }
+
+        // Update article grid - only update if searching
+        if (searchQuery.trim()) {
+            articleGrid.innerHTML = filteredArticles.map(article => `
+                <a class="article-card" href="${article.url}">
+                    <span class="card-category">${article.category}</span>
+                    <h3>${article.title}</h3>
+                    <p class="card-deck">${article.excerpt}</p>
+                    <div class="card-meta">
+                        <span class="card-meta-item">${article.displayDate}</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+    }
+
+    // Debounce function
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
+    // Event listeners
+    if (searchInput) {
+        searchInput.addEventListener('input', debounce(e => {
+            searchQuery = e.target.value;
+            const filtered = filterArticles();
+            updatePage(filtered);
+        }, 300));
+    }
+
+    filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterButtons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            currentFilter = btn.dataset.filter;
+            const filtered = filterArticles();
+
+            // Update page with new sort order
+            if (!searchQuery.trim()) {
+                // Reload page to reset to show featured card properly
+                window.location.reload();
+                return;
+            }
+
+            updatePage(filtered);
+        });
+    });
+})();
+</script>
+</body>
+</html>

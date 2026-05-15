@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Tony Wolf</title>
+    <meta name="description" content="Search investigative reporting and articles from Tony Wolf.">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;600;700&display=swap');
+
+        :root {
+            --ink: #1a1a1a;
+            --deep-red: #8B0000;
+            --muted-red: #b5282a;
+            --gold: #c9963a;
+            --light-bg: #f8f5f0;
+            --rule: #d0c8bc;
+            --white: #ffffff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--light-bg);
+            color: var(--ink);
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-weight: 300;
+        }
+
+        /* ─── Masthead ─── */
+        .masthead {
+            background: var(--white);
+            border-bottom: 3px solid var(--ink);
+            padding: 0 40px;
+            display: flex;
+            align-items: stretch;
+            justify-content: space-between;
+            min-height: 64px;
+        }
+        .masthead-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--ink);
+            text-decoration: none;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+        }
+        .masthead-logo span { color: var(--deep-red); }
+        .masthead-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .masthead-nav a {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #666;
+            text-decoration: none;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        .masthead-nav a:hover,
+        .masthead-nav a.active {
+            color: var(--deep-red);
+            border-bottom-color: var(--deep-red);
+        }
+
+        /* ─── Section Bar ─── */
+        .section-bar {
+            background: var(--ink);
+            padding: 10px 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .section-tag {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            background: var(--deep-red);
+            color: #fff;
+            padding: 5px 14px;
+        }
+        .section-desc {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #777;
+        }
+
+        /* ─── Search Section ─── */
+        .search-section {
+            padding: 60px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .search-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            font-weight: 900;
+            color: var(--ink);
+            margin-bottom: 10px;
+        }
+        .search-header p {
+            font-size: 0.95rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Search Box */
+        .search-container {
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .search-input-wrapper {
+            display: flex;
+            align-items: center;
+            background: var(--white);
+            border: 2px solid var(--rule);
+            border-radius: 8px;
+            padding: 8px 16px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+        }
+        .search-input-wrapper:focus-within {
+            border-color: var(--deep-red);
+            box-shadow: 0 2px 12px rgba(139, 0, 0, 0.12);
+        }
+        .search-icon {
+            font-size: 1.2rem;
+            color: #999;
+            margin-right: 12px;
+        }
+        .search-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-family: 'Source Serif 4', Georgia, serif;
+            font-size: 1.05rem;
+            color: var(--ink);
+            background: transparent;
+        }
+        .search-input::placeholder {
+            color: #aaa;
+        }
+
+        /* Filters */
+        .filters-container {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        .filter-btn {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border: 2px solid var(--rule);
+            background: var(--white);
+            color: #666;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .filter-btn:hover {
+            border-color: var(--deep-red);
+            color: var(--deep-red);
+        }
+        .filter-btn.active {
+            background: var(--deep-red);
+            border-color: var(--deep-red);
+            color: var(--white);
+        }
+
+        /* Results */
+        .results-info {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.74rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 24px;
+        }
+
+        .result-card {
+            background: var(--white);
+            border: 1px solid var(--rule);
+            border-radius: 8px;
+            padding: 24px;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+        }
+        .result-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+            border-color: var(--deep-red);
+        }
+        .result-category {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--deep-red);
+            margin-bottom: 10px;
+        }
+        .result-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .result-excerpt {
+            font-size: 0.92rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .result-meta {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.68rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: #999;
+            display: flex;
+            gap: 12px;
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px 20px;
+            display: none;
+        }
+        .no-results h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 12px;
+        }
+        .no-results p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Loading State */
+        .loading {
+            text-align: center;
+            padding: 40px;
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: #999;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 40px;
+            margin-top: 80px;
+        }
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .footer-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .footer-logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--white);
+            text-decoration: none;
+        }
+        .footer-logo span { color: var(--deep-red); }
+        .footer-nav {
+            display: flex;
+            gap: 24px;
+        }
+        .footer-nav a {
+            font-family: 'Source Sans 3', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+        }
+        .footer-nav a:hover { color: var(--white); }
+        .footer-copy {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.5);
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .masthead {
+                padding: 0 20px;
+                flex-direction: column;
+                min-height: auto;
+            }
+            .masthead-logo {
+                padding: 16px 0;
+                margin-right: 0;
+            }
+            .masthead-nav {
+                width: 100%;
+                justify-content: center;
+                padding-bottom: 12px;
+                gap: 20px;
+            }
+            .section-bar {
+                padding: 8px 20px;
+            }
+            .search-section {
+                padding: 40px 20px;
+            }
+            .search-header h1 {
+                font-size: 2rem;
+            }
+            .results-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-top {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Masthead -->
+    <header class="masthead">
+        <a class="masthead-logo" href="https://tony-wolf.com">Tony <span>Wolf</span></a>
+        <nav class="masthead-nav">
+            <a href="https://tony-wolf.com">Home</a>
+            <a href="articles/index.html" class="active">Articles</a>
+            <a href="search.html">Search</a>
+            <a href="https://tony-wolf.com/about.html">About</a>
+        </nav>
+    </header>
+
+    <!-- Section Bar -->
+    <div class="section-bar">
+        <span class="section-tag">Search</span>
+        <span class="section-desc">Every story, every investigation, every word</span>
+    </div>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-header">
+            <h1>Search Articles</h1>
+            <p>Find investigative reports, commentary, and accountability journalism</p>
+        </div>
+
+        <!-- Search Input -->
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" id="searchInput" placeholder="Search by keyword, topic, or phrase...">
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container">
+            <button class="filter-btn active" data-filter="newest">Newest First</button>
+            <button class="filter-btn" data-filter="oldest">Oldest First</button>
+        </div>
+
+        <!-- Results Info -->
+        <div class="results-info" id="resultsInfo">8 articles found</div>
+
+        <!-- Results Grid -->
+        <div class="results-grid" id="resultsGrid">
+            <!-- Results will be populated by JavaScript -->
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults">
+            <h2>No Results Found</h2>
+            <p>Try adjusting your search terms or filters</p>
+        </div>
+
+        <!-- Loading -->
+        <div class="loading" id="loading">Searching...</div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-top">
+                <a class="footer-logo" href="https://tony-wolf.com">Tony <span>Wolf</span></a>
+                <nav class="footer-nav">
+                    <a href="https://tony-wolf.com">Home</a>
+                    <a href="articles/index.html">Articles</a>
+                    <a href="https://tony-wolf.com/about.html">About</a>
+                    <a href="https://tony-wolf.com/contact.html">Contact</a>
+                </nav>
+            </div>
+            <div class="footer-copy">&copy; 2026 Tony Wolf &nbsp;·&nbsp; Independent journalism. No paywall. No corporate filter.</div>
+        </div>
+    </footer>
+
+    <script>
+        // Article data - this will be the central source of truth
+        const articles = [
+            {
+                id: 'ai-regulation',
+                url: 'articles/ai-regulation-global-battle.html',
+                title: 'The AI Regulation Battle: When Human Rights Collide with Global Dominance',
+                excerpt: 'The EU imposes rights-based rules, the US bets on market innovation, China deploys state control, and the Global South gets excluded. This is how the world is regulating AI supremacy.',
+                category: 'Technology Policy · Geopolitics · Human Rights',
+                date: '2025-01-15',
+                displayDate: 'January 15, 2025',
+                wordCount: '4,500 words',
+                sources: '10 sources'
+            },
+            {
+                id: 'canvas-breach',
+                url: 'articles/canvas-breach.html',
+                title: '275 Million Records Exposed. Then the Ransom Notes Appeared.',
+                excerpt: 'ShinyHunters exploited Canvas\'s Free-For-Teacher account flaw to steal student data from 9,000 schools. Students saw ransom notices instead of course dashboards during finals week. Here is what happened, how it happened, and why every organization needs red teams.',
+                category: 'Cybersecurity · Education Privacy · Red Team Operations',
+                date: '2026-05-15',
+                displayDate: 'May 15, 2026',
+                wordCount: '4,500 words',
+                sources: '10 sources'
+            },
+            {
+                id: 'lead-pipes',
+                url: 'articles/lead-pipes.html',
+                title: 'The Lead Pipes Slowly Poisoning Millions of Americans',
+                excerpt: 'Up to nine million homes still receive water through lead service lines while replacement funding and prevention programs face cuts.',
+                category: 'Public Health · Environment · Infrastructure',
+                date: '2026-02-07',
+                displayDate: 'February 7, 2026',
+                wordCount: '6,000 words',
+                sources: '20 sources'
+            },
+            {
+                id: 'sudan',
+                url: 'articles/sudan.html',
+                title: 'The Forgotten War: Millions Displaced as World Watches the Middle East',
+                excerpt: 'While global attention focuses on Gaza, Sudan’s civil war has displaced over 7 million people and created one of the world\'s worst humanitarian crises.',
+                category: 'Foreign Policy · Humanitarian Crisis',
+                date: '2025-11-20',
+                displayDate: 'November 20, 2025',
+                wordCount: '5,200 words',
+                sources: '15 sources'
+            },
+            {
+                id: 'private-prisons',
+                url: 'articles/private-prisons.html',
+                title: 'Private Prisons: Profit Motives Over Rehabilitation',
+                excerpt: 'How privatization of correctional facilities creates perverse incentives that prioritize profits over public safety and inmate rehabilitation.',
+                category: 'Criminal Justice · Corporate Accountability',
+                date: '2025-09-10',
+                displayDate: 'September 10, 2025',
+                wordCount: '5,800 words',
+                sources: '18 sources'
+            },
+            {
+                id: 'disney-cruise',
+                url: 'articles/disney-cruise-child-safety.html',
+                title: 'Child Safety at Sea: Questions About Disney Cruise Line',
+                excerpt: 'Federal authorities say 27 cruise workers from multiple ships were implicated. Some worked for Disney Cruise Line. The known facts are serious enough without adding speculation.',
+                category: 'Maritime Safety · Child Protection',
+                date: '2026-05-07',
+                displayDate: 'May 7, 2026',
+                wordCount: '3,200 words',
+                sources: '12 sources'
+            },
+            {
+                id: 'tax-hoax',
+                url: 'articles/tax-hoax.html',
+                title: 'The Supreme Court Did Not Abolish Income Tax. Here Is Every Lie in the Post.',
+                excerpt: 'A viral claim about a sealed SCOTUS ruling, a nine-minute PACER leak, and suppressed cancer cures. Every element is fabricated.',
+                category: 'Fact Check · Disinformation',
+                date: '2020-01-23',
+                displayDate: 'January 23, 2020',
+                wordCount: '5,800 words',
+                sources: '18 sources'
+            },
+            {
+                id: 'climate-denial',
+                url: 'articles/climate-denial.html',
+                title: 'The Climate Denial Industry: Decades of Deception',
+                excerpt: 'How fossil fuel companies funded a coordinated campaign to spread climate disinformation and delay action on the climate crisis.',
+                category: 'Climate · Corporate Accountability',
+                date: '2025-03-15',
+                displayDate: 'March 15, 2025',
+                wordCount: '6,500 words',
+                sources: '25 sources'
+            },
+            {
+                id: 'climate-finance-controversy',
+                url: 'articles/climate-finance-controversy.html',
+                title: 'Climate Finance Controversy',
+                excerpt: 'The global fight over how developed nations should fund climate adaptation in developing countries, with accusations of broken promises, insufficient targets, and systemic inequities.',
+                category: 'Climate · Economics · Geopolitics',
+                date: '2025-01-26',
+                displayDate: 'January 26, 2025',
+                wordCount: '4,000 words',
+                sources: '4 sources'
+            },
+            {
+                id: 'tech-antitrust-battles',
+                url: 'articles/tech-antitrust-battles.html',
+                title: 'Tech Industry Antitrust Battles',
+                excerpt: 'Major regulators challenging tech giants across multiple continents, with different countries taking radically different approaches to reigning in digital monopolies.',
+                category: 'Technology Policy · Law · Geopolitics',
+                date: '2025-02-10',
+                displayDate: 'February 10, 2025',
+                wordCount: '5,500 words',
+                sources: '10 sources'
+            }
+        ];
+
+        // State
+        let currentFilter = 'newest'; // 'newest' or 'oldest'
+        let searchQuery = '';
+
+        // Elements
+        const searchInput = document.getElementById('searchInput');
+        const resultsGrid = document.getElementById('resultsGrid');
+        const resultsInfo = document.getElementById('resultsInfo');
+        const noResults = document.getElementById('noResults');
+        const loading = document.getElementById('loading');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        // Filter articles
+        function filterArticles() {
+            let filtered = articles;
+
+            // Apply search filter
+            if (searchQuery.trim()) {
+                const query = searchQuery.toLowerCase();
+                filtered = filtered.filter(article =>
+                    article.title.toLowerCase().includes(query) ||
+                    article.excerpt.toLowerCase().includes(query) ||
+                    article.category.toLowerCase().includes(query)
+                );
+            }
+
+            // Apply date filter
+            if (currentFilter === 'newest') {
+                filtered = [...filtered].sort((a, b) => new Date(b.date) - new Date(a.date));
+            } else {
+                filtered = [...filtered].sort((a, b) => new Date(a.date) - new Date(b.date));
+            }
+
+            return filtered;
+        }
+
+        // Render results
+        function renderResults(articles) {
+            loading.style.display = 'none';
+
+            if (articles.length === 0) {
+                resultsGrid.style.display = 'none';
+                noResults.style.display = 'block';
+                resultsInfo.textContent = '0 results found';
+                return;
+            }
+
+            resultsGrid.style.display = 'grid';
+            noResults.style.display = 'none';
+            resultsInfo.textContent = `${articles.length} result${articles.length !== 1 ? 's' : ''} found`;
+
+            resultsGrid.innerHTML = articles.map(article => `
+                <a href="${article.url}" class="result-card">
+                    <span class="result-category">${article.category}</span>
+                    <h3 class="result-title">${article.title}</h3>
+                    <p class="result-excerpt">${article.excerpt}</p>
+                    <div class="result-meta">
+                        <span>${article.displayDate}</span>
+                        <span>·</span>
+                        <span>${article.wordCount}</span>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Debounce search
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', debounce(e => {
+            searchQuery = e.target.value;
+            loading.style.display = 'block';
+            setTimeout(() => {
+                const results = filterArticles();
+                renderResults(results);
+            }, 300);
+        }, 300));
+
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentFilter = btn.dataset.filter;
+                const results = filterArticles();
+                renderResults(results);
+            });
+        });
+
+        // Initialize
+        const savedQuery = localStorage.getItem('searchQuery');
+        if (savedQuery) {
+            searchInput.value = savedQuery;
+            searchQuery = savedQuery;
+            localStorage.removeItem('searchQuery');
+            loading.style.display = 'block';
+            setTimeout(() => {
+                const results = filterArticles();
+                renderResults(results);
+            }, 300);
+        } else {
+            const initialResults = filterArticles();
+            renderResults(initialResults);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Trump Phone Con: $59 Million Collected, Zero Phones Delivered | Tony Wolf</title>
+<meta name="description" content="590,000 Americans paid $100 deposits for a Trump family gold smartphone promised in June 2025. As of May 2026, not one phone has shipped. Then the fine print changed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--deep-red:#8b0000;--gold:#c9a84c;--dark-bg:#1c1c1c;--light-bg:#f5f0eb;--rule:#d4c5b0;--text:#1a1a1a;--muted:#555}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--light-bg);color:var(--text);font-family:'Source Serif 4',Georgia,serif;line-height:1.72;-webkit-font-smoothing:antialiased}
+a{color:var(--deep-red);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid var(--rule);padding:0 24px;height:52px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{font-family:'Playfair Display',serif;font-weight:900;font-size:1.25rem;color:var(--deep-red);letter-spacing:.03em}
+.nav-brand span{color:var(--dark-bg)}
+.nav-links{display:flex;gap:20px;list-style:none}
+.nav-links a{font-family:'Inter',sans-serif;font-size:.78rem;font-weight:500;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
+.nav-links a:hover{color:var(--deep-red);text-decoration:none}
+
+/* CATEGORY BAR */
+.category-bar{background:var(--deep-red);color:#fff;padding:9px 32px;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;display:flex;gap:12px;align-items:center}
+.cat-sep{opacity:.45}
+
+/* HERO */
+.hero{background:var(--dark-bg);color:#fff;padding:64px 32px 56px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 20%,rgba(139,0,0,.35) 0%,transparent 60%),radial-gradient(ellipse at 20% 80%,rgba(201,168,76,.12) 0%,transparent 60%);pointer-events:none}
+.hero-inner{max-width:840px;margin:0 auto;position:relative;z-index:1}
+.hero-kicker{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-bottom:18px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:900;line-height:1.12;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero-sub{font-size:1.13rem;color:rgba(255,255,255,.78);max-width:680px;line-height:1.65;margin-bottom:28px;font-weight:300}
+.hero-meta{font-family:'Inter',sans-serif;font-size:.74rem;color:rgba(255,255,255,.5);letter-spacing:.04em;display:flex;gap:16px;flex-wrap:wrap}
+.hero-byline{font-weight:600;color:rgba(255,255,255,.75)}
+.hero-date{color:var(--gold)}
+
+/* SHARE BAR */
+.share-bar{background:#fff;border-bottom:1px solid var(--rule);padding:10px 32px;display:flex;align-items:center;gap:12px;font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.share-dot{width:6px;height:6px;border-radius:50%;background:var(--deep-red)}
+
+/* LAYOUT */
+.article-wrap{max-width:760px;margin:0 auto;padding:48px 24px 80px}
+
+/* BODY TEXT */
+.article-body p{font-size:1.05rem;line-height:1.78;margin-bottom:1.5em;color:#222}
+.article-body h2{font-family:'Playfair Display',serif;font-size:1.65rem;font-weight:700;margin:2.5em 0 .7em;color:var(--dark-bg);border-top:2px solid var(--rule);padding-top:1.2em}
+.article-body h3{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;margin:2em 0 .6em;color:var(--dark-bg)}
+
+/* DROP CAP */
+.drop-cap::first-letter{font-family:'Playfair Display',serif;float:left;font-size:4.2em;line-height:.78;font-weight:900;color:var(--deep-red);margin-right:.08em;padding-top:.05em}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin:2.5em 0;background:#fff;padding:24px;border:1px solid var(--rule);border-top:3px solid var(--deep-red)}
+.stat-box{text-align:center;padding:12px 8px}
+.stat-num{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:900;color:var(--deep-red);line-height:1}
+.stat-label{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:500;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:6px}
+
+/* TIMELINE */
+.timeline{border-left:3px solid var(--deep-red);margin:2.5em 0;padding:0 0 0 24px}
+.tl-item{margin-bottom:20px;position:relative}
+.tl-item::before{content:'';position:absolute;left:-31px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--deep-red);border:2px solid var(--light-bg)}
+.tl-date{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--deep-red);margin-bottom:3px}
+.tl-fact{font-size:.95rem;color:#333;line-height:1.55}
+
+/* VERDICT BOX */
+.verdict-box{background:var(--dark-bg);color:#fff;padding:28px 32px;margin:2.5em 0;border-left:4px solid var(--gold)}
+.verdict-label{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:10px}
+.verdict-box p{font-size:.98rem;color:rgba(255,255,255,.88);line-height:1.7;margin:0}
+
+/* WARNING / INFO BOXES */
+.warning-box{background:#fff7f7;border:1px solid #e8c0c0;border-left:4px solid var(--deep-red);padding:22px 26px;margin:2.5em 0}
+.info-box{background:#fff9ee;border:1px solid #e8d9a0;border-left:4px solid var(--gold);padding:22px 26px;margin:2.5em 0}
+.box-label{font-family:'Inter',sans-serif;font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--deep-red);margin-bottom:8px}
+.info-box .box-label{color:#8a7000}
+.warning-box p,.info-box p{font-size:.95rem;line-height:1.65;margin-bottom:.6em;color:#333}
+.warning-box p:last-child,.info-box p:last-child{margin:0}
+
+/* PULL QUOTE */
+.pull-quote{border-top:3px solid var(--deep-red);border-bottom:1px solid var(--rule);padding:22px 0;margin:2.5em 0;text-align:center}
+.pull-quote blockquote{font-family:'Playfair Display',serif;font-size:1.35rem;font-style:italic;font-weight:700;line-height:1.4;color:var(--dark-bg);max-width:600px;margin:0 auto 10px}
+.pull-quote cite{font-family:'Inter',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* DATA TABLE */
+.data-table{width:100%;border-collapse:collapse;margin:2em 0;font-family:'Inter',sans-serif;font-size:.85rem}
+.data-table th{background:var(--dark-bg);color:#fff;padding:10px 14px;text-align:left;font-weight:600;letter-spacing:.04em}
+.data-table td{padding:10px 14px;border-bottom:1px solid var(--rule);vertical-align:top;line-height:1.5}
+.data-table tr:nth-child(even) td{background:rgba(0,0,0,.025)}
+.data-table td.red{color:var(--deep-red);font-weight:700}
+.data-table td.gold{color:#7a5c00;font-weight:700}
+
+/* SOURCES */
+.sources{border-top:2px solid var(--rule);margin-top:3em;padding-top:2em}
+.sources h3{font-family:'Inter',sans-serif;font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.sources ol{padding-left:1.2em}
+.sources li{font-family:'Inter',sans-serif;font-size:.8rem;line-height:1.6;color:var(--muted);margin-bottom:6px}
+.sources li a{color:var(--muted);text-decoration:underline}
+
+/* FOOTER */
+footer{background:var(--dark-bg);color:rgba(255,255,255,.5);font-family:'Inter',sans-serif;font-size:.78rem;padding:32px;text-align:center}
+footer a{color:var(--gold)}
+footer .footer-brand{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:900;color:#fff;margin-bottom:8px}
+
+@media(max-width:600px){
+.hero{padding:40px 20px 36px}
+.article-wrap{padding:32px 16px 56px}
+.stat-grid{grid-template-columns:1fr 1fr}
+.nav-links{display:none}
+}
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
+</head>
+<body>
+
+    <!-- IMMEDIATE SUPER_NINJA REMOVAL - RUNS BEFORE ADS LOAD -->
+    <script>
+      (function() {
+        // Immediate removal - runs synchronously
+        function hideNinjaElements() {
+          var selectors = [
+            '.ninja-badge',
+            '.ninja-daytona-banner',
+            '.ninja-connection-status',
+            '.ninja-disconnect-overlay',
+            '[id*="ninja"]',
+            '[class*="ninja-banner"]',
+            '[class*="ninja-badge"]'
+          ];
+          selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.display = 'none';
+              elements[i].style.visibility = 'hidden';
+              elements[i].style.opacity = '0';
+              elements[i].remove();
+            }
+          });
+        }
+        
+        // Run immediately
+        hideNinjaElements();
+        
+        // Run on DOMContentLoaded as backup
+        if (document.readyState !== 'loading') {
+          hideNinjaElements();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideNinjaElements);
+        }
+        
+        // Run continuously to catch any dynamically added elements
+        setInterval(hideNinjaElements, 1000);
+      })();
+    </script>
+
+<nav>
+<div class="nav-brand">Tony <span>Wolf</span></div>
+<ul class="nav-links">
+<li><a href="https://tony-wolf.com">Home</a></li>
+<li><a href="index.html">Investigations</a></li>
+<li><a href="../social-posts.html">Social</a></li>
+</ul>
+</nav>
+
+<div class="category-bar">
+Consumer Fraud <span class="cat-sep">&middot;</span> Presidential Ethics <span class="cat-sep">&middot;</span> Corporate Accountability <span class="cat-sep">&middot;</span> May 2026
+</div>
+
+<div class="hero">
+<div class="hero-inner">
+<div class="hero-kicker">Full Investigation &nbsp;&bull;&nbsp; Verified & Sourced</div>
+<h1>$59 Million Collected.<br><em>Zero Phones Delivered.</em><br>Then They Changed the Rules.</h1>
+<div class="hero-sub">590,000 Americans paid $100 deposits for the Trump family's gold T1 smartphone. After missing every single deadline, Trump Mobile quietly rewrote its terms of service in April 2026 to say your deposit was never really a purchase at all.</div>
+<div class="hero-meta">
+<span class="hero-byline">By Tony Wolf</span>
+<span class="hero-date">June 16, 2025</span>
+<span>11-minute read</span>
+</div>
+</div>
+</div>
+
+<div class="share-bar">
+<div class="share-dot"></div>
+<span>Investigation</span>
+<div class="share-dot"></div>
+<span>All Claims Verified Against Primary Sources</span>
+</div>
+
+<div class="article-wrap">
+<div class="article-body">
+
+<div class="stat-grid">
+<div class="stat-box"><div class="stat-num">590,000</div><div class="stat-label">Americans who paid $100 deposits</div></div>
+<div class="stat-box"><div class="stat-num">$59M</div><div class="stat-label">Total deposits collected</div></div>
+<div class="stat-box"><div class="stat-num">0</div><div class="stat-label">Phones shipped as of May 2026</div></div>
+<div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Missed delivery deadlines</div></div>
+</div>
+
+<p class="drop-cap">On June 16, 2025, Donald Trump Jr. and Eric Trump took the stage at Trump Tower in New York City to announce what they called a revolutionary American smartphone. The gold-colored T1 Phone, they said, was "proudly designed and built in the United States." It would cost $499 and be ready for customers by August 2025. All you had to do to reserve yours was put down a $100 deposit. Hundreds of thousands of Trump supporters did exactly that.</p>
+
+<p>Eleven months later, as of May 2026, not a single confirmed customer has received a T1 phone. Not one. The company has missed every delivery deadline it set, silently deleted its release timeline from its website, and -- in a move that legal and consumer-protection experts have called extraordinary -- quietly rewrote its terms of service in April 2026 to state that your $100 deposit was never actually a purchase, never created a legal obligation, and does not guarantee you will ever receive a phone at all.</p>
+
+<p>The math is staggering. An estimated 590,000 people paid $100 deposits, collectively placing approximately $59 million into a company that has delivered nothing. Federal lawmakers have called on the FTC to investigate. Democratic members of Congress have raised conflict-of-interest alarms about the relationship between Trump Mobile's cellular carrier partner and the Trump administration. And across social media and conservative forums, even the president's own base has broken from its characteristic patience -- posting viral videos demanding to know where their phones are.</p>
+
+<p>This is the full, sourced account of what happened.</p>
+
+<h2>How It Started: The Announcement</h2>
+
+<p>The date was chosen deliberately. June 16, 2025 marked the tenth anniversary of Donald Trump descending that famous escalator at Trump Tower to launch his 2016 presidential campaign. On that symbolic occasion, his two eldest sons stood in the same building to announce Trump Mobile -- a new wireless service and phone company that would, they claimed, offer an American-made, American-staffed, privacy-focused alternative to Apple and Samsung.</p>
+
+<p>The T1 phone, they said, would be manufactured in Alabama, California, and Florida. A spokesman for Trump Mobile told The Wall Street Journal on launch day that manufacturing "will be in Alabama, California and Florida." Trump Jr., appearing on "The Benny Show," said the T1 phone was "American hardware, built in America, without the potential of a backdoor into the hardware that some of our adversaries have installed in there." The press release described it as a phone "proudly designed and built in the United States."</p>
+
+<p>The website, which launched the same day, urged customers to deposit $100 to "pre-order" the "MADE IN THE USA T1 Phone." The phone was listed as available in September 2025 for $499. The company also launched a wireless plan -- the "47 Plan," named for Trump's status as the 47th president -- priced at $47.45 per month, the extra 45 cents a nod to his also being the 45th president.</p>
+
+<div class="info-box">
+<div class="box-label">Key Legal Disclaimer Hidden in the Website</div>
+<p>Despite Don Jr. and Eric Trump personally announcing and promoting the phone, a disclaimer buried on the Trump Mobile website stated: "Trump Mobile and all its products and services are not designed, developed, manufactured, distributed, or sold by The Trump Organization or any of their respective affiliates or principals. T1 Mobile LLC uses the Trump name and trademark pursuant to the terms of a limited license agreement, which may be terminated or revoked according to its terms."</p>
+<p>This is standard Trump brand licensing -- the family collects royalties for the use of the name but legally insulates itself from product liability. The same structure was used for Trump University, Trump-branded condos, and various other ventures.</p>
+</div>
+
+<p>The phone received immediate media coverage and apparent consumer enthusiasm. Tech journalists noted that a "Made in the USA" Android smartphone with high-end specs -- including a 50-megapixel camera, a 6.8-inch screen, and 12 gigabytes of RAM -- for $499 would be extraordinarily difficult to produce. The only phone currently assembled in the United States, the Liberty Phone, costs $2,000 and carries parts from China and other Asian countries. Experts were skeptical from day one. Consumers, it seems, were not.</p>
+
+<h2>The "Made in USA" Claim Lasted Nine Days</h2>
+
+<p>The patriotic manufacturing claim was central to the product's pitch. It was the differentiator, the reason to buy a phone from the Trump sons rather than Apple or Samsung. It was the headline. And it lasted approximately nine days.</p>
+
+<p>By June 25, 2025, The Verge reported that the description of the T1 had changed dramatically on the Trump Mobile website. The phone was no longer "MADE IN THE USA." It had become "Proudly American" -- described as "designed with American values in mind" and "shaped by American innovation." Both phrases are legally meaningless. Neither phrase describes where the phone is made or where its components originate.</p>
+
+<p>Experts and investigative journalists quickly identified strong evidence pointing to China as the actual manufacturer. IBTimes UK, citing technology analysts, reported that the T1 phone appeared to be linked to Wingtech, a major Chinese contract manufacturer known for producing phones for various brands under private-label agreements. CNN Business reported in June 2025 that experts examining the phone's specifications and design said it appeared consistent with handsets manufactured in China. Variety similarly reported that tech experts assessed the phone as "probably manufactured in China."</p>
+
+<p>By February 2026, Trump Mobile executives Don Hendrickson and Eric Thomas confirmed to The Verge's Dominic Preston -- during a demonstration of a prototype over video call -- that the T1 would not be manufactured in the United States. Final assembly of approximately ten components would take place in Miami. The company refused to disclose where the bulk of the phone's production would occur before that final step in Miami. The "Made in the USA" promise, the cornerstone of the product's identity, had quietly evaporated.</p>
+
+<div class="pull-quote">
+<blockquote>"With Trump Mobile, what you see is what you get, every time."</blockquote>
+<cite>-- Trump Mobile website copy, published June 2025</cite>
+</div>
+
+<h2>The Deadline Timeline: Five Broken Promises</h2>
+
+<p>A phone missing one delivery deadline is not unusual. Supply chains are complicated; semiconductor shortages are real; certification processes take time. But what happened with the T1 phone was not a supply chain problem. It was a pattern of serially made and serially broken promises -- each one replaced with a new promise that was also broken -- with no honest accounting to the people who had already handed over their money.</p>
+
+<div class="timeline">
+<div class="tl-item">
+<div class="tl-date">June 2025 -- Announcement</div>
+<div class="tl-fact">Trump Mobile launches. Website promises the T1 phone will be available in August 2025 for $499. $100 deposits begin collecting immediately.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">August 2025 -- First missed deadline</div>
+<div class="tl-fact">August passes. No phones ship. No proactive update is sent to the 590,000 depositors. Customers who call the support line receive no clear timeline.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">October 2025 -- November promise</div>
+<div class="tl-fact">NBC News, which placed its own deposit in August to track the story, calls Trump Mobile's support line. A representative says the phone will ship on November 13, 2025.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">November 13, 2025 -- Second missed deadline</div>
+<div class="tl-fact">November 13 passes. No phones ship. NBC News calls again. A new representative says the phone will be available in "early December."</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">December 31, 2025 -- Third missed deadline, new excuse</div>
+<div class="tl-fact">Fortune reports a Trump Mobile representative said the phone would be available in "mid to late January." The representative blamed the delay on "the government shutdown" -- an explanation analysts found difficult to reconcile with private-sector smartphone production.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">January 2026 -- Q1 2026 promise</div>
+<div class="tl-fact">A Trump Mobile representative tells NBC News the company is "in the final stages of certification and field testing" and will ship "sometime in Q1 2026." Q1 2026 ends March 31.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">March 31, 2026 -- Fourth missed deadline</div>
+<div class="tl-fact">Q1 2026 closes. No phones ship. The phone's FCC certification (cleared in January 2026) and PTCRB certification (cleared in March 2026) are confirmed, suggesting the device is technically real, but T-Mobile carrier approval is still pending.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">April 12, 2026 -- Release date deleted</div>
+<div class="tl-fact">PCMag reports that archived versions of the Trump Mobile website showed it touted a "later this year" release date as recently as April 12. By mid-April, the release date has been quietly removed from the website entirely. No announcement. No explanation to depositors.</div>
+</div>
+<div class="tl-item">
+<div class="tl-date">April 6, 2026 -- Terms of service rewritten</div>
+<div class="tl-fact">Trump Mobile updates its Preorder Deposit Terms and Conditions. The new terms redefine the $100 deposit and explicitly strip customers of any contractual rights. (See next section.)</div>
+</div>
+</div>
+
+
+<h2>The Fine Print Rewrite: Your Money Is Now a "Conditional Opportunity"</h2>
+
+<p>The most consequential development in the Trump Mobile story did not come with a press release or a public statement. It came on April 6, 2026, when Trump Mobile quietly rewrote its Preorder Deposit Terms and Conditions -- the legal document governing the $100 deposits paid by 590,000 people.</p>
+
+<p>The updated terms, as reported by NJ.com, USA Today, Moneywise, and Popular Information, read in part: "A preorder deposit provides only a conditional opportunity if Trump Mobile later elects, in its sole discretion, to offer the Device for sale."</p>
+
+<p>The terms continue: "A deposit is not a purchase, does not constitute acceptance of an order, does not create a contract for sale, does not transfer ownership or title interest, does not allocate or reserve specific inventory, and does not guarantee that a Device will be produced or made available for purchase."</p>
+
+<p>In case that was not explicit enough, the updated terms also stated: "Estimated ship dates, launch timelines, or anticipated production schedule are non-binding estimates only. Trump Mobile does not guarantee that: the Device will be commercially released; regulatory approvals (including FCC authorization) will be obtained; carrier certification will be secured; production will commence or continue; or delivery will occur within any specific timeframe."</p>
+
+<p>And the final clause that consumer advocates have flagged as particularly troubling: "There is no guarantee of release, delivery or timing."</p>
+
+<div class="verdict-box">
+<div class="verdict-label">What the Terms Now Say, in Plain English</div>
+<p>Before April 6, 2026: You paid $100 to pre-order a phone that was promised for a specific timeframe. Reasonable consumers understood that to mean a product was being reserved for them.</p>
+<p style="margin-top:12px">After April 6, 2026: According to Trump Mobile's own legal documents, your $100 does not buy you a phone, does not reserve a phone, does not guarantee a phone will be made, and does not create any contract. You paid $100 for the chance that Trump Mobile might, someday, if it feels like it, decide to make a phone available for sale -- at which point you would have the opportunity to pay the remaining $399. There is no guarantee that day will come.</p>
+</div>
+
+<p>The terms do allow customers to request a refund by contacting customer service, which "will take several business days to process." However, as of May 2026, there are documented reports of customers having difficulty reaching a responsive support line. Popular Information reported that when they called Trump Mobile's advertised 24-hour customer service number, they were greeted with a recorded message saying the company was closed and to call back Monday through Friday between 8AM and 5PM Central Standard Time -- the same number that, at the time of the June 2025 launch, a Reuters reporter called and was answered with "Omega Auto Care, how can I help you?"</p>
+
+<p>The question that has occupied consumer protection lawyers and watchdog groups since the terms were updated is this: Why rewrite the terms in April 2026, nearly a year after taking the money? The original terms, however vague, were written before the pattern of missed deadlines became undeniable. The updated terms arrived only after the company had already missed five delivery windows. Legal scholars have noted that rewriting a contract's terms after accepting payment -- and after establishing a pattern of non-delivery -- is precisely the kind of conduct that state consumer fraud statutes and FTC regulations are designed to address.</p>
+
+<h2>Who Actually Runs Trump Mobile -- and Who Doesn't</h2>
+
+<p>Despite Don Jr. and Eric Trump appearing on stage at Trump Tower to launch the company and conducting subsequent media interviews to promote it, the Trump family is not legally responsible for the product, the deposits, or the delivery.</p>
+
+<p>The Trump Mobile website has always included a disclaimer: "Trump Mobile and all its products and services are not designed, developed, manufactured, distributed, or sold by The Trump Organization or any of their respective affiliates or principals. T1 Mobile LLC uses the Trump name and trademark pursuant to the terms of a limited license agreement, which may be terminated or revoked according to its terms."</p>
+
+<p>The actual operating entity is T1 Mobile LLC. Its key executives are Eric Thomas, whose company Smart Gadgets Global, LLC received the FCC clearance for the T1 device in January 2026, and Don Hendrickson. These two executives were the ones who demonstrated the phone prototype to The Verge in February 2026. A third executive, Pat O'Brien, spoke to media in July 2025 and acknowledged the company had "gotten a lot of pre-orders" but declined to disclose the number.</p>
+
+<p>The Trump Organization collects licensing fees for the use of the Trump name. President Trump's assets, including the Trump Organization, are held by a revocable trust run by Trump Jr. -- though, as Popular Information noted, the trust has no legal significance in terms of separating Trump from his financial interests.</p>
+
+<p>This structure is a recurring feature of Trump brand commercialization. Trump University operated under a similar model. Trump-branded condos in various cities were developed by separate entities using the Trump name under license. In each case, the Trump family collected fees and brand value while limiting its legal exposure to the underlying business operations.</p>
+
+<h2>The T-Mobile Conflict: A Sitting President's Phone Needs a Favor From a Regulated Company</h2>
+
+<p>The certification problem at the heart of Trump Mobile's delays reveals a conflict of interest that Democratic lawmakers have put in writing.</p>
+
+<p>Trump Mobile operates as a Mobile Virtual Network Operator, or MVNO -- meaning it does not own its own cellular network but instead leases capacity from one that does. That network is T-Mobile. As a result, T-Mobile must review and approve any new devices that Trump Mobile wants to deploy on its infrastructure. T-Mobile's sign-off is a necessary precondition for the T1 phone to work as a phone.</p>
+
+<p>T-Mobile, meanwhile, is regulated by the Trump administration. It regularly seeks government approval for spectrum acquisitions, merger transactions, and other business activities that require executive branch approval or favorable regulatory posture.</p>
+
+<p>In July 2025, three Democratic members of Congress -- Frank Pallone Jr. of New Jersey, Doris Matsui of California, and Yvette D. Clarke of New York -- sent a letter to T-Mobile CEO Mike Sievert highlighting this conflict. Their letter stated that T-Mobile's business relationship with Trump Mobile "creates the appearance of significant conflicts of interest between your company and the executive branch, and likely will raise actual conflicts as more details come to light." They wrote that T-Mobile was in a position "to gain favorable regulatory decisions affecting the company -- such as spectrum allocations, merger approvals, or enforcement actions -- without any regard as to whether those decisions are in the public interest."</p>
+
+<p>The implications are significant: a company seeking regulatory favor from the Trump administration is simultaneously the gatekeeper whose approval the Trump family's phone venture needs to launch. Whether T-Mobile has felt pressure to expedite or delay the T1 certification process is unknown. What is documented is that T-Mobile's carrier approval was still pending as of early May 2026, and that the T1 cannot launch for consumer use until that approval is granted.</p>
+
+<div class="warning-box">
+<div class="box-label">The Regulatory Maze That Protects No One</div>
+<p>The T1 phone received FCC certification in January 2026 and PTCRB certification in March 2026. Both are technical certifications confirming the device meets radio frequency standards. Neither certification means the phone is safe to buy, that it will be delivered, or that the company behind it is operating in good faith.</p>
+<p>Carrier approval from T-Mobile is the remaining bottleneck. T-Mobile, as a regulated entity with financial interests before the Trump administration, is now in the uncomfortable position of deciding the fate of a product sold under the Trump family name.</p>
+<p>The FTC, which has authority to investigate "bait-and-switch tactics" and false advertising, has not publicly confirmed opening a formal investigation as of May 2026. FTC Commissioner Andrew Ferguson, a Trump loyalist, has not commented on Trump Mobile.</p>
+</div>
+
+<h2>The FTC and Congressional Response</h2>
+
+<p>In January 2026, Senator Elizabeth Warren and a group of Democratic lawmakers formally urged the Federal Trade Commission to investigate Trump Mobile. Their letter, transmitted January 15, 2026, called on the FTC to examine "bait-and-switch tactics involving deposits for products never delivered" and to determine whether Trump Mobile's "Made in the USA" advertising constituted false advertising under federal law.</p>
+
+<p>"Our review of publicly reported information about the advertising and sale of the phone reveals a pattern of potentially deceptive practices that warrant FTC investigation," the lawmakers wrote. "The American people deserve to know that consumer protection laws apply equally to all businesses, regardless of political connections."</p>
+
+<p>They demanded a response by February 14, 2026. As of May 2026, the FTC has not publicly confirmed whether a formal investigation has been opened. Commissioner Ferguson -- appointed to the FTC by President Trump -- has made no public statements on the matter.</p>
+
+<p>The silence is notable. The FTC has broad authority to act in cases involving deceptive advertising, unfair business practices, and consumer deposits taken without delivery of promised goods. Legal experts who spoke with various outlets said the Trump Mobile situation presents a textbook case for FTC scrutiny. The question of whether the FTC will act, given its current leadership's relationship with the president whose family is implicated, remains open.</p>
+
+<h2>A Pattern, Not an Anomaly</h2>
+
+<p>It is worth placing Trump Mobile in the full context of the Trump family's commercial ventures during and around periods of presidential power. The list is not short.</p>
+
+<table class="data-table">
+<tr><th>Product</th><th>Year</th><th>Outcome</th></tr>
+<tr><td>Trump University</td><td>2005-2010</td><td class="red">Closed; $25M settlement for defrauding students</td></tr>
+<tr><td>Trump branded condos (various)</td><td>2006-2012</td><td class="red">Multiple projects failed; lawsuits from buyers</td></tr>
+<tr><td>Trump steaks, Trump vodka, Trump magazine</td><td>2007</td><td class="red">All discontinued within years</td></tr>
+<tr><td>Trump NFTs (Digital Trading Cards)</td><td>2022-2024</td><td class="gold">Sold to supporters; value collapsed after initial hype</td></tr>
+<tr><td>Trump sneakers ("Never Surrender" edition)</td><td>Feb. 2024</td><td class="gold">Sold out quickly; $399-$9,999 range</td></tr>
+<tr><td>God Bless the USA Bible</td><td>Mar. 2024</td><td class="gold">Sold at $59.99; Trump received licensing fees</td></tr>
+<tr><td>$TRUMP meme coin</td><td>Jan. 2025</td><td class="red">Launched 3 days before inauguration; value dropped 80%+ for most buyers</td></tr>
+<tr><td>Trump Mobile T1 Phone</td><td>Jun. 2025-present</td><td class="red">$59M in deposits collected; zero phones shipped</td></tr>
+</table>
+
+<p>No other president in American history has used the proximity of the White House -- or the White House itself -- to sell branded merchandise, financial instruments, or consumer products directly to his own political supporters. The breadth and consistency of these commercialization efforts, across multiple product categories, across multiple years in and around the presidency, distinguishes the Trump family's approach from anything in the historical record of American executive office.</p>
+
+<div class="pull-quote">
+<blockquote>"590,000 people handed over $100 each. Not a single phone arrived. Then the rules changed."</blockquote>
+<cite>-- The documented record, May 2026</cite>
+</div>
+
+<h2>The Supporters Who Paid and the Anger They Cannot Hide</h2>
+
+<p>Perhaps the most striking dimension of the Trump Mobile story is the reaction from within the president's own political base. This is not a story of liberals criticizing a conservative brand. The loudest and most visceral complaints about Trump Mobile have come from Trump supporters who trusted the Trump family enough to hand over $100 and are now publicly demanding answers.</p>
+
+<p>A viral TikTok from a self-described Trump supporter, widely reported by IBTimes UK and picked up across conservative social media, showed a man directly addressing Donald Trump Jr. and Eric Trump: "Hey, Trump supporter here. This goes out to Don Jr. and Eric. Where the f---'s my phone?" The man explained he had ordered four devices -- one for himself and one for each of his family members -- and had received no meaningful updates. The video became a lightning rod for broader frustration.</p>
+
+<p>Carter Smith, a popular American tech content creator, posted a similarly scathing critique after placing his own deposit. "I thought paying the deposit meant they would make the phone and then send it to me because that's how deposits work. Right? Wrong," Smith said in a May 10 Instagram video. "So nothing. It gets you nothing. I'm paying $100 for the chance to maybe give you more money in the future if you decide to make the product that I'm paying for in the first place. What."</p>
+
+<p>Investigative journalist Joseph Cox of 404 Media, who placed a pre-order on launch day, called it "the worst experience I have ever faced buying a consumer electronic product." Cox's card was charged the wrong amount, his shipping address was never collected, and when he called the customer service line, the representative could not assist him. In July 2025, Trump Mobile charged his card twice more -- $100 and $64.70 -- without explanation.</p>
+
+<p>The anger is not limited to individual social media posts. Across MAGA forums and conservative online communities, the convergence of broken promises -- the phone, the $2,000 tariff dividend checks that have not materialized, other unfulfilled pledges -- is generating a rare public reckoning. For a base that has historically extended enormous loyalty to the president, the phone has become a concrete, personal grievance: real money paid, real product not delivered, real rules changed after the fact.</p>
+
+<h2>The Refund Question -- and Why It Is Not Simple</h2>
+
+<p>Trump Mobile's updated terms of service do state that customers can request a refund by contacting customer service. Popular Information, which attempted to call Trump Mobile's advertised 24-hour support line, found the line was not available 24 hours a day -- it played a recorded message directing callers to call back during weekday business hours.</p>
+
+<p>NJ.com reported that if Trump Mobile cancels the phone entirely, the company has promised to refund depositors. But the same terms that promise a potential refund also shield the company from liability for delays caused by "parts shortages or hold-ups with regulators" -- giving the company broad discretion to cite external factors as justification for continued non-delivery without triggering a mandatory refund obligation.</p>
+
+<p>The structure creates a situation in which 590,000 people paid money under terms that have since been rewritten to eliminate the contractual obligations those terms originally implied. Whether any individual customer can successfully obtain a refund depends on their willingness to contact a support line, navigate a "several business days" processing window, and accept a refund rather than continuing to wait for a phone that may or may not eventually arrive.</p>
+
+<p>For customers who paid by credit card, the most direct route to recovery may be a chargeback dispute with their card issuer -- though most card networks impose time limits on chargebacks that may have expired for the earliest depositors, who paid in June or July 2025.</p>
+
+<h2>Is the Phone Real? A Partial Answer</h2>
+
+<p>The fair question, given all of the above, is whether the T1 phone is entirely fictitious. The honest answer is: not entirely, but not yet in the form originally promised.</p>
+
+<p>The phone received FCC authorization in January 2026. It received PTCRB certification in March 2026. In February 2026, two Trump Mobile executives showed a Verge reporter a prototype over video conference -- a phone that visibly existed, though The Verge's reporter noted "it's clear from a glance that this isn't the same phone the company teased." The specifications have changed multiple times: the screen size changed, the design was overhauled at least three times, and the "Made in the USA" manufacturing promise was abandoned.</p>
+
+<p>What the phone is not: manufactured in America, available to purchase, shipped to any customer, or offered under terms that guarantee any of those things will happen. The device that eventually ships -- if it ships -- will not be the phone that was advertised when 590,000 people placed their deposits.</p>
+
+<div class="info-box">
+<div class="box-label">What Is Verified vs. What Is Unresolved</div>
+<p><strong>Verified:</strong> 590,000 deposits at $100 each. Approximately $59 million collected. Zero phones shipped as of May 2026. Five missed delivery windows. "Made in USA" claim dropped within nine days. April 6, 2026 terms of service rewrite stripping contractual rights. T-Mobile carrier certification still pending. FTC has not confirmed opening a formal investigation.</p>
+<p><strong>Unresolved:</strong> Whether the phone will ever ship, and on what timeline. Whether the FTC will investigate. Whether T-Mobile's certification decision is being influenced by the administration. Whether any class-action consumer fraud litigation will be filed. How many depositors have successfully obtained refunds.</p>
+</div>
+
+<h2>The Bottom Line</h2>
+
+<p>Six hundred thousand Americans -- most of them Trump supporters who trusted the Trump family's word -- put $100 down for a phone that was described as American-made, coming soon, and backed by the personal credibility of the president's sons. The phone was not American-made. It is not coming soon. And the terms that once implied a real product commitment have been rewritten, quietly and without announcement, to strip depositors of any legal claim to the phone they paid for.</p>
+
+<p>The $59 million sitting in Trump Mobile's accounts represents a real transfer of wealth from ordinary Americans -- many of them in the same economic circumstances the president claims to champion -- to a company whose most high-profile promoters are legally insulated from its obligations through careful structuring of trademark licensing agreements.</p>
+
+<p>This is not, by itself, proof of criminal fraud. The updated terms allow for refunds. A phone may yet ship. The FTC may yet act. But the sequence of events -- the patriotic promises, the serial deadline failures, the silent deletion of the ship date, the after-the-fact rewriting of the deposit terms -- follows a pattern that consumer protection law was specifically designed to address.</p>
+
+<p>And the people most furious about it are not the president's critics. They are his own supporters, who trusted this family with their money and are now asking, in plain language, where their phone is.</p>
+
+<div class="verdict-box">
+<div class="verdict-label">This Report's Findings</div>
+<p>All key figures in this report -- the 590,000 depositors, the $59 million total, the five missed deadlines, the April 6 terms rewrite, the "Made in USA" claim, and the T-Mobile carrier certification dependency -- have been verified against primary sources including Moneywise/Yahoo Finance, NJ.com, USA Today, Popular Information, NBC News, The Verge, PCMag, and public filings from Sen. Elizabeth Warren's office. No claim in this article is based on social media posts or unverified assertions. Where information is disputed or unresolved, it is labeled as such.</p>
+</div>
+
+</div><!-- .article-body -->
+
+<div class="sources">
+<h3>Sources and References</h3>
+<ol>
+<li>Judd Legum, "We were promised a gold-plated Trump phone," Popular Information, May 11, 2026. <a href="https://popular.info/p/we-were-promised-a-gold-plated-trump" target="_blank" rel="noopener">popular.info</a></li>
+<li>AnnaMarie Houlis, "590,000 buyers paid $59 million for Trump's gold phone -- not 1 has shipped and refunds look unlikely," Moneywise via Yahoo Finance, May 10, 2026. <a href="https://finance.yahoo.com/markets/stocks/articles/590-000-buyers-paid-59-223500998.html" target="_blank" rel="noopener">yahoo.com</a></li>
+<li>Nick Moyle, "Trump Mobile collected $59 million in deposits -- and delivered nothing," NJ.com, May 11, 2026. <a href="https://www.nj.com/politics/2026/05/trump-mobile-collected-59-million-in-deposits-and-delivered-nothing.html" target="_blank" rel="noopener">nj.com</a></li>
+<li>Michelle Del Rey, "What's the latest on the Trump phone? What we know," USA Today, May 11, 2026. <a href="https://www.usatoday.com/story/news/nation/2026/05/11/trump-phone-deposits-update/90026834007/" target="_blank" rel="noopener">usatoday.com</a></li>
+<li>James Peckham, "Trump Mobile Redesigns the T1 Phone, But Don't Waste Your Money on a Preorder," PCMag, April 14, 2026. <a href="https://www.pcmag.com/news/trump-mobile-redesigns-the-t1-phone-but-dont-waste-your-money-on-a-preorder" target="_blank" rel="noopener">pcmag.com</a></li>
+<li>Bernadette B. Tixon, "'Where the F---'s My Phone?': MAGA Supporter Turns on Trump Sons," IBTimes UK, May 10, 2026. <a href="https://www.ibtimes.co.uk/trump-supporters-frustration-unfulfilled-promises-1796051" target="_blank" rel="noopener">ibtimes.co.uk</a></li>
+<li>Sen. Elizabeth Warren, "Warren, Lawmakers Question Federal Trade Commission on Trump Mobile's Questionable Marketing Practices," January 15, 2026. <a href="https://www.warren.senate.gov/newsroom/press-releases/warren-lawmakers-question-federal-trade-commission-on-trump-mobiles-questionable-marketing-practices" target="_blank" rel="noopener">warren.senate.gov</a></li>
+<li>House Energy & Commerce Committee Democrats, "E&C Democrats Investigate T-Mobile and Trump Mobile Arrangement," July 2025. <a href="https://democrats-energycommerce.house.gov/media/press-releases/ec-democrats-investigate-t-mobile-and-trump-mobile-arrangement-citing" target="_blank" rel="noopener">house.gov</a></li>
+<li>NBC News, "Trump Mobile phone customers left waiting months after delay," 2025. <a href="https://www.nbcnews.com/tech/tech-news/trump-mobile-phone-customers-left-waiting-months-delay-rcna245035" target="_blank" rel="noopener">nbcnews.com</a></li>
+<li>Dominic Preston, "Trump phone T1 first look: design and interview," The Verge, February 2026. <a href="https://www.theverge.com/gadgets/875190/trump-phone-t1-first-look-design-interview-eric-thomas-don-hendrickson" target="_blank" rel="noopener">theverge.com</a></li>
+<li>Dominic Preston, "Trump Mobile T1 phone, PTCRB certification, T-Mobile," The Verge, 2026. <a href="https://www.theverge.com/gadgets/922180/trump-mobile-t1-phone-ptcrb-certification-t-mobile" target="_blank" rel="noopener">theverge.com</a></li>
+<li>Joseph Cox, "Trump Mobile Phone Preorder," 404 Media, June/July 2025. <a href="https://www.404media.co/trump-mobile-phone-preorder-fail/" target="_blank" rel="noopener">404media.co</a></li>
+<li>Trump Mobile, Official Preorder Deposit Terms and Conditions (updated April 6, 2026). <a href="https://trumpmobile.com/device-preorder-deposit" target="_blank" rel="noopener">trumpmobile.com</a></li>
+<li>CNN Business, "Trump's sons say his new phone will be built in the US. Experts say it looks a lot like a phone from China," June 2025. <a href="https://www.cnn.com/2025/06/17/tech/trump-mobile-t1-phone-built-in-us-experts-china" target="_blank" rel="noopener">cnn.com</a></li>
+<li>Variety, "Trump Smartphone Probably Manufactured in China: Experts," 2025. <a href="https://variety.com/2025/digital/news/trump-mobile-smartphone-made-in-china-experts-1236434191/" target="_blank" rel="noopener">variety.com</a></li>
+<li>PhoneArena, "Change to Trump Mobile website hints that the Trump T1 Phone might never be released," May 2026. <a href="https://www.phonearena.com/news/trump-t1-phone-might-never-arrive_id180255" target="_blank" rel="noopener">phonearena.com</a></li>
+<li>Apple Insider, "Trump Mobile's T1 smartphone is still vaporware," May 10, 2026. <a href="https://appleinsider.com/articles/26/05/10/trump-mobiles-t1-smartphone-is-still-vaporware" target="_blank" rel="noopener">appleinsider.com</a></li>
+<li>IBTimes UK, "Wingtech Chinese Company Linked to Trump Phone," 2026. <a href="https://www.ibtimes.co.uk/trump-mobile-t1-controversy-chinese-connection-1795989" target="_blank" rel="noopener">ibtimes.co.uk</a></li>
+<li>Heather Cox Richardson, Letters from an American, May 11, 2026 entry. <a href="https://heathercoxrichardson.substack.com/p/may-11-2026" target="_blank" rel="noopener">substack.com</a></li>
+<li>Trump Mobile official press release, June 16, 2025. <a href="https://www.trump.com/media/trump-mobile-launches-a-bold-new-wireless-service" target="_blank" rel="noopener">trump.com</a></li>
+</ol>
+</div>
+
+</div><!-- .article-wrap -->
+
+<footer>
+<div class="footer-brand">Tony Wolf</div>
+<p>Independent investigative journalism. All reporting is sourced and fact-checked.</p>
+<p style="margin-top:8px"><a href="../index.html">Home</a> &nbsp;&bull;&nbsp; <a href="index.html">All Investigations</a> &nbsp;&bull;&nbsp; <a href="../social-posts.html">Social</a></p>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+</body>
+</html>
