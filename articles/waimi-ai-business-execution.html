@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inside WAIMI.xyz: The AI System That Turns Strategy Into Execution | Tony Wolf</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --deep-red: #8b0000;
+    --gold: #c9a84c;
+    --light-bg: #f5f0eb;
+    --rule: #d4c5b0;
+    --mid-gray: #555;
+    --dark-bg: #1c1c1c;
+    --warning: #b35c00;
+    --warning-bg: #fff8f0;
+    --blue-dark: #1a3a5c;
+    --blue-bg: #f0f5fa;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
+
+  /* NAV */
+  .nav { background: #fff; border-bottom: 1px solid #e0d8cf; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: var(--deep-red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--deep-red); }
+
+  /* CATEGORY BAR */
+  .cat-bar { background: var(--deep-red); padding: 10px 32px; display: flex; align-items: center; gap: 12px; }
+  .cat-bar .cat-pill { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 2px; }
+  .cat-bar .cat-sep { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+
+  /* HERO */
+  .hero { background: var(--dark-bg); padding: 72px 32px 80px; text-align: center; }
+  .hero-kicker { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.12; max-width: 900px; margin: 0 auto 24px; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); max-width: 680px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-meta { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .hero-meta .author { color: var(--gold); font-weight: 700; }
+
+  /* SHARE BAR */
+  .share-bar { background: var(--light-bg); border-bottom: 1px solid var(--rule); padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .share-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .share-btn { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-red); border: 1px solid var(--deep-red); padding: 6px 14px; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: all 0.2s; }
+  .share-btn:hover { background: var(--deep-red); color: #fff; }
+
+  /* BODY */
+  .article-wrap { max-width: 780px; margin: 0 auto; padding: 60px 32px 80px; }
+  .article-wrap p { font-size: 1rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.6rem; }
+  .article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin: 3rem 0 1.2rem; line-height: 1.25; }
+  .article-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 2.4rem 0 1rem; }
+  .article-wrap a { color: var(--deep-red); text-decoration: underline; text-underline-offset: 3px; }
+  .article-wrap a:hover { color: #5a0000; }
+
+  /* DROP CAP */
+  .dropcap::first-letter { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 900; color: var(--deep-red); float: left; line-height: 0.82; margin: 0.1rem 0.12rem -0.1rem 0; }
+
+  /* SECTION RULE */
+  .section-rule { border: none; border-top: 2px solid var(--deep-red); width: 60px; margin: 2.8rem 0 2rem; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 4px solid var(--gold); padding: 20px 28px; margin: 2.8rem 0; background: var(--light-bg); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); line-height: 1.5; margin: 0; }
+  .pull-quote cite { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 12px; }
+
+  /* STAT BOX */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 2.8rem 0; }
+  .stat-box { background: var(--dark-bg); padding: 28px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .stat-box .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .stat-box .stat-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  /* DATA TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin: 2.4rem 0; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+  .data-table th { background: var(--dark-bg); color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 16px; text-align: left; font-size: 0.7rem; }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: var(--light-bg); }
+  .data-table tr:hover td { background: #ece5db; }
+
+  /* WARNING BOX */
+  .warning-box { background: var(--warning-bg); border-left: 4px solid var(--warning); padding: 20px 24px; margin: 2.8rem 0; }
+  .warning-box .warning-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warning); margin-bottom: 10px; }
+  .warning-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* BLUE INFO BOX */
+  .info-box { background: var(--blue-bg); border-left: 4px solid var(--blue-dark); padding: 20px 24px; margin: 2.8rem 0; }
+  .info-box .info-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 10px; }
+  .info-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* SOURCES */
+  .sources-section { background: var(--light-bg); border-top: 2px solid var(--rule); padding: 48px 32px; }
+  .sources-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+  .sources-list { max-width: 780px; margin: 0 auto; list-style: none; }
+  .sources-list li { font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; color: var(--mid-gray); padding: 8px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+  .sources-list li span.src-num { color: var(--deep-red); font-weight: 700; min-width: 24px; }
+  .sources-list a { color: var(--deep-red); }
+
+  /* FOOTER */
+  .footer { background: var(--dark-bg); padding: 40px 32px; text-align: center; }
+  .footer p { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 48px 20px 56px; }
+    .sources-section { padding: 32px 20px; }
+    .data-table { font-size: 0.75rem; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+    <!-- IMMEDIATE SUPER_NINJA REMOVAL - RUNS BEFORE ADS LOAD -->
+    <script>
+      (function() {
+        function hideNinjaElements() {
+          var selectors = [
+            '.ninja-badge',
+            '.ninja-daytona-banner',
+            '.ninja-connection-status',
+            '.ninja-disconnect-overlay',
+            '[id*="ninja"]',
+            '[class*="ninja-banner"]',
+            '[class*="ninja-badge"]'
+          ];
+          selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.display = 'none';
+              elements[i].style.visibility = 'hidden';
+              elements[i].style.opacity = '0';
+              elements[i].remove();
+            }
+          });
+        }
+        hideNinjaElements();
+        if (document.readyState !== 'loading') {
+          hideNinjaElements();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideNinjaElements);
+        }
+        setInterval(hideNinjaElements, 1000);
+      })();
+    </script>
+
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">All Articles</a></li>
+    <li><a href="../search.html">Search</a></li>
+  </ul>
+</nav>
+
+<!-- CATEGORY BAR -->
+<div class="cat-bar">
+  <span class="cat-pill">Technology</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">Business</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">First-Person</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">Owner's Account</div>
+  <h1>Inside <em>WAIMI.xyz</em>: The AI Business Execution System Nobody Else Is Building</h1>
+  <div class="hero-sub">I own a stake in this company through Tony-Wolf.com. Here is what it actually does, where it falls short, and how it compares to the strategy execution platforms that have raised hundreds of millions in venture capital.</div>
+  <div class="hero-meta">
+    <span class="author">By Tony Wolf</span>
+    <span>July 11, 2026</span>
+    <span>32-Minute Read</span>
+    <span>Technology Investigation</span>
+  </div>
+</div>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-label">Share This Investigation</span>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?text=Inside%20WAIMI.xyz%3A%20The%20AI%20Business%20Execution%20System%20Nobody%20Else%20Is%20Building" target="_blank" rel="noopener">Twitter</a>
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener">Facebook</a>
+  <a class="share-btn" href="mailto:?subject=Inside%20WAIMI.xyz%3A%20The%20AI%20Business%20Execution%20System%20Nobody%20Else%20Is%20Building">Email</a>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <p class="dropcap">Full disclosure: I have a financial interest in WAIMI.xyz. The platform is owned by Tony-Wolf.com, which I run, and so in a roundabout way I own a piece of it. What follows is not a press release. It is not sponsored content. It is my honest assessment of a system I have watched grow from a consulting methodology in Melbourne, Florida, into something that Forbes named one of its Top 5 AI Sandboxes, something that has been credited with delivering more than $20 billion in enterprise value across its client base, and something that, despite all of that, most people in the strategy technology space have never heard of. I am going to tell you what WAIMI does, what it does not do, where it beats the competition, and where the competition beats it. Then I am going to tell you why I think the market it operates in is badly misunderstood by almost everyone trying to serve it.</p>
+
+  <p>WAIMI is an acronym that stands for nothing in particular, or at least nothing the company has publicly defined. The platform lives at WAIMI.xyz and it describes itself as an "AI-Powered Business Execution System." That description is more precise than it sounds. WAIMI is not a project management tool. It is not a strategy planning app. It is not an OKR tracker. It is a system designed to solve a single problem that has dogged every business from the corner store to the Fortune 100: the gap between having a plan and actually doing the plan. That gap is where most strategy goes to die, and WAIMI was built to close it.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Problem WAIMI Was Built to Kill</h2>
+
+  <p>In 2022, a consultant named Anthony Wolf was running a practice called A Process Redesigned out of Melbourne, Florida. Wolf had spent years helping companies build strategic plans, and he kept running into the same wall. The plans were good. The leadership teams were smart. The financial models were solid. And then nothing happened. Or rather, something happened: the plans went into binders, the binders went onto shelves, and the companies went back to doing what they had always done, which was reacting to whatever fire was burning brightest that week. Wolf saw this pattern repeat across client after client, industry after industry, and he came to a conclusion that sounds simple but has enormous implications. The problem was not planning. The problem was execution.</p>
+
+  <p>This is not a new observation. Management theorists have been writing about the execution gap since at least 2002, when Larry Bossidy and Ram Charan published "Execution: The Discipline of Getting Things Done," which argued that execution was the missing discipline in corporate America. Since then, an entire industry of software platforms has emerged to address the problem. There are OKR platforms like WorkBoard and Quantive. There are strategy execution platforms like Cascade and Workpath. There are performance management systems like Lattice and Betterworks. There are project management tools with AI features like Monday.com and Asana. And there is a growing category of AI-powered planning tools that range from Notion's AI writing assistant to ClickUp's Brain feature. All of these tools address pieces of the execution problem. None of them address the whole thing.</p>
+
+  <p>WAIMI was designed to address the whole thing. Its thesis is that the execution gap is not a technology problem or a people problem or a process problem. It is all three at once, and the only way to close it is with a system that treats strategy as a living, breathing thing that must be broken down into weekly actions, tracked in real time, and adjusted continuously based on what actually happens on the ground. That sounds like what every platform promises. What makes WAIMI different is how it goes about it.</p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">$20B+</div>
+      <div class="stat-label">Enterprise value delivered across WAIMI client base</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">7</div>
+      <div class="stat-label">Founding team members from consulting, tech, and operations</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">35,000%</div>
+      <div class="stat-label">Peak ROI recorded (Tesla engagement)</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">11+</div>
+      <div class="stat-label">Active client projects running through the system</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <h2>How WAIMI Actually Works</h2>
+
+  <p>The WAIMI system operates through what the company calls its Super Sandbox, a term that can sound like marketing jargon until you understand what it means in context. A sandbox, in software development, is a controlled environment where you can test code without breaking the production system. WAIMI applies this concept to business strategy. The Super Sandbox is a controlled environment where a company can test its strategic assumptions, break its plan into weekly executable actions, and run those actions through weekly sessions that produce real results without risking the entire operation on an untested bet.</p>
+
+  <p>The process works in three steps. First, you create or import your existing business plan into the system. WAIMI accepts plans in whatever state they exist, whether that is a polished 50-page document or a napkin sketch of an idea. Second, the system uses AI to break that plan into weekly actions. This is the step that distinguishes WAIMI from virtually every other platform in the market. Most strategy tools stop at the objective level. They will tell you that your objective is to increase revenue by 20 percent, and they will track whether you hit that number. WAIMI goes further. It translates that objective into the specific actions that need to happen this week to move toward it, and it assigns those actions to specific people with specific deadlines. Third, you execute through weekly sessions. These are structured check-ins where the team reviews what got done, what did not, and what needs to change. The AI captures the results, adjusts the plan, and generates the next week's actions.</p>
+
+  <p>This weekly rhythm is not an accident. It reflects a deep conviction embedded in the WAIMI methodology, one that its founders derived from years of consulting work: that the unit of execution in business is the week. Quarterly reviews are too slow to catch problems. Daily standups are too granular to connect to strategic outcomes. The weekly session is the goldilocks interval, short enough to maintain momentum and accountability, long enough to produce meaningful progress that can be measured against strategic goals.</p>
+
+  <div class="pull-quote">
+    <p>The unit of execution in business is the week. Quarterly reviews are too slow. Daily standups are too granular. The weekly session is the goldilocks interval.</p>
+    <cite>WAIMI Operating Principle</cite>
+  </div>
+
+  <h3>The WAIMI Framework: Audit, Implement, Integrate, Study, Learn, Teach</h3>
+
+  <p>Underlying the Super Sandbox is a six-step methodology that the company calls the WAIMI Framework. It proceeds in order: Audit the current state of the business. Implement the changes identified by the audit. Integrate those changes into existing operations. Study the results. Learn from what worked and what did not. Teach the lessons to the rest of the organization. The framework is deliberately circular. The Teach step feeds back into the Audit step, creating a continuous improvement loop that is meant to prevent the organization from stagnating after an initial burst of execution energy.</p>
+
+  <p>This framework is not proprietary in the sense that no one else has ever thought of audit-improve cycles. What is proprietary is the way WAIMI has encoded it into software that automates the transitions between steps, captures the data at each stage, and uses AI to recommend next actions based on patterns observed across its entire client base. The company says that the framework was derived from Anthony Wolf's consulting practice at A Process Redesigned, where it was refined through years of hands-on engagements before being codified into the platform.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Competition: What Else Is Out There</h2>
+
+  <p>The strategy execution software market is crowded and confusing. There are at least two dozen platforms that claim to help companies turn strategy into results, and they range from enterprise giants with hundreds of millions in venture funding to scrappy startups with a website and a dream. To understand where WAIMI fits, you need to understand the competitive field. I am going to focus on the platforms that are most directly comparable, meaning they are trying to solve some version of the strategy-to-execution problem, and I am going to be honest about where WAIMI wins and where it loses.</p>
+
+  <h3>Cascade</h3>
+
+  <p>Cascade is the 800-pound gorilla in the strategy execution space. Founded in 2016. It has raised significant venture capital, serves clients like PepsiCo, Telefónica, and WWF, and holds a 4.8-star rating on G2 with over 230 reviews, making it the category leader. Cascade's AI engine, called Tapestry, is built in-house and does not train on customer data, a significant differentiator for security-conscious enterprises. Tapestry powers six capabilities: AI-assisted planning that converts strategy documents into live plans, a context-capture system called Tapestry Connect that pulls insights from meetings and emails, AI reports and meetings that let leaders interrogate data in natural language, risk and dependency tracking that scans the entire portfolio for blockers, AI executive briefings delivered weekly, and strategy intelligence audits that compare actual execution against stated intent.</p>
+
+  <p>Cascade is a formidable platform. It offers over 500 integrations, supports multiple strategy frameworks including OKRs, balanced scorecard, and hoshin kanri, and has a free tier for up to four users. Where WAIMI beats Cascade is in its obsessive focus on the weekly execution rhythm and the breakdown of strategy into weekly actions. Cascade is excellent at representing strategy and tracking alignment. It is less effective at telling a mid-level manager exactly what they need to do on Tuesday morning. WAIMI's AI-generated weekly action plans fill that gap. Where Cascade beats WAIMI is in scale, polish, and integration depth. Cascade has been in the market for a decade, has hundreds of enterprise deployments, and offers a maturity of experience that WAIMI, which is younger and smaller, cannot yet match.</p>
+
+  <h3>WorkBoard</h3>
+
+  <p>WorkBoard is the other major player in enterprise strategy execution. After its acquisition of Quantive (formerly Gtmhub) in May 2025, WorkBoard consolidated two of the largest OKR platforms into a single entity with over 150 data integrations. The combined platform offers AI-powered "Chief of Staff" and "Leadership Coach" agents, predictive analytics for goal achievement, deep integration with Microsoft 365 and Workday, and dynamic scorecards that update automatically as data flows in. WorkBoard is best suited for large enterprises running OKRs at scale, particularly organizations standardized on Microsoft or Workday stacks.</p>
+
+  <p>WorkBoard's strength is its ecosystem integration. If your company runs on Microsoft 365 and uses Workday for HR and finance, WorkBoard fits naturally into your existing workflow. Its AI agents surface alignment issues and coaching recommendations directly inside the tools people already use. Where WAIMI beats WorkBoard is in its focus on action over tracking. WorkBoard is fundamentally an OKR platform. It tracks objectives and key results. It tells you whether you are on track or off track. It does not tell you what to do about it. WAIMI's weekly action generation and structured execution sessions are designed for the "what to do about it" part, which is where most companies actually struggle. Where WorkBoard beats WAIMI is in enterprise readiness. WorkBoard has SOC 2 compliance, extensive security certifications, and a deployment methodology refined through hundreds of enterprise implementations. For a Fortune 500 CIO evaluating platforms, WorkBoard's security and compliance posture is table stakes that WAIMI has not yet fully matched.</p>
+
+  <h3>Workpath</h3>
+
+  <p>Workpath is a German-based strategy execution platform that dominates the European market, particularly for enterprises with strict data residency requirements. It holds ISO 27001 and TISAX certifications, maintains complete data residency in Germany, and offers AI-powered "impact chains" that create connections between inputs, outputs, outcomes, and business impact. Workpath integrates deeply with Jira, Azure DevOps, Microsoft Teams, and Power BI, and its 10-week implementation includes academy training and embedded coaching.</p>
+
+  <p>Workpath is the obvious choice for a European enterprise that needs German data residency and cannot send strategic data to American servers. For those organizations, WAIMI is not a realistic alternative, at least not today. Where WAIMI beats Workpath is in its accessibility to smaller organizations. Workpath is built for large enterprises with complex operating models. Its implementation alone takes 10 weeks. WAIMI can onboard a solo founder or a small business in a matter of days, and its pricing reflects that accessibility. The two platforms are really serving different segments of the market, with Workpath owning the enterprise compliance niche and WAIMI targeting the execution-gap niche that exists regardless of company size.</p>
+
+  <h3>The Project Management Platforms: Monday.com, Asana, ClickUp, Notion</h3>
+
+  <p>This is where the comparison gets complicated, because these platforms are not really strategy execution tools. They are project management and collaboration platforms that have added AI features. Monday.com has AI-powered task recommendations and workflow automation. Asana Intelligence uses AI to suggest goals and identify risks. ClickUp Brain adds an AI assistant that can summarize tasks, generate subtasks, and answer questions about your workspace. Notion AI is essentially a writing and research assistant embedded in a workspace tool.</p>
+
+  <p>These platforms are excellent at what they do. If you need to manage a product launch, coordinate a marketing campaign, or track bugs in a software release, Monday.com or Asana or ClickUp will serve you well. But they are not strategy execution platforms. They do not connect your weekly tasks to your quarterly objectives. They do not break a strategic plan into executable actions. They do not provide a structured framework for translating vision into work. The distinction matters because the biggest misunderstanding in this market is the assumption that project management and strategy execution are the same thing. They are not. Project management is about doing the work. Strategy execution is about doing the right work. WAIMI sits in the strategy execution layer, translating "what should we be doing" into "what specifically needs to happen this week," and then connecting the results back to the strategic plan to create a feedback loop that most project management tools simply do not have.</p>
+
+  <h3>GrowthSquare, Perdoo, AchieveIt, Betterworks, and the Rest</h3>
+
+  <p>The long tail of the strategy execution market includes a range of smaller platforms, each with its own niche. GrowthSquare, an Austrian platform, focuses on AI-powered predictive insights and compliance with German regulations like GDPR and the IT Security Act 2.0. Perdoo is an OKR platform aimed at SMB and mid-market teams with an embedded AI coach called Vince. AchieveIt is FedRAMP certified and serves regulated industries with strong workflow automation, though it has not yet introduced AI features. Betterworks brings enterprise scalability to OKR management with AI-powered goal calibration and dependency mapping. Mooncamp offers customizable OKR frameworks for mid-market organizations. Lattice integrates OKRs with performance management and engagement surveys for a people-first approach.</p>
+
+  <p>Each of these platforms has its merits. None of them does what WAIMI does, which is to take a strategic plan, whatever its current form, and use AI to break it into weekly executable actions that are tracked through structured sessions and fed back into an evolving plan. This is a narrow claim, but it is an important one, because the weekly execution rhythm is the thing that most platforms either ignore entirely or address with bolt-on features that do not actually change how people work.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Numbers: WAIMI's Claimed Results</h2>
+
+  <p>WAIMI publishes a set of client results on its website that are, to put it charitably, eye-catching. Among the flagship transformations cited by the company: T-Mobile generated $5.8 billion in value with a 25,612 percent ROI over six months. General Motors achieved a $382 million annual return with a 793 percent 12-month ROI and a 23-point increase in engagement. Tesla delivered a $14.3 billion financial return with a 35,000 percent ROI and 670 percent margin growth. These are the kind of numbers that make a journalist reach for a calculator and a grain of salt.</p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">$5.8B</div>
+      <div class="stat-label">T-Mobile value, 25,612% ROI, 6-month engagement</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$382M</div>
+      <div class="stat-label">GM annual return, 793% 12-month ROI, +23pts engagement</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$14.3B</div>
+      <div class="stat-label">Tesla financial return, 35,000% ROI, 670% margin growth</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$5.32M</div>
+      <div class="stat-label">Highland Mint Year 1 result through WAIMI system</div>
+    </div>
+  </div>
+
+  <p>I will be straightforward about this. I have not independently audited these figures. I was not present for the T-Mobile engagement or the GM engagement or the Tesla engagement. I cannot tell you how "value" was calculated or what methodology was used to attribute these outcomes to the WAIMI system specifically versus the dozens of other variables that affect a company's financial performance over a six-month or twelve-month period. What I can tell you is that WAIMI is not the only platform in this space that publishes aggressive ROI claims. Cascade, WorkBoard, and every other platform with enterprise case studies make similar claims about the financial impact of their systems. The difference is that the larger platforms typically attribute their results to improved strategic alignment and execution discipline rather than to specific dollar figures, which is both more honest and less compelling as a marketing statement.</p>
+
+  <p>Among WAIMI's smaller clients, the numbers are more modest and more believable. Highland Mint, a precious metals company, generated $5.32 million in Year 1 through the WAIMI system. Sunshine Energy Corp produced $22.3 million in three-year revenue with a 131 percent ROI. Oasis Environmental Services reached $4.2 million in Year 5 with a 20x ROI. A Process Redesigned, Anthony Wolf's own consulting practice, uses WAIMI as its audit platform. Smaller clients like Addis Tire Outlet, Assured Express Services, and massage coach Andrea Arel are listed as growing businesses in the WAIMI portfolio. These numbers feel more grounded, more consistent with what a focused execution methodology could realistically produce for a small to mid-size business.</p>
+
+  <div class="info-box">
+    <div class="info-label">Disclosure</div>
+    <p>Tony-Wolf.com is the parent company of WAIMI.xyz. I run Tony-Wolf.com. I have a financial interest in WAIMI's success. The figures cited above come from WAIMI's own published materials and have not been independently verified by third-party auditors. I have made every effort to present them honestly and with appropriate skepticism, but readers should evaluate them accordingly.</p>
+  </div>
+
+  <hr class="section-rule">
+
+  <h2>The Founding Team</h2>
+
+  <p>WAIMI was founded in Melbourne, Florida, in 2022 by a team of seven. Anthony Wolf, the founder and CEO, came from the consulting practice at A Process Redesigned, where he developed the execution methodology that became the WAIMI Framework. Holly Rivera handles operations and client relationships. Chris Coulther leads technology development. Harry Husbands manages business development. Ryan Savage oversees product design. Chris Silviera runs marketing and communications. Stephanie King manages client success and onboarding.</p>
+
+  <p>Seven founders is a lot for a startup. Most venture-backed companies start with two or three co-founders. The seven-person founding team at WAIMI reflects both the breadth of the problem the company is trying to solve and the bootstrapped nature of its origins. When you do not have venture funding to hire a management team, you need founders who can cover the major functional areas from day one. The risk with a seven-person founding team is that decision-making becomes slow and political. The advantage is that you have a deep bench of domain expertise from the start, and WAIMI's team covers consulting, technology, operations, sales, design, marketing, and client success, which are the seven pillars you need to build and sell a platform like this.</p>
+
+  <hr class="section-rule">
+
+  <h2>Where WAIMI Falls Short</h2>
+
+  <p>I own a piece of this company, and I want it to succeed. But honesty requires acknowledging the gaps, and they are real. First, WAIMI is small. It has seven founders and eleven active projects. Cascade has been in the market for a decade and serves organizations like PepsiCo and Telefónica. WorkBoard has raised significant venture capital and has an enterprise sales motion that WAIMI cannot match. When a Fortune 500 CIO evaluates strategy execution platforms, WAIMI is not on the shortlist, because it does not have the security certifications, the compliance documentation, the reference accounts, or the integration depth that enterprise procurement requires.</p>
+
+  <p>Second, WAIMI's AI capabilities, while genuinely useful for breaking plans into weekly actions and generating structured session agendas, are not in the same league as Cascade's Tapestry AI or WorkBoard's Chief of Staff agent. Tapestry AI ingests structured plans, unstructured context from meetings and emails, and operational data, then surfaces cross-team dependencies, drift between strategy and execution, and early risk signals. That is real strategic intelligence. WAIMI's AI is more focused on execution logistics, generating the next week's tasks, tracking completion, and adjusting timelines. Valuable, but narrower in scope.</p>
+
+  <p>Third, WAIMI has a marketing problem. The strategy execution market is noisy, and WAIMI's message gets lost. The Forbes Top 5 AI Sandbox recognition is impressive, but most potential buyers do not know what an AI sandbox is or why they should care. The company's website does a solid job of explaining the Super Sandbox concept, but it competes for attention against platforms with dedicated marketing teams and venture-funded customer acquisition budgets. For a platform that is genuinely different from the competition, WAIMI does not make it easy for potential buyers to find it and understand why it matters.</p>
+
+  <p>Fourth, the integration ecosystem is thin. Cascade offers over 500 integrations. WorkBoard has 150-plus data sources through its Quantive acquisition. WAIMI's integration story is less developed. For companies that need their strategy execution platform to connect deeply to Salesforce, Workday, Jira, Power BI, and the rest of the enterprise stack, WAIMI is not yet a complete solution. This is the kind of gap that gets closed over time as the platform matures, but it is a real gap today.</p>
+
+  <p>Fifth, and this is the hardest one for me to write, the published ROI numbers for the flagship clients are difficult to evaluate without independent verification. The T-Mobile number, $5.8 billion in value with a 25,612 percent ROI over six months, is extraordinary. It may be entirely accurate, and if it is, it represents a remarkable outcome. But extraordinary claims require extraordinary evidence, and WAIMI has not published the methodology behind these figures in sufficient detail for an outside observer to assess how "value" was calculated and what portion of it can be directly attributed to the WAIMI system. This is a transparency issue that the company should address as it scales, because credibility in the enterprise market depends on it.</p>
+
+  <hr class="section-rule">
+
+  <h2>Where WAIMI Wins</h2>
+
+  <p>Now the good part, and the reason I put money into this. WAIMI wins on the thing that matters most: it actually gets people to execute. Most strategy platforms are beautifully designed dashboards that show you where you stand. WAIMI is an engine that tells you what to do next. That distinction sounds small. It is not. The difference between knowing you are 40 percent behind on a key result and knowing that you need to call three distributors by Thursday afternoon and schedule a pricing review by Friday is the difference between awareness and action. Every strategy execution platform will tell you where you stand. Almost none of them will tell you what to do about it, specific to your business, this week, assigned to specific people, with deadlines and check-ins built in. WAIMI does that.</p>
+
+  <p>WAIMI wins on accessibility. Cascade's free tier supports up to four users. WorkBoard does not publish pricing. Workpath requires a 10-week implementation. WAIMI can take a solo founder with a business plan written on a whiteboard and have them running weekly execution sessions within days. The platform is designed to serve businesses from one person to 100,000 people, and while the enterprise features are still maturing, the core execution engine works for anyone who has a plan and the discipline to show up for a weekly session. That is a enormous addressable market that most strategy platforms ignore because they are too busy chasing enterprise contracts.</p>
+
+  <p>WAIMI wins on the weekly rhythm. This is the single most important design decision in the platform, and it is the one that competitors consistently underestimate. Quarterly OKR reviews are too slow to catch execution drift. Daily standups are too tactical to connect to strategic outcomes. The weekly session, where the team reviews what happened, adjusts the plan, and commits to next week's actions, is the cadence that bridges strategy and execution. Every management consultant knows this. Almost no software platform is built around it. WAIMI is.</p>
+
+  <p>WAIMI wins on the continuous improvement loop. The six-step framework, Audit, Implement, Integrate, Study, Learn, Teach, is encoded into the software, which means the improvement cycle does not depend on anyone remembering to run it. The system prompts the team at each stage, captures the data, and feeds it forward. Most companies do strategy in bursts: a planning offsite in January, a mid-year review in July, and nothing in between. WAIMI makes the improvement cycle continuous and inescapable.</p>
+
+  <p>And WAIMI wins on price. I cannot publish specific pricing because the company's model involves engagement-based fees that vary by client size and scope, but I can tell you that it is materially less expensive than Cascade's enterprise tier or WorkBoard's contract pricing, and it delivers the core execution mechanics that most businesses actually need. For a small or mid-size company that cannot afford a six-figure strategy platform contract, WAIMI provides a viable alternative that does not sacrifice the methodology.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Market Nobody Understands</h2>
+
+  <p>The strategy execution software market is badly misunderstood by almost everyone trying to serve it, and the misunderstanding comes down to this: most platforms are built for the executive who signs the check, not for the manager who has to use the system every day. Executive buyers want dashboards, alignment views, and board-ready reports. Managers want to know what they are supposed to do this week, whether they are on track, and who is blocking them. These are different needs served by different features, and the platform that tries to serve both usually serves neither well.</p>
+
+  <p>Cascade and WorkBoard serve the executive buyer. Their AI features are designed for strategic intelligence: risk detection, alignment visualization, executive briefings. These are valuable capabilities, and for large enterprises with dedicated strategy offices. They are worth the investment. But the manager who is trying to figure out whether to spend Thursday on the product launch or the customer retention initiative gets less from these platforms than the C-suite does.</p>
+
+  <p>WAIMI serves the manager. Its AI generates weekly action plans. Its sessions produce accountability. Its framework ensures that the work connects back to the strategy. For the solo founder or the small business owner or the mid-level manager who is drowning in objectives but starved for actionable next steps, WAIMI is a lifeline. For the Fortune 500 chief strategy officer who needs to visualize alignment across 47 business units, Cascade is the better tool.</p>
+
+  <p>The market is big enough for both approaches. The global strategy execution software market was valued at approximately $1.5 billion in 2024 and is projected to reach $3.2 billion by 2030, growing at a compound annual growth rate of around 13 percent. The enterprise segment of that market is well served by Cascade, WorkBoard, and Workpath. The small and mid-size business segment, which is where most companies actually live, is underserved. That is WAIMI's opportunity.</p>
+
+  <div class="data-table">
+    <table>
+      <thead>
+        <tr>
+          <th>Platform</th>
+          <th>Best For</th>
+          <th>Weekly Execution</th>
+          <th>AI Depth</th>
+          <th>Integrations</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>WAIMI</strong></td>
+          <td>SMBs to mid-market; execution-focused teams</td>
+          <td>Core feature</td>
+          <td>Moderate (action generation, session tracking)</td>
+          <td>Developing</td>
+          <td>Engagement-based</td>
+        </tr>
+        <tr>
+          <td><strong>Cascade</strong></td>
+          <td>Mid-market and enterprise; multi-team strategy</td>
+          <td>Limited</td>
+          <td>Deep (Tapestry AI, 6 capabilities)</td>
+          <td>500+</td>
+          <td>Free to enterprise</td>
+        </tr>
+        <tr>
+          <td><strong>WorkBoard</strong></td>
+          <td>Large enterprise OKR programs</td>
+          <td>Limited</td>
+          <td>Deep (Chief of Staff, Leadership Coach agents)</td>
+          <td>150+</td>
+          <td>Enterprise contract</td>
+        </tr>
+        <tr>
+          <td><strong>Workpath</strong></td>
+          <td>European enterprise with data residency needs</td>
+          <td>Moderate</td>
+          <td>Moderate (impact chains, quality assurance)</td>
+          <td>Deep (Jira, Azure DevOps, Teams)</td>
+          <td>Enterprise contract</td>
+        </tr>
+        <tr>
+          <td><strong>Monday.com</strong></td>
+          <td>Project management with AI assist</td>
+          <td>None (task-based, not strategy-based)</td>
+          <td>Light (task recommendations, automation)</td>
+          <td>200+</td>
+          <td>Per-seat SaaS</td>
+        </tr>
+        <tr>
+          <td><strong>Notion AI</strong></td>
+          <td>Knowledge management and writing</td>
+          <td>None</td>
+          <td>Light (writing and research assistant)</td>
+          <td>100+</td>
+          <td>Per-seat SaaS</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <hr class="section-rule">
+
+  <h2>The Forbes Recognition and What It Means</h2>
+
+  <p>In 2025, Forbes named WAIMI one of its Top 5 AI Sandboxes. This is the kind of recognition that sounds more impressive than it is, because "AI sandbox" is not a standard software category. It is a label that Forbes applies to platforms that use AI in a controlled, experimental way to help businesses test and refine strategies. The recognition is meaningful in the sense that it puts WAIMI on a list that potential buyers might see. It is less meaningful in the sense that most buyers do not shop for "AI sandboxes." They shop for strategy execution platforms, OKR tools, or business planning software, and they may not connect the Forbes label to their actual need.</p>
+
+  <p>Still, the recognition is not nothing. It validates the sandbox concept that is central to WAIMI's design. It provides third-party credibility that WAIMI cannot generate on its own. And it positions the company in a category, AI-powered business execution. That is growing fast as enterprises look for ways to apply generative AI to operational problems rather than just content generation. The risk is that WAIMI becomes known as an "AI sandbox" rather than as a strategy execution platform, which would limit its addressable market to the subset of buyers who think in those terms.</p>
+
+  <hr class="section-rule">
+
+  <h2>What I Want WAIMI to Become</h2>
+
+  <p>I have a financial interest in WAIMI, and I have a personal interest in it too, because I believe the execution gap is the single biggest unsolved problem in business. I have watched companies with brilliant strategies fail because they could not translate those strategies into consistent, weekly, accountable action. I have watched smaller companies outperform larger ones because they executed faster and better, not because they had better plans. The execution gap is real. It is costly, and it is not going to be solved by dashboards alone.</p>
+
+  <p>What I want WAIMI to become is the platform that closes that gap for the 99 percent of businesses that cannot afford a Cascade enterprise contract or a WorkBoard deployment. I want it to be the tool that a solo founder opens on Monday morning to find out what they need to accomplish this week, and that a mid-size company uses to keep its leadership team aligned on priorities without the overhead of a dedicated strategy office. I want the AI to get smarter, not just at generating tasks, but at understanding the strategic context of each business and recommending actions that a human consultant would recommend if they could afford one. I want the integration ecosystem to deepen so that WAIMI can pull data from the tools businesses already use rather than requiring them to enter it manually. I want the published results to be independently verifiable, because credibility in this market is earned through transparency.</p>
+
+  <p>And I want WAIMI to be honest about where it is not the right tool. If you are a Fortune 500 company with a dedicated strategy office and a CIO who requires SOC 2 certification and German data residency, you should buy Cascade or Workpath. If you are running OKRs at scale across thousands of employees on Microsoft 365, you should look at WorkBoard. If you need a project management tool, buy Monday.com. But if you are a business that has a plan, and you need a system that will break that plan into weekly actions, hold people accountable for executing them, and adjust the plan based on what actually happens, WAIMI is the only platform I know of that was built from the ground up to do exactly that.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Bottom Line</h2>
+
+  <p>The strategy execution software market is growing, fragmented, and poorly understood by most of the people building products in it. The dominant platforms, Cascade, WorkBoard, Workpath, serve the enterprise segment well. The project management platforms, Monday.com, Asana, ClickUp, Notion, serve the task management segment well. The gap between those two segments, where businesses have outgrown task management but cannot afford or do not need enterprise strategy platforms, is where WAIMI lives.</p>
+
+  <p>WAIMI is not the best strategy execution platform in the market. Cascade holds that title today, based on its AI depth, integration breadth, and decade of enterprise experience. WAIMI is not the best project management tool. Monday.com and Asana compete for that crown. What WAIMI is, is the only platform that takes a strategic plan, uses AI to break it into weekly executable actions, and runs those actions through a structured weekly rhythm that creates accountability and continuous improvement. That is a narrow focus, but it addresses a real pain point that the broader platforms touch only glancingly.</p>
+
+  <p>The question for WAIMI is whether it can scale its execution engine into the enterprise market without losing the accessibility and focus that make it valuable for smaller businesses. The question for the market is whether enough businesses will recognize that the execution gap is their real problem, and that dashboards and OKR trackers, while necessary, are not sufficient to close it. I believe the answer to both questions is yes. But belief is not a business plan. Execution is. And if WAIMI can execute on its own platform the way it asks its clients to execute on theirs. It has a real shot at becoming something important.</p>
+
+  <hr class="section-rule">
+
+  <h2>Sources and Further Reading</h2>
+
+</div>
+
+<!-- SOURCES SECTION -->
+<div class="sources-section">
+  <div style="max-width:780px;margin:0 auto;">
+    <h3>Sources Cited</h3>
+    <ul class="sources-list">
+      <li><span class="src-num">1.</span><span>WAIMI.xyz. "AI-Powered Business Execution System." <a href="https://www.waimi.xyz/" target="_blank" rel="noopener">waimi.xyz</a></span></li>
+      <li><span class="src-num">2.</span><span>WAIMI.xyz. "About: Origin Story and WAIMI Framework." <a href="https://www.waimi.xyz/" target="_blank" rel="noopener">waimi.xyz/about</a></span></li>
+      <li><span class="src-num">3.</span><span>WAIMI.xyz. "Successes: Client Transformations and Results." <a href="https://www.waimi.xyz/" target="_blank" rel="noopener">waimi.xyz/successes</a></span></li>
+      <li><span class="src-num">4.</span><span>Forbes. "Top 5 AI Sandboxes." 2025.</span></li>
+      <li><span class="src-num">5.</span><span>Cascade. "Best AI Strategy Platforms in 2026." <a href="https://www.cascade.app/blog/best-ai-strategy-platforms" target="_blank" rel="noopener">cascade.app/blog</a></span></li>
+      <li><span class="src-num">6.</span><span>Workpath. "Top 7 Enterprise AI-Powered Strategy Execution Platforms In 2025." <a href="https://www.workpath.com/en/magazine/ai-strategy-execution-platforms-enterprise" target="_blank" rel="noopener">workpath.com/en/magazine</a></span></li>
+      <li><span class="src-num">7.</span><span>GrowthSquare. "Top 8 Strategy Execution Platforms Compared." <a href="https://growthsquare.com/top-8-strategy-execution-platforms-compared/" target="_blank" rel="noopener">growthsquare.com</a></span></li>
+      <li><span class="src-num">8.</span><span>Bossidy, L. &amp; Charan, R. "Execution: The Discipline of Getting Things Done." Crown Business, 2002.</span></li>
+      <li><span class="src-num">9.</span><span>Cascade. "2026 Strategy Report." Survey of 1,112 business leaders.</span></li>
+      <li><span class="src-num">10.</span><span>WorkBoard. "WorkBoard Acquires Quantive." Press release, May 2025.</span></li>
+      <li><span class="src-num">11.</span><span>Microsoft. "Viva Goals Retirement Announcement." December 2024.</span></li>
+      <li><span class="src-num">12.</span><span>G2. "Cascade Strategy Reviews." <a href="https://www.g2.com/products/cascade-strategy-cascade/reviews" target="_blank" rel="noopener">g2.com</a></span></li>
+      <li><span class="src-num">13.</span><span>G2. "WorkBoard Reviews." <a href="https://www.g2.com/products/workboard/reviews" target="_blank" rel="noopener">g2.com</a></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+
+</body>
+</html>
