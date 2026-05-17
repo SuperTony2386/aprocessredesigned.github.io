@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bioethicists Argue for Releasing Engineered Ticks to Make Humans Allergic to Meat | Tony Wolf</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --deep-red: #8b0000;
+    --gold: #c9a84c;
+    --light-bg: #f5f0eb;
+    --rule: #d4c5b0;
+    --mid-gray: #555;
+    --dark-bg: #1c1c1c;
+    --warning: #b35c00;
+    --warning-bg: #fff8f0;
+    --blue-dark: #1a3a5c;
+    --blue-bg: #f0f5fa;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
+
+  /* NAV */
+  .nav { background: #fff; border-bottom: 1px solid #e0d8cf; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: var(--deep-red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--deep-red); }
+
+  /* CATEGORY BAR */
+  .cat-bar { background: var(--deep-red); padding: 10px 32px; display: flex; align-items: center; gap: 12px; }
+  .cat-bar .cat-pill { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 2px; }
+  .cat-bar .cat-sep { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+
+  /* HERO */
+  .hero { background: var(--dark-bg); padding: 72px 32px 80px; text-align: center; }
+  .hero-kicker { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.12; max-width: 900px; margin: 0 auto 24px; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); max-width: 680px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-meta { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .hero-meta .author { color: var(--gold); font-weight: 700; }
+
+  /* SHARE BAR */
+  .share-bar { background: var(--light-bg); border-bottom: 1px solid var(--rule); padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .share-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .share-btn { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-red); border: 1px solid var(--deep-red); padding: 6px 14px; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: all 0.2s; }
+  .share-btn:hover { background: var(--deep-red); color: #fff; }
+
+  /* BODY */
+  .article-wrap { max-width: 780px; margin: 0 auto; padding: 60px 32px 80px; }
+  .article-wrap p { font-size: 1rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.6rem; }
+  .article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin: 3rem 0 1.2rem; line-height: 1.25; }
+  .article-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 2.4rem 0 1rem; }
+  .article-wrap a { color: var(--deep-red); text-decoration: underline; text-underline-offset: 3px; }
+  .article-wrap a:hover { color: #5a0000; }
+
+  /* DROP CAP */
+  .dropcap::first-letter { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 900; color: var(--deep-red); float: left; line-height: 0.82; margin: 0.1rem 0.12rem -0.1rem 0; }
+
+  /* SECTION RULE */
+  .section-rule { border: none; border-top: 2px solid var(--deep-red); width: 60px; margin: 2.8rem 0 2rem; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 4px solid var(--gold); padding: 20px 28px; margin: 2.8rem 0; background: var(--light-bg); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); line-height: 1.5; margin: 0; }
+  .pull-quote cite { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 12px; }
+
+  /* STAT BOX */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 2.8rem 0; }
+  .stat-box { background: var(--dark-bg); padding: 28px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .stat-box .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .stat-box .stat-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  /* DATA TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin: 2.4rem 0; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+  .data-table th { background: var(--dark-bg); color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 16px; text-align: left; font-size: 0.7rem; }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: var(--light-bg); }
+  .data-table tr:hover td { background: #ece5db; }
+
+  /* WARNING BOX */
+  .warning-box { background: var(--warning-bg); border-left: 4px solid var(--warning); padding: 20px 24px; margin: 2.8rem 0; }
+  .warning-box .warning-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warning); margin-bottom: 10px; }
+  .warning-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* BLUE INFO BOX */
+  .info-box { background: var(--blue-bg); border-left: 4px solid var(--blue-dark); padding: 20px 24px; margin: 2.8rem 0; }
+  .info-box .info-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 10px; }
+  .info-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* SOURCES */
+  .sources-section { background: var(--light-bg); border-top: 2px solid var(--rule); padding: 48px 32px; }
+  .sources-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+  .sources-list { max-width: 780px; margin: 0 auto; list-style: none; }
+  .sources-list li { font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; color: var(--mid-gray); padding: 8px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+  .sources-list li span.src-num { color: var(--deep-red); font-weight: 700; min-width: 24px; }
+  .sources-list a { color: var(--deep-red); }
+
+  /* FOOTER */
+  .footer { background: var(--dark-bg); padding: 40px 32px; text-align: center; }
+  .footer p { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 48px 20px 56px; }
+    .sources-section { padding: 32px 20px; }
+    .data-table { font-size: 0.75rem; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
+<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+</head>
+<body>
+
+    <!-- IMMEDIATE SUPER_NINJA REMOVAL - RUNS BEFORE ADS LOAD -->
+    <script>
+      (function() {
+        // Immediate removal - runs synchronously
+        function hideNinjaElements() {
+          var selectors = [
+            '.ninja-badge',
+            '.ninja-daytona-banner',
+            '.ninja-connection-status',
+            '.ninja-disconnect-overlay',
+            '[id*="ninja"]',
+            '[class*="ninja-banner"]',
+            '[class*="ninja-badge"]'
+          ];
+          selectors.forEach(function(selector) {
+            var elements = document.querySelectorAll(selector);
+            for (var i = 0; i < elements.length; i++) {
+              elements[i].style.display = 'none';
+              elements[i].style.visibility = 'hidden';
+              elements[i].style.opacity = '0';
+              elements[i].remove();
+            }
+          });
+        }
+        
+        // Run immediately
+        hideNinjaElements();
+        
+        // Run on DOMContentLoaded as backup
+        if (document.readyState !== 'loading') {
+          hideNinjaElements();
+        } else {
+          document.addEventListener('DOMContentLoaded', hideNinjaElements);
+        }
+        
+        // Run continuously to catch any dynamically added elements
+        setInterval(hideNinjaElements, 1000);
+      })();
+    </script>
+
+
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">All Articles</a></li>
+    <li><a href="../search.html">Search</a></li>
+  </ul>
+</nav>
+
+<!-- CATEGORY BAR -->
+<div class="cat-bar">
+  <span class="cat-pill">Bioethics</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">Public Health</span>
+  <span class="cat-sep">/</span>
+  <span class="cat-pill">International</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">The Convergence Argument</div>
+  <h1>Bioethicists Argue It Is <em>Morally Obligatory</em> to Release Engineered Ticks That Make Humans Allergic to Meat</h1>
+  <div class="hero-sub">A peer-reviewed paper published in a leading bioethics journal proposes releasing gene-edited ticks to induce alpha-gal syndrome worldwide. Critics call it dangerous, dishonest, and an indictment of academic ethics review. The international implications are staggering.</div>
+  <div class="hero-meta">
+    <span class="author">By Tony Wolf</span>
+    <span>May 18, 2026</span>
+    <span>28-Minute Read</span>
+    <span>Bioethics Investigation</span>
+  </div>
+</div>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-label">Share This Investigation</span>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?text=Bioethicists%20Argue%20for%20Releasing%20Engineered%20Ticks%20to%20Make%20Humans%20Allergic%20to%20Meat" target="_blank" rel="noopener">Twitter</a>
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php" target="_blank" rel="noopener">Facebook</a>
+  <a class="share-btn" href="mailto:?subject=Bioethicists%20Argue%20for%20Releasing%20Engineered%20Ticks%20to%20Make%20Humans%20Allergic%20to%20Meat">Email</a>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+  <p class="dropcap">In October 2025, a paper appeared in the journal Bioethics that proposed something so extraordinary that even seasoned academics struggled to process it. Two bioethicists argued that if eating meat is morally wrong -- a premise they did not defend but simply assumed -- then it becomes not merely permissible but morally obligatory to promote a condition called alpha-gal syndrome, a potentially life-threatening allergy to mammalian meat, by releasing gene-edited ticks engineered to spread the condition more efficiently. The paper, titled "Beneficial Bloodsucking: The Convergence Argument for Promoting Tickborne Alpha-Gal Syndrome," was written by Parker Crutchfield and Blake Hereth, both of the Department of Medical Ethics, Humanities, and Law at Western Michigan University Homer Stryker M.D. School of Medicine. It passed peer review. It was published in one of the field's most respected journals. And it ignited a firestorm that reached far beyond the walls of academia into the fields and pastures and clinics of the real world where alpha-gal syndrome is not a thought experiment but a daily affliction.</p>
+
+  <p>The paper's central claim rests on what the authors call the Convergence Argument, which proceeds in steps: first, if an action causes significant moral harm, we have strong pro tanto moral reason to prevent it; second, eating meat causes significant moral harm to animals and to the environment; third, alpha-gal syndrome prevents people from eating meat; fourth, therefore, we have strong pro tanto moral reason to promote alpha-gal syndrome. The word "pro tanto" does important work in the argument -- it means "to that extent" or "insofar as," allowing the authors to claim they are merely establishing a prima facie duty rather than an absolute one. But the paper's rhetoric repeatedly exceeds this cautious framing. The authors write that promoting alpha-gal syndrome is "strongly pro tanto obligatory," and they explicitly discuss the prospect of engineering ticks to spread the condition more widely, drawing on CRISPR gene-editing technology and mosquito gene-drive research as analogues for how such an intervention might be implemented.</p>
+
+  <p>The distance between a philosophical thought experiment and a policy proposal can be vanishingly thin, and this paper occupies that uncomfortable space. It was not published in an obscure journal. Bioethics is published by Wiley, one of the world's largest academic publishers, and has been a leading venue for bioethical scholarship since 1987. The paper's DOI, 10.1111/bioe.70015, places it squarely in the scholarly record, citable, searchable, and permanent. It passed whatever peer review the journal's editors deemed appropriate. And its proposal -- releasing genetically modified disease vectors to impose a medical condition on unwilling human beings -- raises questions that are not merely philosophical but legal, medical, ecological, and deeply political.</p>
+
+  <div class="stat-grid">
+    <div class="stat-box">
+      <div class="stat-num">250K--500K</div>
+      <div class="stat-label">Estimated alpha-gal syndrome cases in the United States alone</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">1--3%</div>
+      <div class="stat-label">Anaphylaxis rate among AGS patients</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">83--249M</div>
+      <div class="stat-label">Potential anaphylaxis cases if applied to 8.3 billion people globally</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Consent that would be obtained from those affected</div>
+    </div>
+  </div>
+
+  <hr class="section-rule">
+
+  <h2>The Paper and Its Authors</h2>
+
+  <p>Parker Crutchfield is not a newcomer to provocative bioethical claims. In 2019, he published a paper titled "Compulsory Moral Bioenhancement Should Be Covert" in the same journal, Bioethics, arguing that moral bioenhancement -- the use of biomedical interventions to improve moral behavior -- should be both compulsory and secret. The government, he argued, should administer moral enhancements without the knowledge or consent of those receiving them. That paper generated significant controversy, but it remained within the bounds of academic debate. The new paper ventures considerably further, proposing not the covert administration of a medical treatment but the deliberate release of a disease vector to impose a permanent medical condition on the global population.</p>
+
+  <p>Crutchfield and Hereth are both affiliated with Western Michigan University Homer Stryker M.D. School of Medicine, in the Department of Medical Ethics, Humanities, and Law. The meme that circulated widely online in the months after publication identified them as being from "Michigan Medical School," which is inaccurate and misleading -- the University of Michigan Medical School in Ann Arbor is a far more prestigious and distinct institution. Western Michigan University's medical school is in Kalamazoo, a separate entity entirely. But the conflation, while factually wrong, proved rhetorically powerful: the idea that scholars at a major American medical school had proposed releasing engineered ticks was more shocking precisely because of the institutional authority the misattribution implied.</p>
+
+  <div class="info-box">
+    <div class="info-label">Correction: Not the University of Michigan</div>
+    <p>The viral meme circulating about this paper identifies the authors as being from "Michigan Medical School," implying the University of Michigan Medical School in Ann Arbor. This is incorrect. Parker Crutchfield and Blake Hereth are affiliated with Western Michigan University Homer Stryker M.D. School of Medicine in Kalamazoo, Michigan -- a completely separate institution from the University of Michigan. The University of Michigan has no connection to this paper or its arguments.</p>
+  </div>
+
+  <p>The paper's abstract states its thesis with clinical precision: "If it is morally impermissible to eat meat, then it is strongly pro tanto obligatory to promote tickborne alpha-gal syndrome." The conditional structure is important -- the authors frame their conclusion as following from a premise they do not defend. But the paper's practical discussion of engineering ticks, deploying them, and the potential scale of the intervention makes clear that this is not merely a logical exercise. The authors are proposing a framework for action, conditional only on the acceptance of their initial premise about the moral impermissibility of meat consumption -- a premise that, they note, a growing number of ethicists and environmental scientists already endorse.</p>
+
+  <hr class="section-rule">
+
+  <h2>What Is Alpha-Gal Syndrome?</h2>
+
+  <p>Alpha-gal syndrome is a severe, potentially life-threatening allergy to galactose-alpha-1,3-galactose, a carbohydrate molecule found in most mammalian meat -- beef, pork, lamb, venison, rabbit -- and in mammalian-derived products including dairy, gelatin, and certain medications. The condition is triggered by the bite of a tick, most commonly the lone star tick (Amblyomma americanum) in the United States, though other tick species have been implicated in other parts of the world. When the tick bites a human, it injects alpha-gal molecules into the bloodstream, and in some individuals, the immune system mounts an IgE antibody response that sensitizes them to the carbohydrate. Subsequent consumption of mammalian meat or exposure to mammalian-derived products can then trigger an allergic reaction ranging from hives and gastrointestinal distress to full-blown anaphylactic shock.</p>
+
+  <p>The allergy is unusual in several respects that make it particularly challenging to manage. Unlike most food allergies, which manifest within minutes of exposure, alpha-gal reactions are typically delayed by three to six hours after eating meat, making it difficult for patients and physicians to connect symptoms to their cause. The delay means that many AGS patients endure months or years of unexplained reactions before receiving a correct diagnosis. The condition can be severe and permanent. There is no cure. There is no desensitization protocol. Avoidance of mammalian products is the only management strategy, and even that is imperfect, because alpha-gal is present in a vast array of products that patients may not associate with mammalian origin.</p>
+
+  <div class="warning-box">
+    <div class="warning-label">What the Paper Does Not Emphasize</div>
+    <p>Alpha-gal syndrome is not a simple "meat allergy." It can trigger anaphylaxis, a life-threatening condition requiring immediate epinephrine. It can react to heparin (a common blood thinner), cetuximab (a cancer drug), gelatin-based vaccines, and dairy products. Even cooking fumes from mammalian meat can trigger reactions in some patients. The paper's framing of AGS as merely "preventing meat consumption" substantially understates the breadth and severity of the condition's impact on daily life.</p>
+  </div>
+
+  <p>The Centers for Disease Control and Prevention has documented a dramatic rise in alpha-gal syndrome cases in the United States over the past decade, with estimates ranging from 250,000 to over 500,000 affected individuals as of 2025. Researchers at Virginia Commonwealth University described an "explosive rise" in tick-linked meat allergy across the country, with the geographic range of the lone star tick expanding rapidly due to climate change, habitat modification, and the proliferation of deer populations that serve as hosts. What was once a condition concentrated in the southeastern United States has spread to the Midwest, the Mid-Atlantic, and parts of New England. Cases have been documented as far north as Minnesota and Maine.</p>
+
+  <p>The human cost of alpha-gal syndrome is substantial and poorly captured by the clinical language of "allergy." Patients describe profound disruptions to their daily lives: the inability to eat at restaurants without detailed interrogation of ingredients; the fear of accidental exposure to gelatin in medications and vaccines; the loss of social rituals built around food; the constant anxiety about anaphylaxis. For some patients, even the smell of cooking meat or the fumes from a grill can trigger respiratory symptoms. The psychological burden of living with a severe, unpredictable, and permanent food allergy is itself a form of chronic harm that the paper's cost-benefit analysis does not adequately address.</p>
+
+  <hr class="section-rule">
+
+  <h2>The International Dimension: A Global Threat</h2>
+
+  <p>While the public debate has focused primarily on the American context, the international implications of the paper's proposal are where its dangers become most acute. Alpha-gal syndrome is not an American phenomenon. It is emerging as a global health concern, and the paper's proposal to engineer ticks for wider deployment would, by its own logic, need to be applied worldwide to achieve the moral end the authors envision -- the elimination of meat consumption. The mathematics of applying a medical condition to the entire global population are staggering and horrifying.</p>
+
+  <p>In Australia, alpha-gal syndrome has been linked to bites from the paralysis tick (Ixodes holocyclus), and cases have been documented along the eastern seaboard, particularly in New South Wales and Queensland. The Australian tick fauna is distinct from North America's, and the local ecology of tick-host interactions is poorly understood relative to the American context. A proposal to engineer Australian tick species to enhance alpha-gal transmission would require intervening in an ecosystem that is already under severe pressure from habitat loss, climate change, and invasive species. The risk of unintended ecological consequences in Australia's uniquely fragile island biogeography is immense and essentially unquantifiable.</p>
+
+  <p>In Europe, the first confirmed case of alpha-gal syndrome was reported in Poland, and cases have since been documented in France, Germany, Sweden, Spain, Italy, and the United Kingdom. The European tick species implicated include Ixodes ricinus, the castor bean tick, which is the most common tick species in Europe and a known vector for Lyme disease, tick-borne encephalitis, and several other serious pathogens. Engineering Ixodes ricinus to enhance alpha-gal transmission would mean modifying a species that already carries multiple human pathogens -- a scenario that raises the specter of inadvertently enhancing transmission of other diseases, or creating novel pathogen-vector combinations that do not currently exist in nature.</p>
+
+  <p>In Asia, where tick species diversity is even greater and surveillance infrastructure is less developed, the risks are compounded by the absence of baseline data. China alone has over 100 documented tick species, many of them poorly characterized. The idea of deploying engineered ticks in regions where the ecological and epidemiological consequences cannot be predicted, in countries where regulatory oversight of gene-editing technology varies enormously, and in ecosystems where the interactions between ticks, hosts, and pathogens are fundamentally understudied, represents a level of recklessness that the paper's careful philosophical language cannot disguise.</p>
+
+  <table class="data-table">
+    <thead>
+      <tr>
+        <th>Region</th>
+        <th>Primary Tick Species</th>
+        <th>AGS Cases Documented</th>
+        <th>Key Risks of Engineered Deployment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>United States</td>
+        <td>Lone star tick (Amblyomma americanum)</td>
+        <td>250,000--500,000+</td>
+        <td>Expanding range due to climate change; regulatory ambiguity around gene drives</td>
+      </tr>
+      <tr>
+        <td>Australia</td>
+        <td>Paralysis tick (Ixodes holocyclus)</td>
+        <td>Emerging</td>
+        <td>Fragile island biogeography; limited baseline data; unique fauna at risk</td>
+      </tr>
+      <tr>
+        <td>Europe</td>
+        <td>Castor bean tick (Ixodes ricinus)</td>
+        <td>Documented in 7+ countries</td>
+        <td>Multi-pathogen vector; risk of enhancing Lyme/TBE transmission</td>
+      </tr>
+      <tr>
+        <td>East Asia</td>
+        <td>Multiple species (100+ in China alone)</td>
+        <td>Limited surveillance</td>
+        <td>Poor species characterization; variable regulatory frameworks</td>
+      </tr>
+      <tr>
+        <td>Sub-Saharan Africa</td>
+        <td>Multiple Amblyomma and Hyalomma species</td>
+        <td>Essentially unstudied</td>
+        <td>No baseline data; co-occurrence with malaria and other vector-borne diseases</td>
+      </tr>
+      <tr>
+        <td>South America</td>
+        <td>Multiple Amblyomma species</td>
+        <td>Emerging reports</td>
+        <td>Complex tropical ecosystems; limited public health infrastructure</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <p>In sub-Saharan Africa, where tick-borne diseases already impose an enormous burden on human and animal health, and where public health infrastructure is least equipped to detect and respond to novel allergic epidemics, the deployment of engineered ticks would be particularly devastating. The region's agricultural economies depend heavily on livestock, and a widespread outbreak of alpha-gal syndrome could devastate both food security and economic stability. The paper does not address these disparities. Its argument proceeds at the level of abstract moral reasoning, treating the global population as an undifferentiated mass of potential meat-avoiders, without regard for the enormous variation in dietary necessity, cultural practice, economic dependence on livestock, and medical infrastructure that makes the prospect of a global tick-borne allergy epidemic a very different proposition in Kalamazoo than it is in Kampala.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Gene-Editing Question: From Mosquitoes to Ticks</h2>
+
+  <p>The paper's discussion of engineering ticks draws explicitly on the existing literature on gene drives in mosquitoes -- a technology that has moved from theoretical possibility to field trial in less than a decade. Gene drives are genetic systems that increase the likelihood that a particular gene variant will be inherited by offspring, allowing it to spread through a population much faster than it would under normal Mendelian inheritance. In mosquitoes, gene drives have been developed to either suppress populations (by making females sterile) or replace them with mosquitoes that are unable to transmit pathogens like malaria and dengue.</p>
+
+  <p>The most advanced mosquito gene-drive project is Target Malaria, a research consortium funded by the Bill and Melinda Gates Foundation and the Open Philanthropy Project, which has conducted small-scale releases of genetically modified mosquitoes in Burkina Faso. The project has been controversial, with critics arguing that the ecological consequences of releasing self-propagating genetic constructs into the environment are fundamentally unpredictable, and that the communities most affected by such releases have not been adequately consulted. The controversy over gene drives in mosquitoes is directly relevant to the paper's proposal, because the technical challenges of engineering a gene drive in ticks are even greater, and the ecological risks are at least as significant.</p>
+
+  <p>Ticks are not mosquitoes. They reproduce more slowly, have longer generation times, and have far more complex life cycles, typically requiring three separate blood meals from three different host species over a period of two to three years to complete their development. This complexity makes the population genetics of gene drives in ticks fundamentally different from mosquitoes. A gene drive that spreads rapidly through a mosquito population with a generation time of two weeks might take years or decades to spread through a tick population with a generation time of two years. During that time, the engineered gene could mutate, recombine with wild-type alleles, or interact with the tick's microbiome in ways that are impossible to predict from laboratory studies. The paper acknowledges none of these complexities.</p>
+
+  <div class="pull-quote">
+    <p>"If we apply the paper's own logic to its conclusion -- that promoting AGS is morally obligatory -- then we must also accept that imposing a 1 to 3 percent anaphylaxis rate on 8.3 billion people would produce between 83 million and 249 million cases of potentially fatal anaphylactic shock. The paper's authors do not address this arithmetic."</p>
+    <cite>Calculated from CDC anaphylaxis data and UN global population estimates</cite>
+  </div>
+
+  <p>The ecological risks are compounded by the fact that ticks occupy a different ecological niche than mosquitoes. Mosquitoes are primarily aerial and have relatively limited host ranges. Ticks are terrestrial, long-lived, and have broad host ranges that include mammals, birds, and reptiles. A gene drive in ticks could potentially jump to non-target species through hybridization, or the engineered ticks could serve as vectors for novel pathogen combinations. The history of biological control is littered with cautionary tales about the unintended consequences of introducing organisms into ecosystems: cane toads in Australia, mongoose in Hawaii, starlings in North America. Each of these introductions was proposed with confidence that the benefits would outweigh the risks. Each proved catastrophically wrong.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Rebuttal: Why It Is Wrong to Promote Alpha-Gal Syndrome</h2>
+
+  <p>The paper did not go unanswered. A rebuttal by Rainer Ebert and Christian Koder, titled "Why It is Wrong to Promote Alpha-Gal Syndrome," was published in the same journal, systematically challenging the Convergence Argument on multiple grounds. The rebuttal is careful and thorough, and its criticisms deserve detailed attention because they expose the structural weaknesses in the original argument that the peer review process failed to catch.</p>
+
+  <p>First, Ebert and Koder argue that the Convergence Argument commits a category error by conflating moral reasoning with medical intervention. Even if we accept the premise that eating meat is morally impermissible, it does not follow that any means of preventing meat consumption is morally permissible or obligatory. The means matter. If eating meat is wrong, then the morally appropriate response is to persuade people to stop, not to impose a medical condition on them without their consent. The difference between moral persuasion and medical coercion is not a minor philosophical distinction -- it is the difference between a free society and a biomedical dictatorship.</p>
+
+  <p>Second, the rebuttal argues that alpha-gal syndrome is far more serious and far less contained than the original paper acknowledges. The 1 to 3 percent anaphylaxis rate alone would, if applied to the global population, produce tens of millions of cases of potentially fatal allergic reactions. But the harms extend well beyond anaphylaxis. Alpha-gal syndrome can cause severe gastrointestinal distress, chronic hives, respiratory difficulties, and cardiovascular symptoms. It can react to heparin, one of the most widely used anticoagulant medications in hospitals worldwide, potentially complicating or preventing essential medical procedures. It can react to cetuximab, a targeted therapy used in the treatment of head and neck cancers and colorectal cancer. It can react to gelatin, which is used as a stabilizer in numerous vaccines, raising the prospect that promoting AGS could reduce vaccination rates in a world still grappling with vaccine hesitancy and pandemic preparedness.</p>
+
+  <p>Third, Ebert and Koder point out that the paper's argument, if accepted, would license an indefinite range of coercive medical interventions. If it is morally obligatory to impose a permanent medical condition to prevent morally wrongful behavior, then the same logic could be used to justify imposing any medical condition to prevent any morally wrongful behavior. If lying is wrong, then it might be obligatory to induce a condition that makes speech physically painful. If driving gasoline-powered cars is wrong, then it might be obligatory to induce a condition that makes petroleum fumes trigger anaphylaxis. The Convergence Argument provides no principled basis for limiting its application to meat consumption, and the authors do not offer one.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Precedent: Covert Moral Bioenhancement</h2>
+
+  <p>Understanding the full significance of the "Beneficial Bloodsucking" paper requires understanding its intellectual lineage. Parker Crutchfield's 2019 paper on covert moral bioenhancement proposed that the government should secretly administer drugs or other biomedical interventions to improve moral behavior in the population, without the knowledge or consent of those affected. That paper was widely criticized as authoritarian and a violation of fundamental medical ethics principles, including autonomy, informed consent, and bodily integrity. But it also established a pattern of argumentation that the new paper extends: the use of conditional moral premises to justify coercive biomedical interventions, the dismissal of consent as a relevant moral constraint, and the treatment of the human population as a substrate for moral engineering rather than as a collection of autonomous agents with rights that must be respected.</p>
+
+  <p>The 2019 paper argued that moral bioenhancement should be covert because overt administration would provoke resistance and because the moral benefits of enhancement justified the deception. The new paper applies the same logic at a greater scale: if meat consumption is morally wrong, and if alpha-gal syndrome prevents meat consumption, then the moral benefits of promoting AGS justify the coercion inherent in releasing engineered ticks. The pattern is consistent: identify a moral wrong, identify a biomedical intervention that would reduce the incidence of that wrong, and argue that the intervention is obligatory regardless of whether the people affected consent to it. This is not bioethics in the traditional sense -- the discipline that seeks to protect patients from medical abuse and ensure that medical practice respects human dignity. It is its inverse: a framework for justifying medical abuse in the name of moral improvement.</p>
+
+  <p>The historical parallels are uncomfortable and unavoidable. The eugenics movement of the early twentieth century was also justified in terms of moral improvement -- the improvement of the human race through selective breeding and the prevention of reproduction by those deemed "unfit." The forced sterilization programs that resulted, sanctioned by the Supreme Court in Buck v. Bell (1927) and not fully repudiated until the late twentieth century, were grounded in the same utilitarian logic: the moral benefits of preventing certain outcomes justified the violation of individual rights. The "Beneficial Bloodsucking" paper does not propose sterilization, but it proposes something structurally analogous: the imposition of a permanent medical condition on unwilling human beings for the purpose of achieving a moral end that those human beings may not share.</p>
+
+  <hr class="section-rule">
+
+  <h2>The International Law Dimension</h2>
+
+  <p>The proposal to release engineered ticks across national borders raises profound questions under international law. The Biological Weapons Convention, to which 185 states are parties, prohibits the development, production, stockpiling, and acquisition of biological agents or toxins "of types and in quantities that have no justification for prophylactic, protective or other peaceful purposes." While the paper's authors would undoubtedly argue that their proposal is "peaceful" in intent -- it aims to reduce animal suffering, not to cause human harm as an end in itself -- the legal analysis is less clear-cut. A gene-edited tick designed to spread a medical condition across human populations could reasonably be classified as a biological agent, and its release could reasonably be classified as an act of biological warfare or bioterrorism, regardless of the perpetrator's stated intentions.</p>
+
+  <p>The Cartagena Protocol on Biosafety, a supplementary agreement to the Convention on Biological Diversity, establishes rules for the safe handling, transport, and use of living modified organisms resulting from modern biotechnology that may have adverse effects on biological diversity, taking also into account risks to human health. The protocol requires advance informed agreement before the transboundary movement of living modified organisms. A proposal to release engineered ticks that would inevitably cross national borders -- as ticks do, carried by migratory birds and other hosts -- would violate the spirit if not the letter of this agreement.</p>
+
+  <p>The Nagoya-Kuala Lumpur Supplementary Protocol on Liability and Redress establishes rules for liability and redress for damage resulting from living modified organisms. If engineered ticks were released and caused harm -- and they would cause harm, by design -- the question of who bears liability would be extraordinarily complex. Would it be the researchers who designed the ticks? The university that employed them? The journal that published the proposal? The government that authorized the release? The international legal framework for addressing these questions is rudimentary at best, and the paper's authors do not engage with it at all.</p>
+
+  <div class="info-box">
+    <div class="info-label">International Legal Framework</div>
+    <p>The release of gene-edited organisms across national borders is governed by multiple overlapping international agreements, including the Biological Weapons Convention (1975), the Convention on Biological Diversity (1993), the Cartagena Protocol on Biosafety (2003), and the Nagoya-Kuala Lumpur Supplementary Protocol on Liability and Redress (2018). None of these instruments were designed with engineered ticks in mind, but all of them would be implicated by the paper's proposal. The absence of specific regulatory frameworks for gene-drive organisms in general, and for deliberately pathogenic gene-drive organisms in particular, represents a significant gap in international governance that this paper exposes but does not address.</p>
+  </div>
+
+  <hr class="section-rule">
+
+  <h2>The Climate Change Accelerator</h2>
+
+  <p>One of the most troubling dimensions of this story is the interaction between the paper's proposal and the ongoing expansion of tick ranges driven by climate change. As global temperatures rise, tick species are moving into previously inhospitable latitudes and altitudes, bringing alpha-gal syndrome and other tick-borne diseases with them. The lone star tick's range in the United States has expanded dramatically over the past two decades, moving northward and westward into areas where it was previously unknown. In Europe, Ixodes ricinus is being found at higher elevations in the Alps and at more northern latitudes in Scandinavia than ever before. In Asia, tick-borne diseases are emerging in regions where they were historically absent.</p>
+
+  <p>Climate change is already doing what the paper's authors propose -- expanding the range of ticks that cause alpha-gal syndrome -- but it is doing so indiscriminately and in ways that are entangled with the expansion of other tick-borne diseases, including Lyme disease, anaplasmosis, babesiosis, and tick-borne encephalitis. The proposal to accelerate this process through deliberate engineering would add a layer of intentional harm on top of the unintentional harm already being driven by warming temperatures. It would also make it more difficult to disentangle the natural expansion of tick ranges from the engineered expansion, complicating public health surveillance and response.</p>
+
+  <p>The World Health Organization has identified climate change as the single greatest health threat facing humanity in the twenty-first century, and vector-borne diseases are among the most climate-sensitive health outcomes. The idea of deliberately adding to the vector-borne disease burden at a moment when the existing burden is already accelerating due to climate change is, to put it mildly, counterproductive. It represents a form of double harm: the harm of the disease itself, and the harm of diverting public health resources from the fight against naturally emerging diseases to the management of deliberately engineered ones.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Food Security Question</h2>
+
+  <p>The paper's argument rests on the assumption that eliminating meat consumption is an unalloyed moral good, but it does not engage with the reality that for hundreds of millions of people worldwide, meat and dairy are not discretionary dietary choices but essential sources of nutrition that cannot be easily replaced. In sub-Saharan Africa, South Asia, and parts of Latin America, livestock serve as stores of wealth, sources of fertilizer, draft animals for agriculture, and providers of milk and meat that are critical to food security in regions where plant-based alternatives may be unavailable, unaffordable, or nutritionally inadequate. Imposing alpha-gal syndrome on these populations would not merely be an inconvenience -- it would be a threat to survival.</p>
+
+  <p>Even in wealthy countries, the assumption that a meat-free diet is universally accessible and nutritionally adequate is questionable. Vitamin B12, which is found almost exclusively in animal products, must be supplemented in any strict plant-based diet. Iron from plant sources is less bioavailable than heme iron from meat. Omega-3 fatty acids from plant sources are less efficiently converted to the long-chain forms the body needs than those from fish. For populations with limited access to supplements, fortified foods, or the nutritional literacy required to construct a balanced plant-based diet, the sudden removal of animal products from the dietary repertoire could result in widespread nutritional deficiencies, particularly among children, pregnant women, and the elderly.</p>
+
+  <p>The paper treats the global population as if it shares the dietary options of a well-resourced academic in Kalamazoo, Michigan. It does not. A proposal that might seem merely inconvenient to a tenured professor with access to Whole Foods and a refrigerator full of supplements could be catastrophic for a pastoralist in Kenya whose cattle represent her entire family's wealth, or a subsistence farmer in Bangladesh whose few chickens provide the only reliable source of protein for her children. The moral abstraction that allows the Convergence Argument to proceed smoothly on paper collapses when it encounters the material conditions of actual human lives.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Bioethics Pipeline: How Did This Get Published?</h2>
+
+  <p>Perhaps the most disturbing question raised by this episode is not about the paper's argument but about the system that produced it. How did a paper proposing the deliberate release of a disease vector to impose a medical condition on the global population pass peer review at a leading bioethics journal? What were the reviewers thinking? What were the editors thinking? And what does the answer tell us about the state of academic bioethics as a discipline?</p>
+
+  <p>The journal Bioethics is published by Wiley and describes itself as providing "a forum for well-argued articles on the ethical questions raised by current developments such as genome editing, climate change, and medical technologies." Its editorial board includes prominent scholars from major universities on several continents. Its peer review process is, presumably, rigorous by the standards of the field. And yet it published a paper that proposes, in essence, a form of biological coercion that would violate the bodily autonomy of billions of people, without requiring the kind of ethical oversight that a laboratory proposing to release a single genetically modified fruit fly would need to navigate.</p>
+
+  <p>The answer may lie in the discipline's increasing comfort with arguments that push boundaries for the sake of pushing them. Academic bioethics rewards novelty, provocation, and the kind of counterintuitive argument that generates discussion and citations. A paper that argues for something everyone already agrees with -- that patients should give informed consent, that doctors should not harm their patients -- is unlikely to be published in a leading journal. A paper that argues for something no one agrees with -- that we should release engineered ticks to make people allergic to meat -- is exactly the kind of thing that gets attention. The incentive structure of academic publishing rewards the provocative over the prudent, and the result is a literature that increasingly resembles a contest to see who can propose the most shocking intervention while maintaining a veneer of philosophical respectability.</p>
+
+  <p>This is not a victimless exercise. The paper's publication has already had real-world consequences. The meme that circulated online, while factually imprecise in its attribution of the authors to the University of Michigan, accurately conveyed the paper's essential proposal, and it generated a wave of public outrage that further eroded trust in academic institutions and the scientific enterprise. When people learn that a bioethicist at a medical school has proposed releasing engineered ticks to make them allergic to meat, and that a peer-reviewed journal published the proposal, they do not think, "What an interesting contribution to the philosophical literature on moral bioenhancement." They think, "These people are out of their minds, and they have power over my health care." The damage to public trust is real, and it is not offset by whatever marginal contribution the paper makes to academic discourse.</p>
+
+  <hr class="section-rule">
+
+  <h2>Responses from the Medical and Agricultural Communities</h2>
+
+  <p>The paper has drawn sharp criticism from communities that the authors appear not to have consulted. The Western Livestock Journal published a response condemning the proposal as "an assault on the livestock industry and on the rural communities that depend on it," and argued that the paper's abstract philosophical reasoning was disconnected from the material realities of food production. SnackSafely.com, a food allergy advocacy organization, published a detailed critique noting that the paper "dangerously minimizes the severity of alpha-gal syndrome" and that "promoting a potentially life-threatening food allergy as a moral good is a profound betrayal of the food allergy community." Catholic World Report published a critique from a natural law perspective, arguing that the paper's utilitarian calculus violated fundamental principles of human dignity and the common good.</p>
+
+  <p>Medical professionals who treat alpha-gal syndrome patients have been particularly vocal. Allergists and immunologists who see the real-world consequences of the condition -- the emergency room visits, the epinephrine injections, the fear, the dietary restrictions, the disruptions to work and family life -- have expressed dismay that a paper published in a medical ethics journal could so thoroughly minimize the severity of the condition it proposes to promote. The paper describes alpha-gal syndrome primarily as a condition that "prevents meat consumption," a framing that reduces a complex, multi-system, potentially life-threatening medical condition to a single dietary effect. This is not merely an oversimplification; it is a misrepresentation that a competent peer review process should have caught and required the authors to correct.</p>
+
+  <p>The agricultural community's response has been equally forceful. Livestock producers, who are already under economic pressure from feed costs, regulatory requirements, and market volatility, see the paper as an existential threat dressed in academic language. The proposal to impose a meat allergy on the global population would, if implemented, destroy the livestock industry worldwide, with cascading effects on feed grain producers, meat processors, dairy operations, leather goods manufacturers, and the millions of workers employed across these sectors. The paper does not address these economic consequences, nor does it engage with the question of what would replace the nutritional, economic, and cultural functions that livestock currently serve.</p>
+
+  <hr class="section-rule">
+
+  <h2>The Consent Problem</h2>
+
+  <p>At the heart of the paper's moral failure is the absence of consent. The Convergence Argument, if accepted, licenses the imposition of a medical condition on people who have not consented to it, who may not share the moral premise that meat consumption is wrong, and who may have no realistic way to avoid the engineered ticks once they are released. This is not a peripheral concern. It is the central moral problem with the proposal, and the paper's failure to address it adequately is the most damning indictment of its argument.</p>
+
+  <p>Modern medical ethics is founded on the principle of informed consent, enshrined in the Nuremberg Code, the Declaration of Helsinki, and the Belmont Report. The principle holds that no medical intervention may be performed on a person without their free and informed consent, with limited exceptions for emergencies and situations where the person is unable to consent. The paper's proposal would violate this principle wholesale, imposing a permanent medical condition on billions of people without their knowledge, let alone their consent. The authors might respond that the moral urgency of preventing animal suffering overrides the consent requirement, but this is precisely the logic that has been used to justify every medical atrocity in history: the claim that the ends justify the means, and that the individual's rights must yield to the collective good as defined by those in power.</p>
+
+  <p>The consent problem is compounded by the irreversibility of the proposal. Once engineered ticks are released, they cannot be recalled. Gene drives, by design, spread through populations without further human intervention. If the gene drive in the engineered ticks behaves as intended, it will propagate through wild tick populations, across borders, through ecosystems, and into human bodies, without any point at which an affected individual can say, "I do not consent to this." The irreversibility of the intervention means that the consent violation is not a one-time event but a permanent condition -- a perpetual violation of bodily autonomy that extends into the indefinite future and across generations.</p>
+
+  <hr class="section-rule">
+
+  <h2>What This Means for the Future of Bioethics</h2>
+
+  <p>The publication of "Beneficial Bloodsucking" represents a watershed moment for the discipline of bioethics, and the direction the discipline takes in response will determine whether it remains a credible contributor to public discourse or degenerates into an academic parlor game with real-world consequences. The questions the paper raises are not trivial. The moral status of animals, the environmental impact of industrial agriculture, and the ethics of gene-editing technology are all serious topics that deserve careful, rigorous, and responsible scholarly attention. What they do not deserve is the kind of attention this paper provides: a slick philosophical argument that treats the global population as a laboratory and the natural world as a substrate for moral engineering.</p>
+
+  <p>The discipline of bioethics was born in the aftermath of medical atrocities -- the Nazi experiments, the Tuskegee syphilis study, the Willowbrook hepatitis experiments -- and its founding purpose was to protect vulnerable populations from medical abuse. The Belmont Report, which established the principles of respect for persons, beneficence, and justice as the foundations of research ethics, was a direct response to these abuses. The paper's proposal to release engineered ticks violates all three principles: it does not respect the autonomy of those affected, it does not maximize benefit and minimize harm, and it distributes the burdens of the intervention disproportionately to those least able to avoid it or cope with its consequences.</p>
+
+  <p>The future of bioethics depends on whether the discipline can rediscover its founding purpose. If bioethics is to remain relevant and credible, it must resist the temptation to generate provocative arguments for their own sake and return to the hard, unglamorous work of protecting patients, defending consent, and ensuring that medical and technological progress serves human flourishing rather than undermining it. The publication of "Beneficial Bloodsucking" is not a sign of a healthy discipline engaging in rigorous debate. It is a sign of a discipline that has lost its way.</p>
+
+  <hr class="section-rule">
+
+  <h2>Sources and Further Reading</h2>
+
+</div>
+
+<!-- SOURCES SECTION -->
+<div class="sources-section">
+  <div style="max-width:780px;margin:0 auto;">
+    <h3>Sources Cited</h3>
+    <ul class="sources-list">
+      <li><span class="src-num">1.</span><span>Crutchfield, P. &amp; Hereth, B. "Beneficial Bloodsucking: The Convergence Argument for Promoting Tickborne Alpha-Gal Syndrome." <em>Bioethics</em>, Vol. 39, Issue 8, pp. 772-781, October 2025. DOI: <a href="https://doi.org/10.1111/bioe.70015" target="_blank" rel="noopener">10.1111/bioe.70015</a></span></li>
+      <li><span class="src-num">2.</span><span>Crutchfield, P. "Compulsory Moral Bioenhancement Should Be Covert." <em>Bioethics</em>, Vol. 33, Issue 7, pp. 807-815, September 2019. DOI: 10.1111/bioe.12608</span></li>
+      <li><span class="src-num">3.</span><span>Ebert, R. &amp; Koder, C. "Why It is Wrong to Promote Alpha-Gal Syndrome." <em>Bioethics</em>, 2025. (Rebuttal to Crutchfield &amp; Hereth)</span></li>
+      <li><span class="src-num">4.</span><span>Centers for Disease Control and Prevention. "Alpha-gal Syndrome." CDC Tick-Borne Diseases. <a href="https://www.cdc.gov/ticks/alpha-gal/" target="_blank" rel="noopener">cdc.gov/ticks/alpha-gal</a></span></li>
+      <li><span class="src-num">5.</span><span>Virginia Commonwealth University. "Explosive Rise in Tick-Linked Meat Allergy Across U.S." VCU News, 2023. <a href="https://www.vcu.edu" target="_blank" rel="noopener">vcu.edu</a></span></li>
+      <li><span class="src-num">6.</span><span>Commins, S.P. &amp; Platts-Mills, T.A.E. "Delayed Anaphylaxis to Red Meat in Patients with IgE Specific for Galactose alpha-1,3-Galactose (alpha-gal)." <em>Current Allergy and Asthma Reports</em>, 2013. DOI: 10.1007/s11882-013-0373-y</span></li>
+      <li><span class="src-num">7.</span><span>Wilson, J.M. et al. "Galactose-alpha-1,3-galactose: The Allergen Behind the Alpha-Gal Syndrome." <em>Journal of Allergy and Clinical Immunology</em>, 2023. DOI: 10.1016/j.jaci.2023.01.020</span></li>
+      <li><span class="src-num">8.</span><span>Convention on the Prohibition of the Development, Production and Stockpiling of Bacteriological (Biological) and Toxin Weapons and on Their Destruction (Biological Weapons Convention). United Nations Office for Disarmament Affairs, 1975. <a href="https://www.un.org/disarmament/biological-weapons/" target="_blank" rel="noopener">un.org/disarmament</a></span></li>
+      <li><span class="src-num">9.</span><span>Cartagena Protocol on Biosafety to the Convention on Biological Diversity. Secretariat of the Convention on Biological Diversity, 2003. <a href="https://bch.cbd.int/protocol/" target="_blank" rel="noopener">bch.cbd.int/protocol</a></span></li>
+      <li><span class="src-num">10.</span><span>Nagoya-Kuala Lumpur Supplementary Protocol on Liability and Redress to the Cartagena Protocol on Biosafety. CBD, 2018.</span></li>
+      <li><span class="src-num">11.</span><span>Target Malaria Research Consortium. "Gene Drive Research for Malaria Control." <a href="https://targetmalaria.org" target="_blank" rel="noopener">targetmalaria.org</a></span></li>
+      <li><span class="src-num">12.</span><span>National Academies of Sciences, Engineering, and Medicine. "Gene Drives on the Horizon: Advancing Science, Navigating Uncertainty, and Aligning Research with Public Values." Washington, DC: The National Academies Press, 2016. DOI: 10.17226/23405</span></li>
+      <li><span class="src-num">13.</span><span>World Health Organization. "Climate Change and Health." WHO Fact Sheet, 2023. <a href="https://www.who.int/news-room/fact-sheets/detail/climate-change-and-health" target="_blank" rel="noopener">who.int</a></span></li>
+      <li><span class="src-num">14.</span><span>SnackSafely.com. "Bioethics Paper Proposes Promoting Life-Threatening Food Allergy as Moral Good." 2025. <a href="https://www.snacksafely.com" target="_blank" rel="noopener">snacksafely.com</a></span></li>
+      <li><span class="src-num">15.</span><span>Western Livestock Journal. "Bioethicists Propose Releasing Engineered Ticks -- Livestock Industry Responds." 2025. <a href="https://www.wlj.net" target="_blank" rel="noopener">wlj.net</a></span></li>
+      <li><span class="src-num">16.</span><span>Catholic World Report. "The Ethics of Imposing Allergies: A Critique of the Convergence Argument." 2025. <a href="https://catholicworldreport.com" target="_blank" rel="noopener">catholicworldreport.com</a></span></li>
+      <li><span class="src-num">17.</span><span>The National Commission for the Protection of Human Subjects of Biomedical and Behavioral Research. "The Belmont Report: Ethical Principles and Guidelines for the Protection of Human Subjects of Research." 1979. <a href="https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/index.html" target="_blank" rel="noopener">hhs.gov</a></span></li>
+      <li><span class="src-num">18.</span><span>van Nunen, S.A. et al. "The Alpha-Gal Syndrome: A Growing Global Health Concern." <em>Current Treatment Options in Allergy</em>, 2024. DOI: 10.1007/s40521-024-00329-3</span></li>
+      <li><span class="src-num">19.</span><span>Food and Agriculture Organization of the United Nations. "Livestock and Food Security in Developing Countries." FAO Report, 2022. <a href="https://www.fao.org" target="_blank" rel="noopener">fao.org</a></span></li>
+      <li><span class="src-num">20.</span><span>Minding the Campus. "Bioethicists at Western Michigan University Propose Releasing Gene-Edited Ticks." 2025. <a href="https://www.mindingthecampus.com" target="_blank" rel="noopener">mindingthecampus.com</a></span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+
+</body>
+</html>
