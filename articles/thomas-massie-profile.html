@@ -1,38 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thomas Massie: Fact-Based Profile and Voting Record</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="article-styles.css">
-    <meta name="description" content="A factual, non-biased profile of Congressman Thomas Massie covering his background, voting record, and legislative actions based on media coverage and official sources.">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thomas Massie: Fact-Based Profile and Voting Record | Tony Wolf</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --deep-red: #8b0000;
+    --gold: #c9a84c;
+    --light-bg: #f5f0eb;
+    --rule: #d4c5b0;
+    --mid-gray: #555;
+    --dark-bg: #1c1c1c;
+    --warning: #b35c00;
+    --warning-bg: #fff8f0;
+    --blue-dark: #1a3a5c;
+    --blue-bg: #f0f5fa;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
+
+  /* NAV */
+  .nav { background: #fff; border-bottom: 1px solid #e0d8cf; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: var(--deep-red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--deep-red); }
+
+  /* CATEGORY BAR */
+  .cat-bar { background: var(--deep-red); padding: 10px 32px; display: flex; align-items: center; gap: 12px; }
+  .cat-bar .cat-pill { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 2px; }
+  .cat-bar .cat-sep { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+
+  /* HERO */
+  .hero { background: var(--dark-bg); padding: 72px 32px 80px; text-align: center; }
+  .hero-kicker { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.12; max-width: 900px; margin: 0 auto 24px; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); max-width: 680px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-meta { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .hero-meta .author { color: var(--gold); font-weight: 700; }
+
+  /* SHARE BAR */
+  .share-bar { background: var(--light-bg); border-bottom: 1px solid var(--rule); padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .share-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .share-btn { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-red); border: 1px solid var(--deep-red); padding: 6px 14px; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: all 0.2s; }
+  .share-btn:hover { background: var(--deep-red); color: #fff; }
+
+  /* BODY */
+  .article-wrap { max-width: 780px; margin: 0 auto; padding: 60px 32px 80px; }
+  .article-wrap p { font-size: 1rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.6rem; }
+  .article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin: 3rem 0 1.2rem; line-height: 1.25; }
+  .article-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 2.4rem 0 1rem; }
+  .article-wrap a { color: var(--deep-red); text-decoration: underline; text-underline-offset: 3px; }
+  .article-wrap a:hover { color: #5a0000; }
+
+  /* DROP CAP */
+  .dropcap::first-letter { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 900; color: var(--deep-red); float: left; line-height: 0.82; margin: 0.1rem 0.12rem -0.1rem 0; }
+
+  /* SECTION RULE */
+  .section-rule { border: none; border-top: 2px solid var(--deep-red); width: 60px; margin: 2.8rem 0 2rem; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 4px solid var(--gold); padding: 20px 28px; margin: 2.8rem 0; background: var(--light-bg); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); line-height: 1.5; margin: 0; }
+  .pull-quote cite { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 12px; }
+
+  /* STAT BOX */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 2.8rem 0; }
+  .stat-box { background: var(--dark-bg); padding: 28px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .stat-box .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .stat-box .stat-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  /* DATA TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin: 2.4rem 0; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+  .data-table th { background: var(--dark-bg); color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 16px; text-align: left; font-size: 0.7rem; }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: var(--light-bg); }
+  .data-table tr:hover td { background: #ece5db; }
+
+  /* WARNING BOX */
+  .warning-box { background: var(--warning-bg); border-left: 4px solid var(--warning); padding: 20px 24px; margin: 2.8rem 0; }
+  .warning-box .warning-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warning); margin-bottom: 10px; }
+  .warning-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* BLUE INFO BOX */
+  .info-box { background: var(--blue-bg); border-left: 4px solid var(--blue-dark); padding: 20px 24px; margin: 2.8rem 0; }
+  .info-box .info-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 10px; }
+  .info-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* SOURCES */
+  .sources-section { background: var(--light-bg); border-top: 2px solid var(--rule); padding: 48px 32px; }
+  .sources-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+  .sources-list { max-width: 780px; margin: 0 auto; list-style: none; }
+  .sources-list li { font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; color: var(--mid-gray); padding: 8px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+  .sources-list li span.src-num { color: var(--deep-red); font-weight: 700; min-width: 24px; }
+  .sources-list a { color: var(--deep-red); }
+
+  /* FOOTER */
+  .footer { background: var(--dark-bg); padding: 40px 32px; text-align: center; }
+  .footer p { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 48px 20px 56px; }
+    .sources-section { padding: 32px 20px; }
+    .data-table { font-size: 0.75rem; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">TonyWolf</div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../articles/">Articles</a>
-                <a href="../search.html">Search</a>
-            </div>
-        </nav>
-    </header>
 
-    <article class="article">
-        <h1>Thomas Massie: Fact-Based Profile and Voting Record</h1>
-        
-        <div class="article-meta">
-            <span class="date">Published: May 16, 2026</span>
-            <span class="category">Congressional Profile</span>
-        </div>
+<script>
+(function() {
+  // Immediate removal - runs synchronously
+  function hideNinjaElements() {
+    var selectors = [
+      '.ninja-badge',
+      '.ninja-daytona-banner',
+      '.ninja-connection-status',
+      '.ninja-disconnect-overlay',
+      '[id*="ninja"]',
+      '[class*="ninja-banner"]',
+      '[class*="ninja-badge"]'
+    ];
+    selectors.forEach(function(selector) {
+      var elements = document.querySelectorAll(selector);
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+        elements[i].style.visibility = 'hidden';
+        elements[i].style.opacity = '0';
+        elements[i].remove();
+      }
+    });
+  }
+  
+  // Run immediately
+  hideNinjaElements();
+  
+  // Run on DOMContentLoaded as backup
+  if (document.readyState !== 'loading') {
+    hideNinjaElements();
+  } else {
+    document.addEventListener('DOMContentLoaded', hideNinjaElements);
+  }
+  
+  // Run continuously to catch any dynamically added elements
+  setInterval(hideNinjaElements, 1000);
+})();
+</script>
 
-        <div class="article-content">
-            <p>Thomas Harold Massie has served as the United States Representative for Kentucky's 4th congressional district since November 2012. A member of the Republican Party, Massie has established a distinct record in Congress characterized by frequent opposition to legislation from both parties, consistent votes against government spending measures, and positions that often place him at odds with his own party's leadership. This article presents factual information about Massie's background, legislative positions, voting record, and notable actions, drawing from official sources, congressional records, and media coverage.</p>
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">All Articles</a></li>
+    <li><a href="../search.html">Search</a></li>
+  </ul>
+</nav>
 
-            <h2>Background and Early Career</h2>
+<!-- CATEGORY BAR -->
+<div class="cat-bar">
+  <span class="cat-pill">Congressional Profile</span> <span class="cat-sep">/</span> <span class="cat-pill">Politics</span> <span class="cat-sep">/</span> <span class="cat-pill">Legislative Record</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">Congressional Profile</div>
+  <h1>Thomas Massie: A <em>Fact-Based Profile</em> and Voting Record</h1>
+  <div class="hero-sub">A detailed examination of Congressman Thomas Massie's background, legislative positions, voting record, and the unprecedented primary challenge he faces in 2026</div>
+  <div class="hero-meta">
+    <span class="author">By Tony Wolf</span>
+    <span>May 16, 2026</span>
+    <span>20-Minute Read</span>
+  </div>
+</div>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-label">Share This Investigation</span>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?text=Thomas Massie: Fact-Based Profile and Voting Record&url=thomas-massie-profile.html" target="_blank" rel="noopener">Twitter</a>
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=thomas-massie-profile.html" target="_blank" rel="noopener">Facebook</a>
+  <a class="share-btn" href="mailto:?subject=Thomas Massie: Fact-Based Profile and Voting Record&body=thomas-massie-profile.html">Email</a>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+<p class="dropcap">Thomas Harold Massie has served as the United States Representative for Kentucky's 4th congressional district since November 2012. A member of the Republican Party, Massie has established a distinct record in Congress characterized by frequent opposition to legislation from both parties, consistent votes against government spending measures, and positions that often place him at odds with his own party's leadership. This article presents factual information about Massie's background, legislative positions, voting record, and notable actions, drawing from official sources, congressional records, and media coverage.</p>
+
+  <h2>Background and Early Career</h2>
 
             <p>Massie was born on January 13, 1971, in Huntington, West Virginia, and was raised in Vanceburg, Kentucky, in Appalachian Kentucky. He earned a Bachelor's degree in electrical engineering in 1993 and a Master's degree in mechanical engineering in 1996 from the Massachusetts Institute of Technology (MIT). His master's thesis focused on haptic interfaces and virtual touch technology.</p>
 
@@ -42,7 +230,9 @@
 
             <p>Massie's first wife, Rhonda Howard Massie, died in 2024. The couple had four children together. He married Carolyn Moffa in 2025.</p>
 
-            <h2>Congressional Career</h2>
+  <hr class="section-rule">
+
+  <h2>Congressional Career</h2>
 
             <p>Massie was elected to Congress in November 2012 in a special election to replace Congressman Geoff Davis, who resigned from office. Massie won both the special election to complete Davis's term and the regular election for a full two-year term on the same day. He has been re-elected multiple times.</p>
 
@@ -50,7 +240,9 @@
 
             <p>Massie is a member of the Second Amendment Caucus and the Liberty Caucus, and his voting record has been described as libertarian-conservative in orientation. During the 117th Congress, Massie voted with President Joe Biden's stated position only 1.8% of the time according to a FiveThirtyEight analysis, tying him with Representative Chip Roy as the least likely member of Congress to vote with the president on any given issue.</p>
 
-            <h2>Voting Patterns and Legislative Record</h2>
+  <hr class="section-rule">
+
+  <h2>Voting Patterns and Legislative Record</h2>
 
             <h3>Spending and Debt</h3>
 
@@ -140,19 +332,25 @@
 
             <p>No piece of legislation proposed by Massie has been passed by Congress.</p>
 
-            <h2>2026 Primary Challenge</h2>
+  <hr class="section-rule">
+
+  <h2>2026 Primary Challenge</h2>
 
             <p>Following Massie's votes against spending bills supported by President Trump in 2025, Trump announced he would support and fund a primary challenger against Massie. The 2026 Republican primary in Kentucky's 4th congressional district has become the most expensive U.S. House primary in history. Massie faces challenger Ed Gallrein, whom Trump endorsed during a March 11, 2026 rally at Verst Logistics in Hebron, Kentucky.</p>
 
             <p>Media coverage in May 2026 reports that Massie has received significant fundraising support since Trump's announcement of opposition. Fox News reported that Massie "raked in more than $1M" in campaign contributions in a single week while fighting for his political life. CNN and other outlets have described this as "the toughest election of (Massie's) career." Coverage by the Daily Press notes that Kentucky Republicans historically strongly support Trump, raising questions about whether they will ignore Trump's opposition and re-elect Massie.</p>
 
-            <h2>Scoring by Conservative Organizations</h2>
+  <hr class="section-rule">
+
+  <h2>Scoring by Conservative Organizations</h2>
 
             <p>Various conservative organizations have scored Massie's voting record. Heritage Action scorecards show Massie receiving scores of 71% in the 115th Congress, 92% in the 116th Congress, 96% in the 117th Congress, and 70% in the 118th Congress. The drop in the 118th Congress reflects Massie's opposition to spending measures supported by House leadership and the Trump administration.</p>
 
             <p>Gun Owners of America has given Massie high ratings for his record on Second Amendment issues. NumbersUSA, which seeks to reduce both legal and illegal immigration, gave Massie a 56% score in 2024. The Federation for American Immigration Reform, which also supports immigration controls, gave him a 92% rating in 2019-2020.</p>
 
-            <h2>Sources</h2>
+  <hr class="section-rule">
+
+  <h2>Sources</h2>
 
             <ul>
                 <li>Wikipedia: Thomas Massie (accessed May 2026)</li>
@@ -168,11 +366,58 @@
                 <li>77 WABC Radio: Interview on foreign aid (April 2026)</li>
                 <li>The Daily Press: Kentucky Republican primary coverage</li>
             </ul>
-        </div>
-    </article>
 
-    <footer>
-        <p>&copy; 2026 Tony Wolf. All rights reserved.</p>
-    </footer>
+</div>
+
+<!-- SOURCES SECTION -->
+<div class="sources-section">
+  <div style="max-width:780px;margin:0 auto;">
+    <h3>Sources Cited</h3>
+    <ul class="sources-list">
+      <li><span class="src-num">1.</span><span>Wikipedia: Thomas Massie (accessed May 2026)</span></li>
+      <li><span class="src-num">2.</span><span>Office of Representative Thomas Massie: Official website and Vote Record</span></li>
+      <li><span class="src-num">3.</span><span>U.S. House of Representatives: Clerk of the House voting records</span></li>
+      <li><span class="src-num">4.</span><span>Congress.gov: Legislative activity and bill information</span></li>
+      <li><span class="src-num">5.</span><span>GovTrack.us: Representative tracking and analysis</span></li>
+      <li><span class="src-num">6.</span><span>FiveThirtyEight: Congressional voting alignment analysis</span></li>
+      <li><span class="src-num">7.</span><span>Heritage Action: Conservative scorecards</span></li>
+      <li><span class="src-num">8.</span><span>Fox News: Coverage of 2026 primary challenge</span></li>
+      <li><span class="src-num">9.</span><span>CNN: Coverage of 2026 Kentucky primary</span></li>
+      <li><span class="src-num">10.</span><span>The Guardian: Coverage of Epstein files review</span></li>
+      <li><span class="src-num">11.</span><span>77 WABC Radio: Interview on foreign aid (April 2026)</span></li>
+      <li><span class="src-num">12.</span><span>The Daily Press: Kentucky Republican primary coverage</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+
 </body>
 </html>
