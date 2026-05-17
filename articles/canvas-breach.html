@@ -176,13 +176,13 @@ footer a{color:var(--gold)}
     </script>
 
 
-<nav>
-<div class="nav-brand">Tony<span>Wolf</span></div>
-<ul class="nav-links">
-<li><a href="https://tony-wolf.com">Home</a></li>
-<li><a href="index.html">Articles</a></li>
-<li><a href="../index.html">Investigations</a></li>
-</ul>
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">All Articles</a></li>
+    <li><a href="../search.html">Search</a></li>
+  </ul>
 </nav>
 
 <div class="category-bar">
@@ -383,9 +383,33 @@ Cybersecurity <span class="cat-sep">•</span> Education Privacy <span class="ca
 </div>
 </div><!-- .article-wrap -->
 
-<footer>
-<p>&copy; 2026 Tony Wolf. Independent investigative journalism.</p>
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
 </footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
 
 </body>
 </html>
