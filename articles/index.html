@@ -500,6 +500,8 @@
             <button class="category-pill" data-category="public health">Public Health</button>
             <button class="category-pill" data-category="politics">Politics</button>
             <button class="category-pill" data-category="geopolitics">Geopolitics</button>
+            <button class="category-pill" data-category="disinformation">Disinformation</button>
+            <button class="category-pill" data-category="intelligence">Intelligence</button>
         </div>
     </div>
 
@@ -518,7 +520,7 @@
     </div>
 
     <!-- RESULTS COUNT -->
-    <div class="results-count" id="resultsCount">19 articles</div>
+    <div class="results-count" id="resultsCount">20 articles</div>
 
     <!-- ARTICLE GRID - dynamically populated -->
     <div class="article-grid" id="articleGrid"></div>
@@ -545,6 +547,17 @@
 (function() {
   // ─── ARTICLE DATA (sorted newest-first by default) ───
   const articles = [
+    {
+      url: 'russia-cia-mossad-terrorism-claims.html',
+      title: "Russia's Claims That the CIA and Mossad Orchestrated Terrorism: A Disinformation Investigation",
+      excerpt: 'A viral social media post claims Russia exposed the CIA and Mossad as orchestrators of global terrorism. The truth is more disturbing: the claim is part of a coordinated disinformation campaign traced from 4chan conspiracies through Kremlin amplification to state media echo chambers across Russia, Iran, and China.',
+      category: 'Disinformation &middot; Intelligence &middot; Global Security',
+      categoryLower: 'disinformation intelligence global security geopolitics foreign policy fact check',
+      date: '2026-05-17',
+      displayDate: 'May 17, 2026',
+      wordCount: '7,500 words',
+      sources: '14 sources'
+    },
     {
       url: 'thomas-massie-profile.html',
       title: 'Thomas Massie: Fact-Based Profile and Voting Record',
