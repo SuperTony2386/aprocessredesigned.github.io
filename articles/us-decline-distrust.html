@@ -1,38 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Decline of the United States: Global Disapproval and Domestic Distrust</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="article-styles.css">
-    <meta name="description" content="An in-depth analysis of America's declining global influence and domestic institutional trust from international and domestic perspectives">
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Decline of the United States: Global Disapproval and Domestic Distrust | Tony Wolf</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --deep-red: #8b0000;
+    --gold: #c9a84c;
+    --light-bg: #f5f0eb;
+    --rule: #d4c5b0;
+    --mid-gray: #555;
+    --dark-bg: #1c1c1c;
+    --warning: #b35c00;
+    --warning-bg: #fff8f0;
+    --blue-dark: #1a3a5c;
+    --blue-bg: #f0f5fa;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 18px; }
+  body { background: #fff; color: var(--ink); font-family: 'Source Serif 4', Georgia, serif; }
+
+  /* NAV */
+  .nav { background: #fff; border-bottom: 1px solid #e0d8cf; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 64px; position: sticky; top: 0; z-index: 100; }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 900; color: var(--ink); text-decoration: none; letter-spacing: -0.5px; }
+  .nav-logo span { color: var(--deep-red); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { font-family: 'Inter', sans-serif; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); text-decoration: none; }
+  .nav-links a:hover { color: var(--deep-red); }
+
+  /* CATEGORY BAR */
+  .cat-bar { background: var(--deep-red); padding: 10px 32px; display: flex; align-items: center; gap: 12px; }
+  .cat-bar .cat-pill { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: rgba(255,255,255,0.15); padding: 4px 12px; border-radius: 2px; }
+  .cat-bar .cat-sep { color: rgba(255,255,255,0.4); font-size: 0.7rem; }
+
+  /* HERO */
+  .hero { background: var(--dark-bg); padding: 72px 32px 80px; text-align: center; }
+  .hero-kicker { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 24px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 900; color: #fff; line-height: 1.12; max-width: 900px; margin: 0 auto 24px; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-sub { font-family: 'Source Serif 4', serif; font-size: 1.1rem; font-style: italic; color: rgba(255,255,255,0.65); max-width: 680px; margin: 0 auto 36px; line-height: 1.65; }
+  .hero-meta { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.45); display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+  .hero-meta .author { color: var(--gold); font-weight: 700; }
+
+  /* SHARE BAR */
+  .share-bar { background: var(--light-bg); border-bottom: 1px solid var(--rule); padding: 14px 32px; display: flex; align-items: center; gap: 16px; }
+  .share-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-gray); }
+  .share-btn { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep-red); border: 1px solid var(--deep-red); padding: 6px 14px; border-radius: 2px; cursor: pointer; background: none; text-decoration: none; transition: all 0.2s; }
+  .share-btn:hover { background: var(--deep-red); color: #fff; }
+
+  /* BODY */
+  .article-wrap { max-width: 780px; margin: 0 auto; padding: 60px 32px 80px; }
+  .article-wrap p { font-size: 1rem; line-height: 1.82; color: var(--ink); margin-bottom: 1.6rem; }
+  .article-wrap h2 { font-family: 'Playfair Display', serif; font-size: 1.75rem; font-weight: 700; color: var(--ink); margin: 3rem 0 1.2rem; line-height: 1.25; }
+  .article-wrap h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 700; color: var(--ink); margin: 2.4rem 0 1rem; }
+  .article-wrap a { color: var(--deep-red); text-decoration: underline; text-underline-offset: 3px; }
+  .article-wrap a:hover { color: #5a0000; }
+
+  /* DROP CAP */
+  .dropcap::first-letter { font-family: 'Playfair Display', serif; font-size: 4.2rem; font-weight: 900; color: var(--deep-red); float: left; line-height: 0.82; margin: 0.1rem 0.12rem -0.1rem 0; }
+
+  /* SECTION RULE */
+  .section-rule { border: none; border-top: 2px solid var(--deep-red); width: 60px; margin: 2.8rem 0 2rem; }
+
+  /* PULL QUOTE */
+  .pull-quote { border-left: 4px solid var(--gold); padding: 20px 28px; margin: 2.8rem 0; background: var(--light-bg); }
+  .pull-quote p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-style: italic; color: var(--ink); line-height: 1.5; margin: 0; }
+  .pull-quote cite { display: block; font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--mid-gray); margin-top: 12px; }
+
+  /* STAT BOX */
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 2.8rem 0; }
+  .stat-box { background: var(--dark-bg); padding: 28px 24px; border-top: 3px solid var(--gold); text-align: center; }
+  .stat-box .stat-num { font-family: 'Playfair Display', serif; font-size: 2.4rem; font-weight: 900; color: var(--gold); line-height: 1; margin-bottom: 8px; }
+  .stat-box .stat-label { font-family: 'Inter', sans-serif; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.7); line-height: 1.4; }
+
+  /* DATA TABLE */
+  .data-table { width: 100%; border-collapse: collapse; margin: 2.4rem 0; font-family: 'Inter', sans-serif; font-size: 0.82rem; }
+  .data-table th { background: var(--dark-bg); color: var(--gold); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 12px 16px; text-align: left; font-size: 0.7rem; }
+  .data-table td { padding: 12px 16px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  .data-table tr:nth-child(even) td { background: var(--light-bg); }
+  .data-table tr:hover td { background: #ece5db; }
+
+  /* WARNING BOX */
+  .warning-box { background: var(--warning-bg); border-left: 4px solid var(--warning); padding: 20px 24px; margin: 2.8rem 0; }
+  .warning-box .warning-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warning); margin-bottom: 10px; }
+  .warning-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* BLUE INFO BOX */
+  .info-box { background: var(--blue-bg); border-left: 4px solid var(--blue-dark); padding: 20px 24px; margin: 2.8rem 0; }
+  .info-box .info-label { font-family: 'Inter', sans-serif; font-size: 0.65rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue-dark); margin-bottom: 10px; }
+  .info-box p { font-size: 0.9rem; line-height: 1.7; color: var(--ink); margin: 0; }
+
+  /* SOURCES */
+  .sources-section { background: var(--light-bg); border-top: 2px solid var(--rule); padding: 48px 32px; }
+  .sources-section h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; margin-bottom: 24px; }
+  .sources-list { max-width: 780px; margin: 0 auto; list-style: none; }
+  .sources-list li { font-family: 'Inter', sans-serif; font-size: 0.78rem; line-height: 1.6; color: var(--mid-gray); padding: 8px 0; border-bottom: 1px solid var(--rule); display: flex; gap: 12px; }
+  .sources-list li span.src-num { color: var(--deep-red); font-weight: 700; min-width: 24px; }
+  .sources-list a { color: var(--deep-red); }
+
+  /* FOOTER */
+  .footer { background: var(--dark-bg); padding: 40px 32px; text-align: center; }
+  .footer p { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: rgba(255,255,255,0.4); letter-spacing: 0.08em; }
+  .footer a { color: var(--gold); text-decoration: none; }
+  .footer a:hover { text-decoration: underline; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .article-wrap { padding: 40px 20px 60px; }
+    .stat-grid { grid-template-columns: 1fr 1fr; }
+    .hero { padding: 48px 20px 56px; }
+    .sources-section { padding: 32px 20px; }
+    .data-table { font-size: 0.75rem; }
+    .data-table th, .data-table td { padding: 8px 10px; }
+  }
+</style>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="logo">TonyWolf</div>
-            <div class="nav-links">
-                <a href="../index.html">Home</a>
-                <a href="../articles/">Articles</a>
-                <a href="../search.html">Search</a>
-            </div>
-        </nav>
-    </header>
 
-    <article class="article">
-        <h1>The Decline of the United States: Global Disapproval and Domestic Distrust</h1>
-        
-        <div class="article-meta">
-            <span class="date">Published: May 9, 2026</span>
-            <span class="category">Geopolitics & Society</span>
-        </div>
+<script>
+(function() {
+  // Immediate removal - runs synchronously
+  function hideNinjaElements() {
+    var selectors = [
+      '.ninja-badge',
+      '.ninja-daytona-banner',
+      '.ninja-connection-status',
+      '.ninja-disconnect-overlay',
+      '[id*="ninja"]',
+      '[class*="ninja-banner"]',
+      '[class*="ninja-badge"]'
+    ];
+    selectors.forEach(function(selector) {
+      var elements = document.querySelectorAll(selector);
+      for (var i = 0; i < elements.length; i++) {
+        elements[i].style.display = 'none';
+        elements[i].style.visibility = 'hidden';
+        elements[i].style.opacity = '0';
+        elements[i].remove();
+      }
+    });
+  }
+  
+  // Run immediately
+  hideNinjaElements();
+  
+  // Run on DOMContentLoaded as backup
+  if (document.readyState !== 'loading') {
+    hideNinjaElements();
+  } else {
+    document.addEventListener('DOMContentLoaded', hideNinjaElements);
+  }
+  
+  // Run continuously to catch any dynamically added elements
+  setInterval(hideNinjaElements, 1000);
+})();
+</script>
 
-        <div class="article-content">
-            <p>In an era of unprecedented global transformation, the United States faces a growing crisis of confidence both at home and abroad. Once the undisputed leader of the post-World War II order, America now navigates a landscape where its global image has frayed, domestic trust in institutions has plummeted, and the unipolar world it dominated for decades has given way to an uncertain multipolar reality. This decline represents not merely a shift in power dynamics but a fundamental questioning of American exceptionalism and its future role in global affairs.</p>
+<!-- NAV -->
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="index.html">All Articles</a></li>
+    <li><a href="../search.html">Search</a></li>
+  </ul>
+</nav>
 
-            <h2>The International Erosion of American Influence</h2>
+<!-- CATEGORY BAR -->
+<div class="cat-bar">
+  <span class="cat-pill">Geopolitics</span> <span class="cat-sep">/</span> <span class="cat-pill">Society</span> <span class="cat-sep">/</span> <span class="cat-pill">US Politics</span>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-kicker">Geopolitics & Society</div>
+  <h1>The Decline of the United States: <em>Global Disapproval</em> and Domestic Distrust</h1>
+  <div class="hero-sub">An in-depth analysis of America's declining global influence and domestic institutional trust, from international and domestic perspectives</div>
+  <div class="hero-meta">
+    <span class="author">By Tony Wolf</span>
+    <span>May 9, 2026</span>
+    <span>22-Minute Read</span>
+  </div>
+</div>
+
+<!-- SHARE BAR -->
+<div class="share-bar">
+  <span class="share-label">Share This Investigation</span>
+  <a class="share-btn" href="https://twitter.com/intent/tweet?text=The Decline of the United States: Global Disapproval and Domestic Distrust&url=us-decline-distrust.html" target="_blank" rel="noopener">Twitter</a>
+  <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=us-decline-distrust.html" target="_blank" rel="noopener">Facebook</a>
+  <a class="share-btn" href="mailto:?subject=The Decline of the United States: Global Disapproval and Domestic Distrust&body=us-decline-distrust.html">Email</a>
+</div>
+
+<!-- ARTICLE BODY -->
+<div class="article-wrap">
+
+<p class="dropcap">In an era of unprecedented global transformation, the United States faces a growing crisis of confidence both at home and abroad. Once the undisputed leader of the post-World War II order, America now navigates a landscape where its global image has frayed, domestic trust in institutions has plummeted, and the unipolar world it dominated for decades has given way to an uncertain multipolar reality. This decline represents not merely a shift in power dynamics but a fundamental questioning of American exceptionalism and its future role in global affairs.</p>
+
+  <h2>The International Erosion of American Influence</h2>
 
             <p>The United States' standing on the global stage has deteriorated significantly in recent years, with data from Pew Research Center revealing troubling trends across 24 countries surveyed in 2025. The research, encompassing 28,333 respondents, found that America's global image declined in 15 of these nations, particularly in Europe and among traditional allies. Just 38% of international respondents express confidence in President Donald Trump to do the right thing regarding world affairs, while 31% express little to no confidence—a concerning figure for a nation that once commanded broad international respect.</p>
 
@@ -42,7 +230,9 @@
 
             <p>In Asia, the picture varies but shares common threads of concern. Traditional allies like Japan and South Korea worry about American commitment to regional security, particularly given Trump's skepticism of traditional alliances and his transactional approach to foreign policy. Meanwhile, China's Belt and Road Initiative has expanded its influence across Asia, Africa, and Latin America, offering an alternative development model that challenges American economic dominance. The Group of 20's expansion to include emerging economies reflects this rebalancing, as does the BRICS bloc's consideration of admitting new members that would represent over 40% of the global population and a larger share of global GDP than the G7.</p>
 
-            <h2>Domestic Collapse of Institutional Trust</h2>
+  <hr class="section-rule">
+
+  <h2>Domestic Collapse of Institutional Trust</h2>
 
             <p>Perhaps even more alarming than international skepticism is the profound loss of trust among Americans themselves. According to the Partnership for Public Service's 2025 report on public trust, only 33% of Americans trust the federal government to do what's right—matching historic lows reached during previous periods of crisis. More troubling still, 67% of Americans see the government as corrupt, a dramatic increase from previous decades and a figure that suggests growing cynicism about the very possibility of honest governance.</p>
 
@@ -52,7 +242,9 @@
 
             <p>Pew Research's data on Americans' views of democracy reveals a paradox: while most Americans still believe in democracy in principle, a growing portion questions whether it actually works in practice. Nearly half of Americans express concerns about the future of American democracy, with significant percentages believing that significant changes are needed. The January 6, 2021, Capitol attack—while now several years in the past—continues to loom large as an indication of how political polarization can explode into violence. Pew's 2025 research on political violence finds that most Americans say politically motivated violence is increasing, though they disagree on why it's happening and who bears responsibility.</p>
 
-            <h2>Economic Challenges and Infrastructure Decline</h2>
+  <hr class="section-rule">
+
+  <h2>Economic Challenges and Infrastructure Decline</h2>
 
             <p>The physical and economic foundations of American power also show signs of strain. The American Society of Civil Engineers' 2025 report card gives the United States' infrastructure a grade of C-, estimating a $2.6 trillion investment gap over the next decade alone. Roads, bridges, water systems, and energy infrastructure that once made America the envy of the world now rank below those of many European nations and even some developing countries. This decline has real economic consequences: the World Economic Forum's competitiveness rankings show the United States slipping in infrastructure quality, affecting business operations and quality of life.</p>
 
@@ -62,7 +254,9 @@
 
             <p>The inequality challenge intersects with other social problems. Higher inequality correlates with lower social trust, poorer health outcomes, reduced educational attainment, and greater political instability. As middle-class jobs disappear due to automation and globalization, and as the cost of housing, healthcare, and education outpaces wage growth, many Americans feel the system is rigged against them. This perception, whether accurate or not, feeds the broader crisis of trust in institutions and belief in the American economic model.</p>
 
-            <h2>The Geopolitical Transition: From Unipolar to Multipolar</h2>
+  <hr class="section-rule">
+
+  <h2>The Geopolitical Transition: From Unipolar to Multipolar</h2>
 
             <p>The post-Cold War period of American unipolar dominance has definitively ended, replaced by an emerging multipolar world order. This transition was accelerated by several factors: the disastrous 2003 Iraq War damaged American credibility and revealed the limits of military power; the 2008 financial crisis, originating on Wall Street, shook confidence in the American economic model; and China's rapid economic rise, combined with Russia's assertive foreign policy under Vladimir Putin, created new centers of power that no longer defer to American leadership.</p>
 
@@ -72,7 +266,9 @@
 
             <p>The European Union, meanwhile, grapples with its own questions about autonomy and alignment. While most European nations remain committed to NATO and the transatlantic alliance, there are growing calls for "strategic autonomy" that would allow Europe to act independently of the United States, particularly in areas where American and European interests diverge. The EU's emphasis on climate action, digital regulation, and multilateral governance contrasts with American approaches under Trump, highlighting values-based as well as strategic differences.</p>
 
-            <h2>Conservative Perspectives: Denial of Decline or Call to Renewal?</h2>
+  <hr class="section-rule">
+
+  <h2>Conservative Perspectives: Denial of Decline or Call to Renewal?</h2>
 
             <p>The picture of American decline looks different through conservative eyes, and understanding these perspectives is crucial for grasping the full complexity of the situation. Many conservatives reject the narrative of decline outright, arguing that talk of American weakness is itself a form of pessimism that undermines national confidence. From this perspective, America's fundamental strengths—economic dynamism, military power, democratic institutions, and cultural influence—remain unmatched, and what looks like decline is merely a period of inevitable transition and adjustment.</p>
 
@@ -84,7 +280,9 @@
 
             <p>Perhaps the most conservative perspective comes from America First proponents who argue that decline is actually a choice—that if Americans simply stopped apologizing for their country, asserted national interests more boldly, and rejected globalist constraints, American power would be renewed. This view, common among Trump supporters, treats the appearance of decline as evidence of weak leadership rather than structural problems. The solution, from this perspective, isn't to adapt to a multipolar world but to restore American unipolarity through strength and will.</p>
 
-            <h2>Liberal and International Perspectives: Structural Challenges</h2>
+  <hr class="section-rule">
+
+  <h2>Liberal and International Perspectives: Structural Challenges</h2>
 
             <p>Liberals and international observers tend to frame American decline in more structural terms, seeing it as the product of deep-seated problems that require fundamental reforms rather than simply a change in leadership or attitude. From this perspective, the challenges facing America—political polarization, institutional distrust, infrastructure decay, inequality, and global competition—reflect systemic issues that have developed over decades and won't be easily resolved.</p>
 
@@ -96,7 +294,9 @@
 
             <p>European perspectives, while often critical, are not uniformly hostile. Many European leaders recognize that American power remains indispensable to maintaining global order and that European strategic autonomy, while desirable, has limits. The challenge, from this view, is not replacing American power but reforming it—creating a more collaborative, multilateral approach where Europe has a greater voice and America exercises power more consensually rather than unilaterally. This perspective frames decline less as inevitable and more as a necessary rebalancing toward a more equitable international system.</p>
 
-            <h2>Independent Media and Alternative Perspectives</h2>
+  <hr class="section-rule">
+
+  <h2>Independent Media and Alternative Perspectives</h2>
 
             <p>Beyond the mainstream conservative-liberal divide, independent media sources offer additional perspectives on American decline that challenge orthodoxies from both sides. Some independent voices, particularly from the political left, argue that American decline is actually a positive development that could create space for more just and sustainable global arrangements. From this perspective, American hegemony has enabled exploitation, military intervention, and environmental destruction, and multipolarity—while presenting risks—could enable greater pluralism and self-determination for other nations.</p>
 
@@ -106,7 +306,9 @@
 
             <p>International media sources, particularly from the Global South, often frame American decline in terms of Western hegemony more broadly. Publications from Asia, Africa, and Latin America note that American dominance represented just one form of Western colonial and neocolonial influence, and that China's rise, along with the growth of regional powers, simply represents a shift toward a more balanced and equitable global system. While not necessarily welcoming Chinese influence, these perspectives emphasize that American exceptionalism was always more myth than reality, and that the United States' relative decline simply reflects the reassertion of other civilizations' historical roles.</p>
 
-            <h2>The Way Forward: Adaptation or Renewal?</h2>
+  <hr class="section-rule">
+
+  <h2>The Way Forward: Adaptation or Renewal?</h2>
 
             <p>The question facing Americans—and the world—is whether American decline represents the end of an era or the beginning of a necessary transition. Will the United States adapt to a multipolar world, finding new ways to exercise influence through cooperative leadership rather than dominance? Or will it double down on primacy, attempting to maintain unipolarity through military strength and economic coercion even as the world evolves around it?</p>
 
@@ -118,7 +320,9 @@
 
             <p>What remains certain is that the United States cannot simply return to the status quo of the 1990s. The world has changed, and America has changed with it. The decline—the real and perceived erosion of power, influence, and confidence—represents an invitation to reimagine America's role in a new century. Will that reimagination result in constructive adaptation, bitter decline, or some other future yet to be imagined? The answer depends not just on what America does, but on who Americans believe they are and what they want their country to be.</p>
 
-            <h2>Sources</h2>
+  <hr class="section-rule">
+
+  <h2>Sources</h2>
 
             <ul>
                 <li>Pew Research Center, "Global Image of the U.S. and President Trump" (2025)</li>
@@ -134,11 +338,58 @@
                 <li>World Economic Forum, Global Competitiveness Report (2024)</li>
                 <li>United States Census Bureau, "Income in the United States: 2024"</li>
             </ul>
-        </div>
-    </article>
 
-    <footer>
-        <p>&copy; 2025 TonyWolf. All rights reserved.</p>
-    </footer>
+</div>
+
+<!-- SOURCES SECTION -->
+<div class="sources-section">
+  <div style="max-width:780px;margin:0 auto;">
+    <h3>Sources Cited</h3>
+    <ul class="sources-list">
+      <li><span class="src-num">1.</span><span>Pew Research Center, "Global Image of the U.S. and President Trump" (2025)</span></li>
+      <li><span class="src-num">2.</span><span>Partnership for Public Service, "The State of Public Trust in Government 2025"</span></li>
+      <li><span class="src-num">3.</span><span>American Society of Civil Engineers, 2025 Infrastructure Report Card</span></li>
+      <li><span class="src-num">4.</span><span>Council on Foreign Relations, "The Future of American Infrastructure" (2024)</span></li>
+      <li><span class="src-num">5.</span><span>Gallup, "Confidence in Institutions" and "Trust in Media" (2024-2025)</span></li>
+      <li><span class="src-num">6.</span><span>Brookings Institution, "America First is Only Making the World Worse" (2023)</span></li>
+      <li><span class="src-num">7.</span><span>Cato Institute, "The Lost Liberalism of America First" (2025)</span></li>
+      <li><span class="src-num">8.</span><span>European Council on Foreign Relations, "Europe after Trump" (2025)</span></li>
+      <li><span class="src-num">9.</span><span>Fred Economic Data, U.S. Gini Coefficient and economic indicators</span></li>
+      <li><span class="src-num">10.</span><span>Freedom House, "United States: Freedom in the World 2025 Country Report"</span></li>
+      <li><span class="src-num">11.</span><span>World Economic Forum, Global Competitiveness Report (2024)</span></li>
+      <li><span class="src-num">12.</span><span>United States Census Bureau, "Income in the United States: 2024"</span></li>
+    </ul>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
+</footer>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+
 </body>
 </html>
