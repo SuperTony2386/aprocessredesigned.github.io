@@ -66,14 +66,34 @@ nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid va
 .article-search-bar .search-btn:hover{border-color:var(--deep-red);color:var(--deep-red);text-decoration:none}
 @media(max-width:768px){.article-search-bar{flex-direction:column;align-items:stretch}.article-search-bar .search-input-wrapper{max-width:100%}}
 </style>
-<script src="https://sites.super.myninja.ai/_assets/ninja-daytona-script.js"></script>
+    <!-- HIDE SUPER_NINJA ADVERTISEMENTS -->
+    <style>
+      .ninja-badge,
+      .ninja-daytona-banner,
+      .ninja-connection-status,
+      .ninja-disconnect-overlay,
+      .ninja-badge-close,
+      /* Additional SuperNinja elements */
+      [id*="ninja"],
+      [class*="ninja-banner"],
+      [class*="ninja-badge"] {
+        display: none !important;
+        visibility: hidden !important;
+        opacity: 0 !important;
+        position: absolute !important;
+        left: -9999px !important;
+        top: -9999px !important;
+        pointer-events: none !important;
+      }
+    </style>
+
 </head>
 <body>
-<nav>
-  <a href="../index.html" class="nav-brand">Tony<span>Wolf</span></a>
+<nav class="nav">
+  <a class="nav-logo" href="../index.html">Tony<span>Wolf</span></a>
   <ul class="nav-links">
     <li><a href="../index.html">Home</a></li>
-    <li><a href="index.html">Articles</a></li>
+    <li><a href="index.html">All Articles</a></li>
     <li><a href="../search.html">Search</a></li>
   </ul>
 </nav>
@@ -332,6 +352,35 @@ nav{position:sticky;top:0;z-index:100;background:#fff;border-bottom:1px solid va
     setInterval(hideNinjaElements, 1000);
   })();
 </script>
+
+<script>
+(function() {
+  function nukeNinja() {
+    ['ninja-badge', 'ninja-daytona-banner', 'ninja-connection-status', 'ninja-disconnect-overlay'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) el.remove();
+    });
+    document.querySelectorAll('.ninja-badge, .ninja-daytona-banner, .ninja-badge-close').forEach(function(el) { el.remove(); });
+    if (document.body && document.body.style.paddingTop === '40px') {
+      document.body.style.paddingTop = '';
+    }
+  }
+  nukeNinja();
+  [100, 300, 600, 1000, 2000, 3000, 5000].forEach(function(ms) { setTimeout(nukeNinja, ms); });
+  var observer = new MutationObserver(nukeNinja);
+  if (document.body) { observer.observe(document.body, { childList: true, subtree: true }); }
+  else { document.addEventListener('DOMContentLoaded', function() { observer.observe(document.body, { childList: true, subtree: true }); }); }
+})();
+</script>
+
+
+<footer class="footer">
+  <p>
+    &copy; 2026 TonyWolf.press &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="../index.html">Home</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href="index.html">All Articles</a>
+  </p>
+</footer>
 
 </body>
 </html>
